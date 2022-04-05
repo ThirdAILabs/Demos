@@ -3,6 +3,7 @@ import numpy as np
 import mmh3
 
 def demo(network: bolt.Network, verbose: bool):
+    network.enable_sparse_inference()
     include_bigrams = True
     k = 0
     seed = 0
@@ -35,11 +36,14 @@ def demo(network: bolt.Network, verbose: bool):
             x_idxs, x_vals, x_offsets, 
             y_idxs, y_vals, y_offsets, 
             batch_size=1, 
-            metrics=["categorical_accuracy"])
+            metrics=["categorical_accuracy"],
+            verbose=verbose)
         
         pred = np.argmax(temp[1][0])
         
         if pred > 0:
-            print('positive!', flush=True)
+            print('PREDICTION RESULT: POSITIVE', flush=True)
         else:
-            print('negative!', flush=True)
+            print('PREDICTION RESULT: NEGATIVE', flush=True)
+
+        print(f"Predicted in {temp[0]['test_time'][0]} milliseconds.\n")
