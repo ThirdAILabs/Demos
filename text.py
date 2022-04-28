@@ -23,7 +23,7 @@ def tokenize_to_svm(filename, output_dim, target_location=None, train=True, seed
         sentence = re.sub(r"[^\w\s]", "", line[1])
         sentence = sentence.lower()
         ### BOLT TOKENIZER START
-        tup = dataset.bolt_tokenizer(sentence, seed=seed, dim=output_dim)
+        tup = dataset.bolt_tokenizer(sentence, seed=seed, dimension=output_dim)
         for idx, val in zip(tup[0], tup[1]):
             fw.write(str(idx) + ":" + str(val) + " ")
         ### BOLT TOKENIZER END
