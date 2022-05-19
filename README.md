@@ -42,8 +42,8 @@ Table of Contents
   <li>
     <a href="#🚀-quickstart">Quickstart</a>
     <ul>
-      <li><a href="#downloading-a-license">Downloading a License</a></li>
-      <li><a href="#installation">Installation</a></li>
+      <li><a href="#step-1:-downloading-a-license">Downloading a License</a></li>
+      <li><a href="#step-2:-installation">Installation</a></li>
     </ul>
   </li>
   <li><a href="#🎮-usage">Usage</a></li>
@@ -67,7 +67,7 @@ ThirdAI's library is a deep-learning framework that leverages sparsity to make t
 <!-- GETTING STARTED -->
 # 🚀 Quickstart
 
-## Downloading a License
+### Step 1: Downloading a License
 
 To use our library, you will first need to register for a free license [here](https://www.thirdai.com/try-bolt/). We will email you a unique download link for your license.
 
@@ -79,7 +79,7 @@ wget your_download_link ~/license.serialized
 
 This will download the license file to your home directory. Please note: a valid, unexpired license must be placed in your <em>home directory</em>. If a valid license is not found, these demos will fail.
 
-## Installation
+### Step 2: Installation
 
 You can download the ThirdAI library with your package manager of choice.
 
