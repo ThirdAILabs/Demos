@@ -1,0 +1,211 @@
+1. Use of Software and License.
+1.1. License. Subject to the terms and conditions of this Agreement, ThirdAI
+grants to Evaluator a non-sublicensable, nontransferable, nonexclusive, revocable, limited
+license to access and use the software (the “Software”) for use solely during
+the trial period. Evaluator shall use the Software and any
+documentation, data or other information related thereto that is received from ThirdAI or its
+representatives solely for Evaluator’s internal use of the Software and testing and
+evaluation thereof and for no other purpose. 
+1.2. Restrictions. Evaluator shall not: (a) use the Software, any documentation or
+other information provided by ThirdAI hereunder, to create any similar software or
+documentation; (b) reproduce or modify the Software or any portion thereof, or embed the
+Software or any portion thereof into any commercial services or offerings of Evaluator; (c)
+sublicense, rent, sell, loan, lease, disclose, display, distribute, or otherwise transfer the
+Software, or any portion thereof, or use it for timesharing, rental or service bureau
+purposes, or for the benefit of a third party; (d) reverse assemble, reverse compile or
+reverse engineer the Software, or any portion thereof, or otherwise attempt to discover any
+Software source code, or underlying Confidential Information (as defined in Section 2.1
+below), or otherwise circumvent any technological measure that controls access to the
+Software; (e) copy, adapt, merge, create derivative works of, translate, localize, port or
+otherwise modify the Software; (f) publish any results of benchmark tests run on the
+Software; (g) use the Software, or allow the transfer, transmission, export or re-export of all
+or any part of the Software, in violation of any export control laws or regulations of the
+United States or any other relevant jurisdiction; (h) remove or alter any product
+identification, markings, copyright or other notices; or (i) permit any third party to engage
+in any of the foregoing proscribed acts. Evaluator agrees to ensure that there is no breach,
+compromise or violation, by Evaluator employees, consultants, agents, customers, suppliers
+or independent contractors, of such obligations and ThirdAI’s and its licensors rights and
+title or interest to the Software. 
+1.3. Enterprise Agreement. Upon the successful evaluation of the Software, the
+parties shall work together in good faith to negotiate and enter into a definitive agreement
+(“Definitive Agreement”) for use of the Software following the Trial Period. 
+1. Confidentiality.
+2.1. Definition. “Confidential Information” means any information disclosed by
+either party (the “Disclosing Party”) to the other party (the “Receiving Party”) pursuant to
+this Agreement that is (a) is in written, graphic, machine readable or other tangible form
+and is marked “Confidential,” “Proprietary” or in some other manner to indicate its
+confidential nature; or (b) in the case of oral or visual disclosure is identified as confidential
+at the time of disclosure; or (c) under the circumstances should in good faith be considered
+to be confidential. Confidential Information includes, without limitation, information related
+to: research, Software plans, developments, inventions, processes, designs, markets,
+business plans, agreements with third parties, services, customers, marketing or finances of
+either party, the content or existence of any negotiations, and pricing. Notwithstanding the
+foregoing, the Software source code and all other non-public information regarding the
+Software, including information related to its underlying algorithms, shall be deemed
+Confidential Information of ThirdAI without any need for designating the same as
+confidential or proprietary.
+2.2. Obligations. Each party shall treat as confidential all Confidential Information
+of the other party, shall not use such Confidential Information except as set forth in this
+Agreement, and will not disclose such Confidential Information to any third party except as
+expressly permitted herein without the Disclosing Party’s written consent. The Receiving
+Party shall use at least the same degree of care which it uses to prevent the disclosure of
+its own confidential information of like importance to prevent the disclosure of the
+Disclosing Party’s Confidential Information, but in no event less than reasonable care. The
+Receiving Party shall promptly notify the Disclosing Party of any actual or suspected misuse
+or unauthorized disclosure of any of the Confidential Information. In the event of any
+termination or expiration of this Agreement, each Receiving Party will either return or, at
+the Disclosing Party’s request, destroy the Confidential Information of the other Disclosing
+Party. Notwithstanding the foregoing, the obligations set forth in this Section 2 shall not
+apply with respect to any information to the extent that it is: (a) already rightfully in the
+possession of the Receiving Party without restriction prior to the first disclosure hereunder
+as shown by records or files; (b) is already or becomes generally available to the public
+after the time of disclosure other than as a result of any improper action by the Receiving
+Party; or (c) was rightfully disclosed to Receiving Party by a third party without restriction.
+The Receiving Party may make disclosures required by law or court order provided that, if
+practicable, the Receiving Party provides adequate notice and assistance to the Disclosing
+GDSVF&H\7770994.1
+Party for the purpose of enabling the Disclosing Party to prevent and/or limit the disclosure.
+2.3. Remedies. Due to the unique nature of the Confidential Information, the
+Receiving Party agrees that any breach or threatened breach of this section of this
+Agreement will cause not only financial harm to the Disclosing Party, but also irreparable
+harm for which money damages will not be an adequate remedy. Therefore, the Disclosing
+Party shall be entitled, in addition to any other legal or equitable remedies, to an injunction
+or similar equitable relief against any such breach or threatened breach without the
+necessity of posting any bond.
+3. Proprietary Rights. 
+3.1. Evaluator Data. To the extent Evaluator provides Evaluator Data (as
+defined below) in connection with the Software, Evaluator hereby grants to ThirdAI a
+worldwide, non-exclusive, royalty-free license to use, copy, access, process, reproduce,
+perform, display, modify, distribute and transmit the Evaluator Data for the sole purposes of
+providing the Software to Evaluator as set forth in this Agreement. Evaluator shall retain
+all rights, title and interests (including all proprietary and Intellectual Property Rights
+(defined below)) in and to the Evaluator Data. “Evaluator Data” means any data or other
+content or information provided by or on behalf of Evaluator to ThirdAI in connection with
+the Software. Evaluator, not ThirdAI, shall have sole responsibility for the accuracy, quality,
+integrity, legality, reliability, appropriateness, and intellectual property ownership or right
+to use of all Evaluator Data. Evaluator represents and warrants to ThirdAI that Evaluator
+has secured all necessary rights in the Evaluator Data as may be necessary to permit the
+access, use and distribution thereof as contemplated by this Agreement. ThirdAI is not
+responsible to Evaluator for unauthorized access to Evaluator Data or the unauthorized use
+of the Software unless such access is due to ThirdAI’s gross negligence or willful
+misconduct. 
+3.2. Ownership. As between the parties, ThirdAI owns and retains all rights,
+title, and interest, including all related Intellectual Property Rights (defined below), in the
+Software, and any technology, templates, or materials used to provide the Software, or
+data derived from the Software. This Agreement does not transfer ownership rights of any
+kind in the Software, or any related materials to the Evaluator or any third party. The
+ThirdAI name, the ThirdAI logo, and the Software names associated with the Software are
+trademarks of ThirdAI or third parties, and no right or license is granted to use them.
+Evaluator may not use ThirdAI’s name or trademarks without the prior written consent of
+ThirdAI. Except for the limited rights and licenses expressly granted to Evaluator hereunder,
+no other license is granted, no other use is permitted and ThirdAI (and its licensors) shall
+retain all rights, title and interests (including all proprietary and Intellectual Property Rights)
+in and to Software, and any technology, templates, materials or software used to provide
+the Software, or data derived from the Software. "Intellectual Property Rights" means
+unpatented inventions, patent applications, patents, design rights, copyrights, trademarks,
+service marks, trade names, domain name rights, mask work rights, know-how and other
+trade secret rights, and all other intellectual property rights, derivatives thereof, and forms
+of protection of a similar nature anywhere in the world.
+3.3. Feedback. Evaluator agrees that ThirdAI is free to collect, use and disclose
+aggregate measures of usage and performance, and to reuse all general knowledge,
+experience, know-how, works and technologies (including ideas, concepts, processes and
+techniques) acquired during provision of the Software hereunder, including that it could
+have acquired performing the same or similar services for another customer. Evaluator
+may provide ThirdAI with comments, suggestions, ideas, enhancement requests, feedback,
+reports, recommendations or other information or feedback concerning the Software
+(“Feedback”), and Evaluator hereby grants to ThirdAI a perpetual, irrevocable, non-
+exclusive, sublicensable, transferrable license to use such Feedback for any purpose,
+including all related Intellectual Property Rights. 
+4. Fees. No fees shall be payable by Evaluator for the use of the Software
+during the Trial Period. 
+5. Term and Termination. Unless earlier terminated as provided below, this
+Agreement shall commence on the Effective Date and shall continue for the Trial Period,
+unless extended upon mutual written agreement by the parties. This Agreement may be
+terminated by either party for any reason or no reason upon thirty (30) days written notice
+to the other party, or immediately upon written notice of any
+breach or threatened breach by the other party of any provision of this Agreement. Upon
+termination or expiration of this Agreement, Evaluator’s license to use the Software will
+automatically terminate and ThirdAI will return or delete Evaluator Data, to the extent
+provided by Evaluator during the Trial Period. Sections 1.2, 2, 3, and 7 through 9, as well as
+this sentence, shall survive any termination or expiration of this Agreement for any reason.
+The parties agree that Evaluator shall have no obligation to rent, lease, license or purchase
+the Software from ThirdAI after termination or expiration of this Agreement, nor shall
+ThirdAI have any obligation thereafter to rent, lease, license or sell the Software to
+Evaluator.
+1. Errors. In addition, Evaluator shall notify ThirdAI by telephone or electronic
+mail to the contact designated from time to time by ThirdAI upon the discovery of a
+material error or difficulty in respect of use of the Software. ThirdAI may in its sole
+discretion attempt to resolve such error, but shall be under no obligation to do so. 
+7. WARRANTY DISCLAIMER. THE PARTIES ACKNOWLEDGE THAT THE
+SOFTWARE IS PROVIDED “AS IS” AND MAY NOT BE FUNCTIONAL ON ANY MACHINE OR IN
+ANY ENVIRONMENT. THIRDAI MAKES NO WARRANTIES, EXPRESS OR IMPLIED, EITHER IN
+FACT OR BY OPERATION OF LAW, STATUTORY OR OTHERWISE, AND THIRDAI EXPRESSLY
+EXCLUDES AND DISCLAIMS ANY WARRANTY OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, TITLE, ACCURACY, FREEDOM FROM ERRORS, FREEDOM FROM
+PROGRAMMING DEFECTS, NONINTERFERENCE AND NONINFRINGEMENT, AND ALL IMPLIED
+WARRANTIES ARISING OUT OF COURSE OF DEALING, COURSE OF PERFORMANCE AND
+USAGE OF TRADE.
+8. Limitation of Remedies and Damages. THIRDAI SHALL NOT BE
+RESPONSIBLE OR LIABLE WITH RESPECT TO ANY SUBJECT MATTER OF THIS AGREEMENT OR
+TERMS AND CONDITIONS RELATED THERETO UNDER ANY CONTRACT, NEGLIGENCE, STRICT
+LIABILITY OR OTHER THEORY (A) FOR LOSS OR INACCURACY OF DATA, OR COST OF
+PROCUREMENT OF SUBSTITUTE GOODS, SOFTWARE OR TECHNOLOGY, (B) FOR ANY
+INDIRECT, PUNITIVE, INCIDENTAL, RELIANCE, SPECIAL, EXEMPLARY OR CONSEQUENTIAL
+DAMAGES INCLUDING, BUT NOT LIMITED TO, LOSS OF REVENUES AND LOSS OF PROFITS TO
+EVALUATOR OR ANY THIRD PARTIES, OR (C) FOR ANY DIRECT DAMAGES IN EXCESS OF
+$500.00, EVEN IF THIRDAI HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+THIRDAI SHALL NOT BE RESPONSIBLE FOR ANY MATTER BEYOND ITS REASONABLE
+CONTROL.
+9. Miscellaneous. 
+9.1. Governing Law. This Agreement shall be governed by and construed in
+accordance with, the laws of the State of Texas without regard to conflicts of law provisions
+thereof. The parties agree that any and all disputes arising out of or relating in any way to
+this Agreement shall be subject to the exclusive jurisdiction of the state or federal courts
+located in Harris County, Texas.
+9.2. Waiver. No provision of right, power or privilege under this Agreement shall
+be deemed to have been waived by any act, delay, omission or acquiescence on the part of
+any party, its agents or employees, but only by an instrument in writing signed by an
+authorized representative of each party. No waiver by any party of any breach or default of
+any provision of this Agreement by the other party shall be effective as to any other breach
+or default, whether of the same or any other provision and whether occurring prior to,
+concurrent with, or subsequent to the date of such waiver.
+9.3. Severability. If any provision of this Agreement shall be adjudged by any
+court of competent jurisdiction to be unenforceable or invalid, that provision shall be limited
+or eliminated to the minimum extent necessary so that this Agreement shall otherwise
+remain in full force and effect and enforceable.
+9.4. Entire Agreement. This Agreement, including any referenced attachments
+and/or incorporated documents, shall constitute the entire understanding between the
+parties regarding the subject matter described herein and supersedes any previous
+communications, representations or agreements whether oral or written regarding such
+subject matter.
+9.5. Modification. No change or modifications of any of the terms or conditions
+hereof shall be valid or binding on either party unless made in writing and signed by an
+authorized representative of each party making specific reference to this Agreement and
+the clause to be modified. 
+9.6. Relationship of the Parties. The parties hereto shall each be independent
+contractors in the performance of their obligations under this Agreement, and nothing
+contained herein shall be deemed to constitute either party as the agent or representative
+of the other party, or both parties as joint venturers or partners for any purpose. Each
+GDSVF&H\7770994.1
+party is solely responsible for all of its employees and agents and its labor costs and
+expenses arising in connection therewith. Except as expressly provided herein, a party
+shall have no right to exercise any control whatsoever over the activities or operations of
+the other party, or commit the other party to any obligation or course of action.
+9.7. Assignment. Evaluator may not assign or transfer any of its rights or
+obligations hereunder without the prior written consent of ThirdAI, which consent shall not
+be unreasonably withheld, and any such attempted assignment shall be void. This
+Agreement shall be binding on and inure to the benefit of the parties hereto and their
+respective successors and permitted assigns.
+9.8. Notices. All notices hereunder shall be in writing, as may be amended by 
+notice pursuant to this subsection, by (a) personal
+delivery, (b) certified or registered mail, return receipt requested, (c) overnight courier, or
+(d) confirmed electronic email; notices shall be deemed given upon receipt.
+9.9. Counterparts. This Agreement may be executed in one or more counterparts,
+each of which shall be deemed an original, but all of which taken together shall constitute
+one and the same instrument.
+9.10. Acknowledgement. EACH PARTY RECOGNIZES AND AGREES THAT THE
+WARRANTY DISCLAIMERS AND LIABILITY AND REMEDY LIMITATIONS IN THIS AGREEMENT
+ARE MATERIAL, BARGAINED FOR BASES OF THIS AGREEMENT AND THAT THEY HAVE BEEN
+TAKEN INTO ACCOUNT AND REFLECTED IN DETERMINING THE CONSIDERATION TO BE
+GIVEN BY EACH PARTY UNDER THIS AGREEMENT AND IN THE DECISION BY EACH PARTY TO
+ENTER INTO THIS AGREEMENT.
