@@ -105,8 +105,10 @@ git clone https://github.com/ThirdAILabs/Demos.git
 Each of the demo notebooks will walk you through different aspects of the BOLT engine.
 
 <ul>
-  <li><strong>DocSearch.ipynb</strong> will show you how to use your own dataset (or one of the provided datasets) to create a simple document + query embedding model.</li>
-  <li><strong>SentimentAnalysis.ipynb</strong> will take you throught the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
+<li><strong>TextClassifier.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget   (everything autotuned).</li>
+<li><strong>TabularClassifier.ipynb</strong> will show you how to get near SOTA accuracy on most tabular dataset classification via a plug and play classifier at any given budget (everything autotuned).</li>
+<li><strong>DocSearch.ipynb</strong> will show you how to use your own dataset (or one of the provided datasets) to create a simple document + query embedding model.</li>
+<li><strong>SentimentAnalysis.ipynb</strong> will take you throught the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
 </ul>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
