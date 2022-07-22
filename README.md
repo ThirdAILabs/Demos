@@ -102,7 +102,7 @@ First, clone the demo repo:
 git clone https://github.com/ThirdAILabs/Demos.git
 ```
 
-Each of the demo notebooks will walk you through different aspects of the BOLT engine.
+Each of the demo notebooks will walk you through different aspects of the BOLT engine that you can run on any CPUs (ARM, AMD, Intel) and even desktops and laptops
 
 <ul>
 <li><strong>TextClassifier.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget   (everything autotuned).</li>
