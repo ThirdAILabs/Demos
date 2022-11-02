@@ -38,9 +38,10 @@ def download_movielens():
 
     _download_dataset(url=MOVIELENS_1M_URL, zip_file=MOVIELENS_ZIP, check_existence=RATINGS_FILE, output_dir=MOVIELENS_DIR)
     
-    df = pd.read_csv(RATINGS_FILE, header=None, delimiter='::')
+    df = pd.read_csv(RATINGS_FILE, header=None, delimiter='::', engine='python')
     df.columns = ["userId", "movieId", "rating", "timestamp"]
     df["timestamp"] = pd.to_datetime(df["timestamp"], unit='s')
+    df = df.sort_values("timestamp")
     df = df[["userId", "movieId", "timestamp"]]
 
     n_train_samples = int(SPLIT * len(df) - INFERENCE_BATCH_SIZE)
