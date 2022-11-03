@@ -17,7 +17,7 @@
 <h1 align="center">Demos</h1>
 
   <p align="center">
-    Interactive notebooks for exploring ThirdAI's library.
+    Interactive notebooks for exploring ThirdAI's BOLT library.
     <br>
     <br>
     <a href="https://thirdai.com">[Website]</a>
@@ -58,7 +58,7 @@ Table of Contents
 <!-- ABOUT THE PROJECT -->
 # 👋 Welcome
 
-ThirdAI's library is a deep-learning framework that leverages sparsity to make training and inference computationally feasible on CPUs. Our demo repo will help get you familiar with our [BOLT](https://www.thirdai.com/bolt-overview/) API through interactive notebooks.
+ThirdAI's BOLT library is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demo repo will help get you familiar with BOLT's [Universal Deep Transformer (UDT)](https://thirdailabs.github.io/thirdaibolt.html#thirdai.bolt.UniversalDeepTransformer) API through interactive notebooks.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -102,10 +102,10 @@ First, clone the demo repo:
 git clone https://github.com/ThirdAILabs/Demos.git
 ```
 
-Each of the demo notebooks will walk you through different aspects of the BOLT engine that you can run on any CPUs (ARM, AMD, Intel) and even desktops and laptops
+Each of the demo notebooks will walk you through different aspects of the UDT API that you can run on any CPUs (ARM, AMD, Intel) and even desktops and laptops
 
 <ul>
-<li><strong>TextClassifier.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget   (everything autotuned).</li>
+<li><strong>TextClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).</li>
 <li><strong>TabularClassifier.ipynb</strong> will show you how to get near SOTA accuracy on most tabular dataset classification via a plug and play classifier at any given budget (everything autotuned).</li>
 <li><strong>DocSearch.ipynb</strong> will show you how to use your own dataset (or one of the provided datasets) to create a simple document + query embedding model.</li>
 <li><strong>SentimentAnalysis.ipynb</strong> will take you throught the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
@@ -118,7 +118,7 @@ Each of the demo notebooks will walk you through different aspects of the BOLT e
 <!-- LICENSE -->
 # 📄 License
 
-See `LICENSE.txt` for more information.
+Please refer to `LICENSE.txt` for more information on usage terms.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
