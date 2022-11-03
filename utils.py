@@ -174,3 +174,68 @@ def download_criteo():
         n_unique_classes,
         sample_batch,
     )
+
+
+def download_fraud_dataset(output_dir):
+    zip_file = "fraud_kaggle.zip"
+
+    # this curl statement downloads data from kaggle using stored
+    # credentials with one of our demo testing accounts.
+    # source: https://www.kaggle.com/datasets/ealaxi/paysim1
+    os.system(
+        f"curl --header 'Host: storage.googleapis.com' --header 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' --header 'Accept-Language: en-US,en;q=0.9' --header 'Referer: https://www.kaggle.com/' 'https://storage.googleapis.com/kaggle-data-sets/1069/1940/bundle/archive.zip?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=gcp-kaggle-com%40kaggle-161607.iam.gserviceaccount.com%2F20221103%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20221103T150934Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=6dafc4105718924bb342c84ace01694fa3b21ba34a71b5a4a6d7dbf099331f34cd2c4c2e77c1c5edeccdef1dc8c948a3e2080c42fd92efff20d6a433377bf2b7b621d90cdb0e99027a80144e4a89aba3ab9d45c89f06dd630e8fa0b1ec5429c027eca9379c222b74eac05c7ac78f29c9046b7f29b1f5dafbfea3ee57cebcb553911fc784e77ac0862fe2e70649369ff51a000239523fd2b7596b93a5333a46ee56db64d4118d22a006ac798b1676bf4750340d69f76dfd7b9613f402457dbf34c8aae5e247c6ac01ca4d8a7ab257886aeabda31c577319456087a26dac9d7abf46806de5b9771fc5bb64e771fa906e4bfb6b478ddf91dfff393d19ad0bae0068' -L -o '{zip_file}'"
+    )
+    original_csv_name = "PS_20174392719_1491204439457_log.csv"
+    with zipfile.ZipFile(zip_file, "r") as zip_ref:
+        zip_ref.extract(original_csv_name, output_dir)
+    os.rename(f"{output_dir}/{original_csv_name}", f"{output_dir}/train.csv")
+    os.remove(zip_file)
+
+
+def prep_fraud_dataset():
+    output_dir = "fraud_dataset"
+    download_fraud_dataset(output_dir)
+    df = pd.read_csv("fraud_dataset/train.csv")
+    df["amount"] = (df["oldbalanceOrg"] - df["newbalanceOrig"]).abs()
+
+    def upsample(df):
+        fraud_samples = df[df["isFraud"] == 1]
+        upsampling_ratio = 5
+        for i in range(upsampling_ratio):
+            df = pd.concat([df, fraud_samples], axis=0)
+        return df
+
+    df = upsample(df)
+
+    df = df.sample(frac=1)
+
+    SPLIT = 0.8
+    n_train_samples = int(SPLIT * len(df))
+    train_df = df.iloc[:n_train_samples]
+    test_df = df.iloc[n_train_samples:]
+
+    train_filename = "fraud_dataset/new_train.csv"
+    test_filename = "fraud_dataset/new_test.csv"
+
+    train_df.to_csv(train_filename, index=False)
+    test_df.to_csv(test_filename, index=False)
+
+    INFERENCE_BATCH_SIZE = 5
+    inference_batch = to_batch(
+        df.iloc[:INFERENCE_BATCH_SIZE][
+            [
+                "step",
+                "type",
+                "amount",
+                "nameOrig",
+                "oldbalanceOrg",
+                "newbalanceOrig",
+                "nameDest",
+                "oldbalanceDest",
+                "newbalanceDest",
+                "isFlaggedFraud",
+            ]
+        ]
+    )
+
+    return train_filename, test_filename, inference_batch
