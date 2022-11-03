@@ -37,7 +37,7 @@ def download_movielens():
     SPLIT = 0.9
     INFERENCE_BATCH_SIZE = 5
 
-    _download_dataset(url=MOVIELENS_1M_URL, zip_file=MOVIELENS_ZIP, check_existence=[RATINGS_FILE], output_dir=MOVIELENS_DIR)
+    _download_dataset(url=MOVIELENS_1M_URL, zip_file=MOVIELENS_ZIP, check_existence=[RATINGS_FILE, MOVIE_TITLES], output_dir=MOVIELENS_DIR)
     
     df = pd.read_csv(RATINGS_FILE, header=None, delimiter='::', engine='python')
     df.columns = ["userId", "movieId", "rating", "timestamp"]
