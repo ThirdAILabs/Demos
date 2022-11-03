@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import zipfile
 import json
-
+import numpy as np
 
 def _download_dataset(url, zip_file, check_existence, output_dir):
     if not os.path.exists(zip_file):
@@ -95,4 +95,42 @@ def download_clinc():
 
     return TRAIN_FILE, TEST_FILE, inference_batch
 
+def download_criteo():
+    print('Downloading the raw dataset (this will take 20-40 mins depending on Criteo server speed)')
+    nothing = os.system("wget http://go.criteo.net/criteo-research-kaggle-display-advertising-challenge-dataset.tar.gz")
+    nothing = os.system("mkdir criteo")
+    print('extracting the files')
+    nothing = os.system("tar -xvzf criteo-research-kaggle-display-advertising-challenge-dataset.tar.gz -C criteo/")
+    nothing = os.system("rm criteo-research-kaggle-display-advertising-challenge-dataset.tar.gz")
     
+    print('processing the dataset (this will take about 6-7 mins)')
+    df = pd.read_csv('./criteo/train.txt', delimiter='\t', header=None)
+    min_vals = df.iloc[:,1:14].min()
+    df.iloc[:,1:14] = np.round(np.log(df.iloc[:,1:14]-min_vals + 1),2)
+    min_vals = np.float32(df.iloc[:,1:14].min())
+    max_vals = np.float32(df.iloc[:,1:14].max())
+    y = np.float32(df.iloc[:,0])
+    n_unique_classes = list(df.iloc[:,14:].nunique())
+    
+    train_filename = './criteo/train_udt.csv'
+    test_filename = './criteo/test_udt.csv'
+    n_train = int(0.8*df.shape[0])
+    y_train = y[:n_train]
+    y_test = y[n_train:]
+    
+    print('saving the train and test datasets (this will take about 10 mins)')
+    header = ['label', 'num_1', 'num_2', 'num_3', 'num_4', 'num_5', 'num_6']
+    header += ['num_7', 'num_8', 'num_9', 'num_10', 'num_11', 'num_12', 'num_13']
+    header += ['cat_1', 'cat_2', 'cat_3', 'cat_4', 'cat_5', 'cat_6', 'cat_7']
+    header += ['cat_8', 'cat_9', 'cat_10', 'cat_11', 'cat_12', 'cat_13', 'cat_14']
+    header += ['cat_15', 'cat_16', 'cat_17', 'cat_18', 'cat_19', 'cat_20', 'cat_21']
+    header += ['cat_22', 'cat_23', 'cat_24', 'cat_25', 'cat_26']
+    df[:n_train].to_csv(train_filename, header=header, index=False)
+    df[n_train:].to_csv(test_filename, header=header, index=False)
+    
+    df_sample = df.iloc[n_train:n_train+2]
+    df_sample = df_sample.fillna('')
+    sample_batch = [{header[i]:str(df_sample.iloc[0,i]) for i in range(1,40)}] # first sample
+    sample_batch.append({header[i]:str(df_sample.iloc[1,i]) for i in range(1,40)}) # second sample
+    
+    return train_filename, test_filename, y_train, y_test, min_vals, max_vals, n_unique_classes, sample_batch
