@@ -123,12 +123,12 @@ def download_criteo():
         print(
             f"Downloading from {CRITEO_URL}. This can take 20-40 minutes depending on the Criteo server."
         )
-        os.system(f"wget -t inf -c {CRITEO_URL}")
+        os.system(f"wget -t inf -c {CRITEO_URL} -O {CRITEO_ZIP}")
 
     if not os.path.exists(MAIN_FILE):
         print("Extracting files. This can take up to 10 minutes.")
         os.system(
-            "tar -xvzf criteo-research-kaggle-display-advertising-challenge-dataset.tar.gz -C criteo/"
+            f"tar -xvzf {CRITEO_ZIP} -C {CRITEO_DIR}"
         )
 
     df = pd.read_csv(MAIN_FILE, delimiter="\t", header=None)
