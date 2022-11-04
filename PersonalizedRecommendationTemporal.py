@@ -25,8 +25,13 @@ test_config = (bolt.EvalConfig()
 model.evaluate(TEST_FILE, test_config)
 
 start = time.time()
-for _ in range(100):
-    model.predict({"userId": "4958", "timestamp": "2003-02-28"})
+
+model.predict({"userId": "5825", "timestamp": "2002-04-05"})
+model.predict({"userId": "5413", "timestamp": "2003-01-20"})
+model.predict({"userId": "1426", "timestamp": "2003-02-04"})
+model.predict({"userId": "424", "timestamp": "2003-02-27"})
+model.predict({"userId": "4958", "timestamp": "2003-02-28"})
+
 end = time.time()
 
-print("Latency:", (end - start) / 100 * 1000, "ms")
+print("Latency:", (end - start) / 5 * 1000, "ms")

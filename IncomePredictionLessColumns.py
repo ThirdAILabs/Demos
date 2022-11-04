@@ -23,10 +23,3 @@ test_config = (bolt.EvalConfig()
                    .with_metrics(["categorical_accuracy"]))
 
 model.evaluate(TEST_FILE, test_config)
-
-start = time.time()
-for _ in range(100):
-    model.predict({"age": "39", "workclass": "State-gov", "fnlwgt": "77516", "education": "Bachelors", "education-num": "13", "marital-status": "Never-married", "occupation": "Adm-clerical", "relationship": "Not-in-family", "race": "White", "sex": "Male", "capital-gain": "2174", "capital-loss": "0", "hours-per-week": "40", "native-country": "United-States"})
-end = time.time()
-
-print("Latency:", (end - start) / 100 * 1000, "ms")

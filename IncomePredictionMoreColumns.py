@@ -36,8 +36,13 @@ test_config = (bolt.EvalConfig()
 model.evaluate(TEST_FILE, test_config)
 
 start = time.time()
-for _ in range(100):
-    model.predict({"age": "39", "workclass": "State-gov", "fnlwgt": "77516", "education": "Bachelors", "education-num": "13", "marital-status": "Never-married", "occupation": "Adm-clerical", "relationship": "Not-in-family", "race": "White", "sex": "Male", "capital-gain": "2174", "capital-loss": "0", "hours-per-week": "40", "native-country": "United-States"})
+
+model.predict({'age': '36', 'workclass': 'Federal-gov', 'fnlwgt': '212465', 'education': 'Bachelors', 'education-num': '13', 'marital-status': 'Married-civ-spouse', 'occupation': 'Adm-clerical', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital-gain': '0', 'capital-loss': '0', 'hours-per-week': '40', 'native-country': 'United-States', 'label': '<=50K'})
+model.predict({'age': '26', 'workclass': 'Private', 'fnlwgt': '82091', 'education': 'HS-grad', 'education-num': '9', 'marital-status': 'Never-married', 'occupation': 'Adm-clerical', 'relationship': 'Not-in-family', 'race': 'White', 'sex': 'Female', 'capital-gain': '0', 'capital-loss': '0', 'hours-per-week': '39', 'native-country': 'United-States', 'label': '<=50K'})
+model.predict({'age': '58', 'workclass': '?', 'fnlwgt': '299831', 'education': 'HS-grad', 'education-num': '9', 'marital-status': 'Married-civ-spouse', 'occupation': '?', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital-gain': '0', 'capital-loss': '0', 'hours-per-week': '35', 'native-country': 'United-States', 'label': '<=50K'})
+model.predict({'age': '48', 'workclass': 'Private', 'fnlwgt': '279724', 'education': 'HS-grad', 'education-num': '9', 'marital-status': 'Married-civ-spouse', 'occupation': 'Machine-op-inspct', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital-gain': '3103', 'capital-loss': '0', 'hours-per-week': '48', 'native-country': 'United-States', 'label': '>50K'})
+model.predict({'age': '43', 'workclass': 'Private', 'fnlwgt': '346189', 'education': 'Masters', 'education-num': '14', 'marital-status': 'Married-civ-spouse', 'occupation': 'Exec-managerial', 'relationship': 'Husband', 'race': 'White', 'sex': 'Male', 'capital-gain': '0', 'capital-loss': '0', 'hours-per-week': '50', 'native-country': 'United-States', 'label': '>50K'})
+
 end = time.time()
 
-print("Latency:", (end - start) / 100 * 1000, "ms")
+print("Latency:", (end - start) / 5 * 1000, "ms")

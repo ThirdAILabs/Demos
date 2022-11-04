@@ -23,8 +23,13 @@ test_config = (bolt.EvalConfig()
 model.evaluate(TEST_FILE, test_config)
 
 start = time.time()
-for _ in range(100):
-    model.predict({"text": "what expression would i use to say i love you if i were an italian"})
+
+model.predict({"text": "tell me what the gas mileage is on my car"})
+model.predict({"text": "what expression would i use to say i love you if i were an italian"})
+model.predict({"text": "help me pick a new location to travel to"})
+model.predict({"text": "please put dusting on my list of things to do"})
+model.predict({"text": "what's the tire pressure of my tires"})
+
 end = time.time()
 
-print("Latency:", (end - start) / 100 * 1000, "ms")
+print("Latency:", (end - start) / 5 * 1000, "ms")
