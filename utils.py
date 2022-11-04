@@ -294,21 +294,23 @@ def download_census_income():
     n_lines = 0
     lines_for_inference_batch = []
     for line in open(TEST_FILE, "r"):
-        if n_lines == INFERENCE_BATCH_SIZE:
+        if n_lines == 0:
+            n_lines += 1
+            continue
+
+        if n_lines == INFERENCE_BATCH_SIZE + 1:
             break
+
         lines_for_inference_batch.append(line)
         n_lines += 1
     
-    inference_batch = {
-        col_name: value 
-        for col_name, value in 
-        zip(COLUMN_NAMES, 
-            [
-                line.split(',') 
-                for line in lines_for_inference_batch
-            ]
-        )
-    }
+    inference_batch = [
+        {
+            col_name: value 
+            for col_name, value in zip(COLUMN_NAMES, line.split(','))
+        } 
+        for line in lines_for_inference_batch
+    ]
 
     return TRAIN_FILE, TEST_FILE, inference_batch
 
