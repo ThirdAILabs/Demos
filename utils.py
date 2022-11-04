@@ -119,6 +119,8 @@ def download_criteo():
     CREATED_TRAIN_FILE = "./criteo/train_udt.csv"
     CREATED_TEST_FILE = "./criteo/test_udt.csv"
 
+    os.makedirs("./criteo", exist_ok=True)
+    
     if not os.path.exists(CRITEO_ZIP):
         print(
             f"Downloading from {CRITEO_URL}. This can take 20-40 minutes depending on the Criteo server."
