@@ -239,3 +239,81 @@ def prep_fraud_dataset():
     )
 
     return train_filename, test_filename, inference_batch
+
+
+def download_census_income():
+    CENSUS_INCOME_BASE_DOWNLOAD_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/"
+    TRAIN_FILE = "./census_income_train.csv"
+    TEST_FILE = "./census_income_test.csv"
+    COLUMN_NAMES = [
+        "age",
+        "workclass",
+        "fnlwgt",
+        "education",
+        "education-num",
+        "marital-status",
+        "occupation",
+        "relationship",
+        "race",
+        "sex",
+        "capital-gain",
+        "capital-loss",
+        "hours-per-week",
+        "native-country",
+        "label",
+    ]
+    INFERENCE_BATCH_SIZE = 5
+    if not os.path.exists(TRAIN_FILE):
+        os.system(
+            f"curl {CENSUS_INCOME_BASE_DOWNLOAD_URL}adult.data --output {TRAIN_FILE}"
+        )
+        # reformat the train file
+        with open(TRAIN_FILE, "r") as file:
+            data = file.read().splitlines(True)
+        with open(TRAIN_FILE, "w") as file:
+            # Write header
+            file.write(','.join(COLUMN_NAMES) + '\n')
+            # Convert ", " delimiters to ",".
+            file.writelines([line.replace(", ", ",") for line in data[1:]])
+
+    if not os.path.exists(TEST_FILE):
+        os.system(
+            f"curl {CENSUS_INCOME_BASE_DOWNLOAD_URL}adult.test --output {TEST_FILE}"
+        )
+        # reformat the test file
+        with open(TEST_FILE, "r") as file:
+            data = file.read().splitlines(True)
+        with open(TEST_FILE, "w") as file:
+            # Write header
+            file.write(','.join(COLUMN_NAMES) + '\n')
+            # Convert ", " delimiters to ",".
+            # Additionally, for some reason each of the labels end with a "." in the test set
+            # loop through data[1:] since the first line is bogus
+            file.writelines([line.replace(".", "").replace(", ", ",") for line in data[1:]])
+    
+    n_lines = 0
+    lines_for_inference_batch = []
+    for line in open(TEST_FILE, "r"):
+        if n_lines == 0:
+            n_lines += 1
+            continue
+
+        if n_lines == INFERENCE_BATCH_SIZE + 1:
+            break
+
+        lines_for_inference_batch.append(line)
+        n_lines += 1
+    
+    inference_batch = [
+        {
+            col_name: value 
+            for col_name, value in zip(COLUMN_NAMES, line.split(','))
+        } 
+        for line in lines_for_inference_batch
+    ]
+
+    return TRAIN_FILE, TEST_FILE, inference_batch
+
+    
+
+    
