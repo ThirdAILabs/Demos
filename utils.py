@@ -198,8 +198,8 @@ def prep_fraud_dataset(dataset_path):
     train_df = df.iloc[:n_train_samples]
     test_df = df.iloc[n_train_samples:]
 
-    train_filename = "fraud_dataset/new_train.csv"
-    test_filename = "fraud_dataset/new_test.csv"
+    train_filename = "fraud_detection/new_train.csv"
+    test_filename = "fraud_detection/new_test.csv"
 
     train_df.to_csv(train_filename, index=False)
     test_df.to_csv(test_filename, index=False)
