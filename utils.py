@@ -300,34 +300,47 @@ def download_census_income():
 
     return TRAIN_FILE, TEST_FILE, inference_batch
 
-class QueryReformulationDataProcessor:
-    def __init__(self, dataset_name: str) -> None:
-        self.dataset_name = dataset_name
 
-    def _download_dataset(self) -> pd.DataFrame:
-        dataset = datasets.load_dataset(path=self.dataset_name)
-        dataframe = pd.DataFrame(data=dataset)
+def download_query_reformulation_dataset(train_file_percentage=0.7):
+    """
+    The dataset is retrieved from HuggingFace:
+    https://huggingface.co/datasets/snips_built_in_intents
+    """
+    INFERENCE_BATCH_PERCENTAGE = 0.0001
+    dataset = datasets.load_dataset(path="embedding-data/sentence-compression")
+    dataframe = pd.DataFrame(data=dataset)
 
-        extracted_text = []
-        for _, row in dataframe.iterrows():
-            extracted_text.append(row.to_dict()["train"]["set"][1])
+    extracted_text = []
+    for _, row in dataframe.iterrows():
+        extracted_text.append(row.to_dict()["train"]["set"][1])
 
-        return pd.DataFrame(data=extracted_text)
+    data = pd.DataFrame(data=extracted_text)
+    train_data = data.sample(frac=train_file_percentage)
+    inference_batch = data.sample(frac=INFERENCE_BATCH_PERCENTAGE)
+    test_data = data.drop(train_data.index)
 
-    def perturb_dataset(self) -> pd.DataFrame:
-        
-        dataframe = self._download_dataset()
+    inference_batch_as_list = []
+    for _, row in inference_batch.iterrows():
+        inference_batch_as_list.append(row.to_dict()[0])
 
-        transformation_type = ("remove-char", "permute-string")
-        transformed_dataframe = []
+    return train_data, test_data, inference_batch_as_list
 
-        for _, row in dataframe.iterrows():
-            correct_query = " ".join(list(row.str.split(" ")[0]))
 
-            incorrect_query_pair = correct_query.split(" ")
-            query_length = len(incorrect_query_pair)
-            words_to_transform = math.ceil(0.1 * query_length)
+def perturb_query_reformulation_data(dataframe, noise_level):
 
+    transformation_type = ("remove-char", "permute-string")
+    transformed_dataframe = []
+
+    PER_QUERY_COPIES = 5
+
+    for _, row in dataframe.iterrows():
+        correct_query = " ".join(list(row.str.split(" ")[0]))
+        query_length = len(correct_query.split(" "))
+        words_to_transform = math.ceil(noise_level * query_length)
+
+        for _ in range(PER_QUERY_COPIES):
+
+            incorrect_query_list = correct_query.split(" ")
             transformed_words = 0
             visited_indices = set()
 
@@ -335,7 +348,7 @@ class QueryReformulationDataProcessor:
                 random_index = random.randint(0, words_to_transform)
                 if random_index in visited_indices:
                     continue
-                word_to_transform = incorrect_query_pair[random_index]
+                word_to_transform = incorrect_query_list[random_index]
 
                 if random.choices(transformation_type, k=1) == "remove-char":
                     # Remove a random character
@@ -344,19 +357,42 @@ class QueryReformulationDataProcessor:
                         word_to_transform[0:char_index]
                         + word_to_transform[char_index + 1 :]
                     )
-                    incorrect_query_pair[random_index] = transformed_word
+                    incorrect_query_list[random_index] = transformed_word
 
                 else:
                     # Permute the characters in the string
                     transformed_word_char_list = list(word_to_transform)
                     random.shuffle(transformed_word_char_list)
 
-                    incorrect_query_pair[random_index] = "".join(transformed_word_char_list)
+                    incorrect_query_list[random_index] = "".join(
+                        transformed_word_char_list
+                    )
 
                 visited_indices.add(random_index)
                 transformed_words += 1
 
-            transformed_dataframe.append([correct_query, " ".join(incorrect_query_pair)])
+            transformed_dataframe.append(
+                [correct_query, " ".join(incorrect_query_list)]
+            )
 
-        return pd.DataFrame(transformed_dataframe)
+    return pd.DataFrame(transformed_dataframe)
 
+
+def prepare_query_reformulation_data():
+    train_data, eval_data, inference_batch = download_query_reformulation_dataset(
+        train_file_percentage=0.7
+    )
+    train_data_with_noise = perturb_query_reformulation_data(
+        dataframe=train_data, noise_level=0.4
+    )
+    eval_data_with_noise = perturb_query_reformulation_data(
+        dataframe=eval_data, noise_level=0.4
+    )
+
+    # Add file header since the "train" and "evaluate" methods assume
+    # that the input CSV file contains a header.
+    header = ["target_queries", "source_queries"]
+    train_data_with_noise.columns = header
+    eval_data_with_noise.columns = header
+
+    return train_data, eval_data, inference_batch
