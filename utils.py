@@ -1,5 +1,8 @@
 import os
 import pandas as pd
+import datasets
+import math
+import random
 import zipfile
 import json
 import numpy as np
@@ -120,7 +123,7 @@ def download_criteo():
     CREATED_TEST_FILE = "./criteo/test_udt.csv"
 
     os.makedirs("./criteo", exist_ok=True)
-    
+
     if not os.path.exists(CRITEO_ZIP):
         print(
             f"Downloading from {CRITEO_URL}. This can take 20-40 minutes depending on the Criteo server."
@@ -129,9 +132,7 @@ def download_criteo():
 
     if not os.path.exists(MAIN_FILE):
         print("Extracting files. This can take up to 10 minutes.")
-        os.system(
-            f"tar -xvzf {CRITEO_ZIP} -C {CRITEO_DIR}"
-        )
+        os.system(f"tar -xvzf {CRITEO_ZIP} -C {CRITEO_DIR}")
 
     df = pd.read_csv(MAIN_FILE, delimiter="\t", header=None)
     n_train = int(0.8 * df.shape[0])
@@ -226,7 +227,9 @@ def prep_fraud_dataset(dataset_path):
 
 
 def download_census_income():
-    CENSUS_INCOME_BASE_DOWNLOAD_URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/"
+    CENSUS_INCOME_BASE_DOWNLOAD_URL = (
+        "https://archive.ics.uci.edu/ml/machine-learning-databases/adult/"
+    )
     TRAIN_FILE = "./census_income_train.csv"
     TEST_FILE = "./census_income_test.csv"
     COLUMN_NAMES = [
@@ -256,7 +259,7 @@ def download_census_income():
             data = file.read().splitlines(True)
         with open(TRAIN_FILE, "w") as file:
             # Write header
-            file.write(','.join(COLUMN_NAMES) + '\n')
+            file.write(",".join(COLUMN_NAMES) + "\n")
             # Convert ", " delimiters to ",".
             file.writelines([line.replace(", ", ",") for line in data[1:]])
 
@@ -269,12 +272,14 @@ def download_census_income():
             data = file.read().splitlines(True)
         with open(TEST_FILE, "w") as file:
             # Write header
-            file.write(','.join(COLUMN_NAMES) + '\n')
+            file.write(",".join(COLUMN_NAMES) + "\n")
             # Convert ", " delimiters to ",".
             # Additionally, for some reason each of the labels end with a "." in the test set
             # loop through data[1:] since the first line is bogus
-            file.writelines([line.replace(".", "").replace(", ", ",") for line in data[1:]])
-    
+            file.writelines(
+                [line.replace(".", "").replace(", ", ",") for line in data[1:]]
+            )
+
     n_lines = 0
     lines_for_inference_batch = []
     for line in open(TEST_FILE, "r"):
@@ -287,13 +292,71 @@ def download_census_income():
 
         lines_for_inference_batch.append(line)
         n_lines += 1
-    
+
     inference_batch = [
-        {
-            col_name: value 
-            for col_name, value in zip(COLUMN_NAMES, line.split(','))
-        } 
+        {col_name: value for col_name, value in zip(COLUMN_NAMES, line.split(","))}
         for line in lines_for_inference_batch
     ]
 
     return TRAIN_FILE, TEST_FILE, inference_batch
+
+class QueryReformulationDataProcessor:
+    def __init__(self, dataset_name: str) -> None:
+        self.dataset_name = dataset_name
+
+    def _download_dataset(self) -> pd.DataFrame:
+        dataset = datasets.load_dataset(path=self.dataset_name)
+        dataframe = pd.DataFrame(data=dataset)
+
+        extracted_text = []
+        for _, row in dataframe.iterrows():
+            extracted_text.append(row.to_dict()["train"]["set"][1])
+
+        return pd.DataFrame(data=extracted_text)
+
+    def perturb_dataset(self) -> pd.DataFrame:
+        
+        dataframe = self._download_dataset()
+
+        transformation_type = ("remove-char", "permute-string")
+        transformed_dataframe = []
+
+        for _, row in dataframe.iterrows():
+            correct_query = " ".join(list(row.str.split(" ")[0]))
+
+            incorrect_query_pair = correct_query.split(" ")
+            query_length = len(incorrect_query_pair)
+            words_to_transform = math.ceil(0.1 * query_length)
+
+            transformed_words = 0
+            visited_indices = set()
+
+            while transformed_words < words_to_transform:
+                random_index = random.randint(0, words_to_transform)
+                if random_index in visited_indices:
+                    continue
+                word_to_transform = incorrect_query_pair[random_index]
+
+                if random.choices(transformation_type, k=1) == "remove-char":
+                    # Remove a random character
+                    char_index = random.randint(0, len(word_to_transform) - 1)
+                    transformed_word = (
+                        word_to_transform[0:char_index]
+                        + word_to_transform[char_index + 1 :]
+                    )
+                    incorrect_query_pair[random_index] = transformed_word
+
+                else:
+                    # Permute the characters in the string
+                    transformed_word_char_list = list(word_to_transform)
+                    random.shuffle(transformed_word_char_list)
+
+                    incorrect_query_pair[random_index] = "".join(transformed_word_char_list)
+
+                visited_indices.add(random_index)
+                transformed_words += 1
+
+            transformed_dataframe.append([correct_query, " ".join(incorrect_query_pair)])
+
+        return pd.DataFrame(transformed_dataframe)
+
