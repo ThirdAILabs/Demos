@@ -379,20 +379,30 @@ def perturb_query_reformulation_data(dataframe, noise_level):
 
 
 def prepare_query_reformulation_data():
+
+    TRAIN_FILE_PATH = "train_file.csv"
+    TEST_FILE_PATH = "test_file.csv"
+    TRAIN_FILE_DATASET_PERCENTAGE = 0.7
+    NOISE_LEVEL = 0.4
+
     train_data, eval_data, inference_batch = download_query_reformulation_dataset(
-        train_file_percentage=0.7
+        train_file_percentage=TRAIN_FILE_DATASET_PERCENTAGE
     )
     train_data_with_noise = perturb_query_reformulation_data(
-        dataframe=train_data, noise_level=0.4
+        dataframe=train_data, noise_level=NOISE_LEVEL
     )
-    eval_data_with_noise = perturb_query_reformulation_data(
-        dataframe=eval_data, noise_level=0.4
+    test_data_with_noise = perturb_query_reformulation_data(
+        dataframe=eval_data, noise_level=NOISE_LEVEL
     )
 
     # Add file header since the "train" and "evaluate" methods assume
     # that the input CSV file contains a header.
     header = ["target_queries", "source_queries"]
     train_data_with_noise.columns = header
-    eval_data_with_noise.columns = header
+    test_data_with_noise.columns = header
 
-    return train_data, eval_data, inference_batch
+    # Write dataset to CSV
+    train_data_with_noise.to_csv(TRAIN_FILE_PATH, index=False)
+    test_data_with_noise.to_csv(TEST_FILE_PATH, index=False)
+
+    return TRAIN_FILE_PATH, TEST_FILE_PATH, inference_batch
