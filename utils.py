@@ -306,24 +306,15 @@ def download_query_reformulation_dataset(train_file_percentage=0.7):
     The dataset is retrieved from HuggingFace:
     https://huggingface.co/datasets/snips_built_in_intents
     """
-    INFERENCE_BATCH_PERCENTAGE = 0.0001
     dataset = datasets.load_dataset(path="embedding-data/sentence-compression")
     dataframe = pd.DataFrame(data=dataset)
 
     extracted_text = []
+
     for _, row in dataframe.iterrows():
         extracted_text.append(row.to_dict()["train"]["set"][1])
 
-    data = pd.DataFrame(data=extracted_text)
-    train_data = data.sample(frac=train_file_percentage)
-    inference_batch = data.sample(frac=INFERENCE_BATCH_PERCENTAGE)
-    test_data = data.drop(train_data.index)
-
-    inference_batch_as_list = []
-    for _, row in inference_batch.iterrows():
-        inference_batch_as_list.append(row.to_dict()[0])
-
-    return train_data, test_data, inference_batch_as_list
+    return pd.DataFrame(data=extracted_text)
 
 
 def perturb_query_reformulation_data(dataframe, noise_level):
@@ -375,7 +366,9 @@ def perturb_query_reformulation_data(dataframe, noise_level):
                 [correct_query, " ".join(incorrect_query_list)]
             )
 
-    return pd.DataFrame(transformed_dataframe)
+    return pd.DataFrame(
+        transformed_dataframe, columns=["target_queries", "source_queries"]
+    )
 
 
 def prepare_query_reformulation_data():
@@ -383,23 +376,34 @@ def prepare_query_reformulation_data():
     TRAIN_FILE_PATH = "train_file.csv"
     TEST_FILE_PATH = "test_file.csv"
     TRAIN_FILE_DATASET_PERCENTAGE = 0.7
-    NOISE_LEVEL = 0.4
+    INFERENCE_BATCH_PERCENTAGE = 0.0001
+    TRAIN_NOISE_LEVEL = 0.2
+    TEST_NOISE_LEVEL = 0.4
 
-    train_data, eval_data, inference_batch = download_query_reformulation_dataset(
+    def get_inference_batch(dataframe):
+        inference_batch = dataframe.sample(frac=INFERENCE_BATCH_PERCENTAGE)
+        inference_batch_as_list = []
+        for _, row in inference_batch.iterrows():
+            inference_batch_as_list.append(row.to_dict()[0])
+
+        return inference_batch_as_list
+
+    train_data = download_query_reformulation_dataset(
         train_file_percentage=TRAIN_FILE_DATASET_PERCENTAGE
     )
+    inference_batch = get_inference_batch(dataframe=train_data)
+
     train_data_with_noise = perturb_query_reformulation_data(
-        dataframe=train_data, noise_level=NOISE_LEVEL
+        dataframe=train_data, noise_level=TRAIN_NOISE_LEVEL
     )
-    test_data_with_noise = perturb_query_reformulation_data(
-        dataframe=eval_data, noise_level=NOISE_LEVEL
+    sampled_train_data = train_data.sample(
+        frac=1 - TRAIN_FILE_DATASET_PERCENTAGE
     )
 
-    # Add file header since the "train" and "evaluate" methods assume
-    # that the input CSV file contains a header.
-    header = ["target_queries", "source_queries"]
-    train_data_with_noise.columns = header
-    test_data_with_noise.columns = header
+    test_data_with_noise = perturb_query_reformulation_data(
+        dataframe=pd.DataFrame(sampled_train_data),
+        noise_level=TEST_NOISE_LEVEL,
+    )
 
     # Write dataset to CSV
     train_data_with_noise.to_csv(TRAIN_FILE_PATH, index=False)
