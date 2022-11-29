@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ThirdAILabs/Demos">
-    <img src="https://www.thirdai.com/wp-content/uploads/2017/01/ThirdAI_logo_foo.png" alt="Logo" width="150" height="">
+    <img src="https://www.thirdai.com/wp-content/uploads/2022/06/ThirdAI_logo.png" alt="Logo" width="150" height="">
   </a>
 
 <h1 align="center">Demos</h1>
