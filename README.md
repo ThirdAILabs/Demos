@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ThirdAILabs/Demos">
-    <img src="https://www.thirdai.com/wp-content/uploads/2017/01/ThirdAI_logo_foo.png" alt="Logo" width="150" height="">
+    <img src="https://www.thirdai.com/wp-content/uploads/2022/06/ThirdAI_logo.png" alt="Logo" width="150" height="">
   </a>
 
 <h1 align="center">Demos</h1>
@@ -105,9 +105,11 @@ git clone https://github.com/ThirdAILabs/Demos.git
 Each of the demo notebooks will walk you through different aspects of the UDT API that you can run on any CPUs (ARM, AMD, Intel) and even desktops and laptops
 
 <ul>
-<li><strong>TextClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).</li>
-<li><strong>TabularClassifier.ipynb</strong> will show you how to get near SOTA accuracy on most tabular dataset classification via a plug and play classifier at any given budget (everything autotuned).</li>
-<li><strong>DocSearch.ipynb</strong> will show you how to use your own dataset (or one of the provided datasets) to create a simple document + query embedding model.</li>
+<li><strong>CensusIncomePrediction.ipynb</strong> shows how to build an income prediction model with ThirdAI's Universal Deep Transformer (UDT) model, our all-purpose classifier for tabular datasets.</li>
+<li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).</li>
+<li><strong>FraudDetection.ipynb</strong> will show you how easy to build a fraud detection model with UDT.</li>
+<li><strong>PersonalizedMovieRecommendations.ipynb</strong> will show you how to build personalization model for movie recommendation. UDT can be used to build any kind of personlization and recomnedation models with ease and deliver SOTA results.</li>
+<li><strong>QueryReformulation.ipynb</strong> shows how to build a query reformulation model with UDT, providing an easy and faster (less than 1 ms) solution for query reformulation.</li>
 <li><strong>SentimentAnalysis.ipynb</strong> will take you throught the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
 </ul>
 
