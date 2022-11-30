@@ -106,12 +106,13 @@ Each of the demo notebooks will walk you through different aspects of the UDT AP
 
 <ul>
 <li><strong>CensusIncomePrediction.ipynb</strong> shows how to build an income prediction model with ThirdAI's Universal Deep Transformer (UDT) model, our all-purpose classifier for tabular datasets.</li>
-<li><strong>DistributedInferenceDatabricks.ipynb</strong> will show how to use thirdai for distributed inference on Databricks with UDT.
+<li><strong>DistributedInferenceDatabricks.ipynb</strong> will show how to use thirdai for distributed inference on Databricks with UDT.</li>
 <li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).</li>
 <li><strong>FraudDetection.ipynb</strong> will show you how easy to build a fraud detection model with UDT.</li>
 <li><strong>PersonalizedMovieRecommendations.ipynb</strong> will show you how to build personalization model for movie recommendation. UDT can be used to build any kind of personlization and recomnedation models with ease and deliver SOTA results.</li>
 <li><strong>QueryReformulation.ipynb</strong> shows how to build a query reformulation model with UDT, providing an easy and faster (less than 1 ms) solution for query reformulation.</li>
-<li><strong>SentimentAnalysis.ipynb</strong> will take you throught the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
+<li><strong>SentimentAnalysis.ipynb</strong> will take you through the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment. </li>
+<li><strong>ThirdAIOnSagemaker.ipynb</strong> will show you how you can integrate a ThirdAI model with Amazon Sagemaker and easily train and deploy your models.</li>
 </ul>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
