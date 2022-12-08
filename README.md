@@ -58,7 +58,7 @@ Table of Contents
 <!-- ABOUT THE PROJECT -->
 # 👋 Welcome
 
-ThirdAI's BOLT library is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demo repo will help get you familiar with BOLT's [Universal Deep Transformer (UDT)](https://thirdailabs.github.io/thirdaibolt.html#thirdai.bolt.UniversalDeepTransformer) API through interactive notebooks.
+ThirdAI's BOLT library is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demo repo will help get you familiar with BOLT's [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
