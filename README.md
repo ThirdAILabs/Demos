@@ -73,22 +73,22 @@ All of our UDT capability demos are mirrored to Google Colab, so you can immedia
 
 <ul>
 <li><strong>CensusIncomePrediction.ipynb</strong> shows how to build an income prediction model with ThirdAI's Universal Deep Transformer (UDT) model, our all-purpose classifier for tabular datasets.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/CensusIncomePrediction.ipynb
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/CensusIncomePrediction.ipynb
 </li>
 <li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/IntentClassification.ipynb
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/IntentClassification.ipynb
 </li>
 <li><strong>FraudDetection.ipynb</strong> will show you how easy to build a fraud detection model with UDT.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/FraudDetection.ipynb
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/FraudDetection.ipynb
 </li>
 <li><strong>PersonalizedMovieRecommendations.ipynb</strong> will show you how to build personalization model for movie recommendation. UDT can be used to build any kind of personlization and recomnedation models with ease and deliver SOTA results.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/PersonalizedMovieRecommendations.ipynb
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/PersonalizedMovieRecommendations.ipynb
 </li>
 <li><strong>QueryReformulation.ipynb</strong> shows how to build a query reformulation model with UDT, providing an easy and faster (less than 1 ms) solution for query reformulation.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/QueryReformulation.ipynb
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/QueryReformulation.ipynb
 </li>
 <li><strong>SentimentAnalysis.ipynb</strong> will take you through the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/SentimentAnalysis.ipynb
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/SentimentAnalysis.ipynb
 </li>
 </ul>
 
