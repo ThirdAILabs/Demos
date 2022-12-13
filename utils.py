@@ -410,3 +410,36 @@ def prepare_query_reformulation_data():
     test_data_with_noise.to_csv(TEST_FILE_PATH, index=False)
 
     return TRAIN_FILE_PATH, TEST_FILE_PATH, inference_batch
+
+
+def download_mercedes_manufacturing_data():
+    TRAIN_FILE = "./mercedes_manufacturing_train.csv"
+    TEST_FILE = "./mercedes_manufacturing_test.csv"
+    NUM_INFERENCE_SAMPLES = 100
+
+    data = datasets.load_dataset(
+        "inria-soda/tabular-benchmark", data_files="reg_cat/Mercedes_Benz_Greener_Manufacturing.csv"
+    )
+
+    df = pd.DataFrame(data["train"].shuffle())
+    df = df.drop("Unnamed: 0", axis=1)
+
+    n_train = int(0.7 * df.shape[0])
+
+    train_df = df.iloc[:n_train, :]
+    test_df = df.iloc[n_train:, :]
+
+    train_df.to_csv(TRAIN_FILE, index=False)
+    test_df.to_csv(TEST_FILE, index=False)
+
+    inference_x = []
+    inference_y = []
+    for _, row in test_df.iterrows():
+        target = row["y"]
+        sample = {k: str(v) for k,v in row.to_dict().items()}
+        del sample["y"]
+
+        inference_x.append(sample)
+        inference_y.append(target)
+
+    return TRAIN_FILE, TEST_FILE, inference_x, np.array(inference_y)
