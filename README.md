@@ -75,6 +75,9 @@ All of our UDT capability demos are mirrored to Google Colab, so you can immedia
 <li><strong>CensusIncomePrediction.ipynb</strong> shows how to build an income prediction model with ThirdAI's Universal Deep Transformer (UDT) model, our all-purpose classifier for tabular datasets.
 <br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/CensusIncomePrediction.ipynb
 </li>
+<li><strong>ClickThroughPrediction.ipynb</strong> shows how you can use UDT to achieve SOTA AUC on Click Through Prediction.
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/ClickThroughPrediction.ipynb
+</li>
 <li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).
 <br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/IntentClassification.ipynb
 </li>
