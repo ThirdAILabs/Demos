@@ -102,7 +102,7 @@ You can also clone this repo and run any of these demo notebooks on any CPU (ARM
 We also have demos explaining how to integrate UDT with different platforms you may already be comfortable with:
 
 <ul>
-<li><strong>integrations/DistributedInferenceDatabricks.ipynb</strong> will show how to use thirdai for distributed inference on Databricks with UDT.</li>
+<li><strong>integrations/ DeployThirdaiwithDatabricks.ipynb</strong> will show how to use thirdai for inference on Databricks with UDT.</li>
 </ul>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
