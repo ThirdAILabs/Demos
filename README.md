@@ -93,6 +93,10 @@ All of our UDT capability demos are mirrored to Google Colab, so you can immedia
 <li><strong>SentimentAnalysis.ipynb</strong> will take you through the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
 <br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/SentimentAnalysis.ipynb
 </li>
+
+<li><strong>TrainingDistributedUDT.ipynb</strong> shows how you can use ThirdAI's UDT in distributed setting using Ray cluster. For this demo, we are using clinc-small for training and evaluation.
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/TrainingDistributedUDT.ipynb
+</li>
 </ul>
 
 You can also clone this repo and run any of these demo notebooks on any CPU (ARM, AMD, Intel), and even desktops and laptops
