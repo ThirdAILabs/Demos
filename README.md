@@ -78,7 +78,7 @@ All of our UDT capability demos are mirrored to Google Colab, so you can immedia
 <li><strong>ClickThroughPrediction.ipynb</strong> shows how you can use UDT to achieve SOTA AUC on Click Through Prediction.
 <br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/ClickThroughPrediction.ipynb
 </li>
-<li><strong>EmbeddingsAndColdStart.ipynb</strong> takes care of your most NLP, search, recommendations, on unstructured raw text.  It shows how to train large neural models on raw text to perform search, recommendations, and generate entity emebeddings as well as embeddings for any text.   
+<li><strong>EmbeddingsAndColdStart.ipynb</strong> takes care of your most NLP, search, and recommendations needs on unstructured raw text.  Learn with simple commands how to train large neural models on raw text to perform search, recommendations, and generate entity emebeddings as well as embeddings for any text. Yes, all (training, inference, and retraining) on simple CPUs.   
 <br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/EmbeddingsAndColdStart.ipynb
 </li>
 <li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).
