@@ -84,6 +84,9 @@ All of our UDT capability demos are mirrored to Google Colab, so you can immedia
 <li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).
 <br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/IntentClassification.ipynb
 </li>
+<li><strong>GraphNodeClassification.ipynb</strong> will show you how to build the fastest graph neural network beat the SOTA accuracy on Graph Node Classification via a plug and play classifier at any given budget (everything autotuned).
+<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/graph_neural_networks/GraphNodeClassification.ipynb
+</li>  
 <li><strong>FraudDetection.ipynb</strong> will show you how easy to build a fraud detection model with UDT.
 <br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/FraudDetection.ipynb
 </li>
