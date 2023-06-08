@@ -13,4 +13,4 @@ paper-qa==1.6.0
 urllib3<2
 nltk==3.8.1
 python-docx
-thirdai==0.7.4
+thirdai==0.7.5
