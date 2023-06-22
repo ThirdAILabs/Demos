@@ -5,14 +5,13 @@ import shutil
 
 
 class CSV(ndb.Document):
-    def __init__(self, path, strong_columns, weak_columns, reference_columns, show_fn=lambda text, *args, **kwargs: print("Showing", text)):
+    def __init__(self, path, strong_columns, weak_columns, reference_columns):
         self.path = Path(path)
         self._hash = ndb.utils.hash_file(path)
         self.df = pd.read_csv(path)
         self.strong_columns = strong_columns
         self.weak_columns = weak_columns
         self.reference_columns = reference_columns
-        self.show_fn = show_fn
     
     def hash(self) -> str:
         return self._hash
@@ -39,8 +38,7 @@ class CSV(ndb.Document):
             element_id=element_id, 
             text=text, 
             source=str(self.path.absolute()), 
-            metadata={},
-            show_fn=self.show_fn)
+            metadata={})
     
     def context(self, element_id: int, radius) -> str:
         rows = self.df.iloc[
