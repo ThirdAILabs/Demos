@@ -1,0 +1,22 @@
+openai==0.27.6
+tools==0.1.9
+pymupdf==1.22.3
+markupsafe==2.0.1
+pandas==2.0.1
+torch --index-url https://download.pytorch.org/whl/cpu
+transformers==4.29.2
+numpy==1.24.3
+gradio==3.30.0
+sentencepiece==0.1.99
+protobuf==3.20
+pillow==9.5.0
+frontend==0.0.3
+langchain==0.0.171
+paper-qa==1.6.0
+accelerate==0.19.0
+urllib3<2
+nltk==3.8.1
+huggingface_hub==0.14.1
+python-docx
+./data/thirdai-0.7.4-cp310-cp310-linux_aarch64.whl
+
