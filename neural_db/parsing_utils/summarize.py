@@ -1,13 +1,15 @@
 import string
+
+import numpy as np
+from nltk.corpus import stopwords
 from nltk.tokenize import sent_tokenize as nlkt_sent_tokenize
 from nltk.tokenize import word_tokenize as nlkt_word_tokenize
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-from nltk.corpus import stopwords
-import numpy as np
 
 
 def cosine_distance(v1, v2):
     return 1 - (v1.dot(v2) / (np.linalg.norm(v1) * np.linalg.norm(v2)))
+
 
 # Calculates cosine similarity
 def similarity(v1, v2):
@@ -15,6 +17,7 @@ def similarity(v1, v2):
     if np.count_nonzero(v1) != 0 and np.count_nonzero(v2) != 0:
         score = ((1 - cosine_distance(v1, v2)) + 1) / 2
     return score
+
 
 def sent_tokenize(text):
     sents = nlkt_sent_tokenize(text)
@@ -55,20 +58,26 @@ def get_tf_idf(sentences):
     word_list = list(np.array(feature_names)[relevant_vector_indices])
     return word_list
 
-def build_embedding_representation(words, model):
+
+def build_embedding_representation(words, model, query_col):
     s = " ".join(words)
-    embedding_representation = model.embedding_representation({"query": s})
+    embedding_representation = model.embedding_representation({query_col: s})
     return embedding_representation
 
-def summarize(text, embedding_model):
+
+def summarize(text, embedding_model, query_col):
     raw_sentences = sent_tokenize(text)
     clean_sentences = cleanup_sentences(text)
     centroid_words = get_tf_idf(clean_sentences)
-    centroid_vector = build_embedding_representation(centroid_words, embedding_model)
+    centroid_vector = build_embedding_representation(
+        centroid_words, embedding_model, query_col
+    )
     sentences_scores = []
     for i in range(len(clean_sentences)):
         words = clean_sentences[i].split()
-        sentence_vector = build_embedding_representation(words, embedding_model)
+        sentence_vector = build_embedding_representation(
+            words, embedding_model, query_col
+        )
         score = similarity(sentence_vector, centroid_vector)
         sentences_scores.append((i, raw_sentences[i], score, sentence_vector))
     sentence_scores_sort = sorted(sentences_scores, key=lambda el: el[2], reverse=True)
