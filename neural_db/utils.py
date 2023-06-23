@@ -2,7 +2,6 @@ from thirdai import neural_db as ndb
 from pathlib import Path
 import pandas as pd
 import shutil
-from thirdai import bolt, licensing
 
 class CSV(ndb.Document):
     def __init__(self, path, id_column, strong_columns, weak_columns, reference_columns) -> None:
@@ -12,7 +11,7 @@ class CSV(ndb.Document):
         assert self.df[id_column].min() == 0
         assert self.df[id_column].max() == len(self.df[id_column]) - 1
 
-        for col in strong_columns + weak_columns:
+        for col in strong_columns + weak_columns + reference_columns:
             self.df[col] = self.df[col].fillna("")
 
         self.path = Path(path)
