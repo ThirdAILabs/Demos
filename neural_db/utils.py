@@ -12,7 +12,7 @@ class CSV(ndb.Document):
         assert self.df[id_column].min() == 0
         assert self.df[id_column].max() == len(self.df[id_column]) - 1
 
-        for col in strong_columns + weak_columns:
+        for col in strong_columns + weak_columns + reference_columns:
             self.df[col] = self.df[col].fillna("")
 
         self.path = Path(path)
