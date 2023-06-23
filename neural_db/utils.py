@@ -5,10 +5,19 @@ import shutil
 from thirdai import bolt, licensing
 
 class CSV(ndb.Document):
-    def __init__(self, path, strong_columns, weak_columns, reference_columns):
+    def __init__(self, path, id_column, strong_columns, weak_columns, reference_columns) -> None:
+        self.df = pd.read_csv(path)
+        self.df = self.df.sort_values(id_column)
+        assert len(self.df[id_column].unique()) == len(self.df[id_column])
+        assert self.df[id_column].min() == 0
+        assert self.df[id_column].max() == len(self.df[id_column]) - 1
+
+        for col in strong_columns + weak_columns:
+            self.df[col] = self.df[col].fillna("")
+
         self.path = Path(path)
         self._hash = ndb.utils.hash_file(path)
-        self.df = pd.read_csv(path)
+        self.id_column = id_column
         self.strong_columns = strong_columns
         self.weak_columns = weak_columns
         self.reference_columns = reference_columns
