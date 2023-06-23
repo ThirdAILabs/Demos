@@ -61,50 +61,6 @@ class InMemoryLogger(Logger):
     def load_meta(self, directory: Path):
         pass
 
-
-class DBLogger(Logger):
-    from DB import models as db_models
-    from DB.db import get_session
-
-    def __init__(self):
-        # TODO(Yash) Initialize anything else as necessary.
-        # E.g. would it be better to move the engine initialization here so
-        # we can store all relevant metadata like whether it's local or online,
-        # or the url.
-        pass
-
-    def name(self):
-        return "db"
-
-    def log(
-        self,
-        session_id: str,
-        action: str,
-        args: dict,
-        train_samples: Optional[any] = None,
-    ):
-        rlhf_data = DBLogger.db_models.Action(
-            user_id=session_id,
-            action=action,
-            args=args,
-            train_samples={"train_samples": train_samples},
-        )
-
-        with DBLogger.get_session() as session:
-            session.add(rlhf_data)
-            session.commit()
-            session.refresh(rlhf_data)
-
-    def save_meta(self, directory: Path):
-        # TODO(Yash): if the database is local (e.g. sqlite?) move the
-        # corresponding files into this directory.
-        pass
-
-    def load_meta(self, directory: Path):
-        # TODO(Yash): perform any necessary setup
-        pass
-
-
 class LoggerList(Logger):
     def __init__(self, loggers: List[Logger]):
         self.loggers = loggers
