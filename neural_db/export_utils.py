@@ -63,7 +63,8 @@ def neural_db_to_playground(db, checkpoint_location, csv = None):
     model_hidden_dim = db_model.hidden_dim
     model_extreme_output_dim = db_model.extreme_output_dim
 
-    raw_model.clear_index()
+    if csv is None:
+        raw_model.clear_index()
     raw_model._get_model().freeze_hash_tables()
 
     from student import models
