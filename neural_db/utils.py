@@ -2,7 +2,6 @@ from thirdai import neural_db as ndb
 from pathlib import Path
 import pandas as pd
 import shutil
-from thirdai import bolt, licensing
 
 class CSV(ndb.Document):
     def __init__(self, path, id_column, strong_columns, weak_columns, reference_columns) -> None:
