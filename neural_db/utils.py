@@ -47,7 +47,7 @@ class CSV(ndb.Document):
             element_id=element_id, 
             text=text, 
             source=str(self.path.absolute()), 
-            metadata={})
+            metadata=row.to_dict())
     
     def context(self, element_id: int, radius) -> str:
         rows = self.df.iloc[
