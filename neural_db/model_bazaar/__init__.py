@@ -1,1 +1,1 @@
-from bazaar import Bazaar
+from .bazaar import Bazaar
