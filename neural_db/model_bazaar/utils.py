@@ -11,7 +11,7 @@ def chunks(path: Path):
 
     if path.is_dir():
         for entry in sorted(os.scandir(path), key=get_name):
-            yield bytes(entry.path, "utf-8")
+            yield bytes(Path(entry.path).name, "utf-8")
             for chunk in chunks(Path(entry.path)):
                 yield chunk
     elif path.is_file():
