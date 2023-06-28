@@ -46,21 +46,3 @@ def http_get_with_error(*args, **kwargs):
     if response.status_code != 200:
         raise FileNotFoundError(f"{response.status_code} error: {response.reason}")
     return response
-
-def streamed_download(source, destination, on_progress):
-    """Makes an HTTP GET request and raises an error if status code is not
-    200.
-    """
-    # Streaming, so we can iterate over the response.
-    response = requests.get(source, allow_redirects=True, stream=True)
-    total_size_in_bytes= int(response.headers.get('content-length', 0))
-    block_size = 1024 #1 Kibibyte
-    size_so_far = 0
-    with open(destination, 'wb') as file:
-        for data in response.iter_content(block_size):
-            size_so_far += len(data)
-            on_progress(fraction=size_so_far / total_size_in_bytes)
-            file.write(data)
-    
-    if size_so_far != total_size_in_bytes:
-        raise ValueError("Failed to download.")

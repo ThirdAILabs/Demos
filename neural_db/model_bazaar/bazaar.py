@@ -4,7 +4,7 @@ import shutil
 from typing import Callable
 from pathlib import Path
 from urllib.parse import urljoin
-
+import requests
 from pydantic import BaseModel
 
 from model_bazaar.utils import get_directory_size, hash_path, http_get_with_error, streamed_download
@@ -93,4 +93,17 @@ class Bazaar:
         )
         download_url = json.loads(signing_response.content)["url"]
         destination = self._cached_model_zip_path(identifier)
-        streamed_download(source=download_url, destination=destination, on_progress=on_progress)
+        
+        # Streaming, so we can iterate over the response.
+        response = requests.get(download_url, allow_redirects=True, stream=True)
+        total_size_in_bytes= int(response.headers.get('content-length', 0))
+        block_size = 1024 #1 Kibibyte
+        size_so_far = 0
+        with open(destination, 'wb') as file:
+            for data in response.iter_content(block_size):
+                size_so_far += len(data)
+                on_progress(fraction=size_so_far / total_size_in_bytes)
+                file.write(data)
+        
+        if size_so_far != total_size_in_bytes:
+            raise ValueError("Failed to download.")
