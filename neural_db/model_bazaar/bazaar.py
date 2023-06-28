@@ -1,12 +1,13 @@
 import json
 import os
 import shutil
+from typing import Callable
 from pathlib import Path
 from urllib.parse import urljoin
 
 from pydantic import BaseModel
 
-from model_bazaar.utils import get_directory_size, hash_path, http_get_with_error
+from model_bazaar.utils import get_directory_size, hash_path, http_get_with_error, streamed_download
 
 
 class BazaarEntry(BaseModel):
@@ -44,7 +45,7 @@ class Bazaar:
         return list(self._registry.keys())
 
     # TODO: On_progress
-    def get_model_dir(self, identifier: str):
+    def get_model_dir(self, identifier: str, on_progress: Callable = lambda fraction: None):
         if identifier not in self._registry:
             raise ValueError(
                 f"Cannot find '{identifier}' in registry. Try fetching first."
@@ -59,7 +60,7 @@ class Bazaar:
             if cached_model_dir:
                 return cached_model_dir
 
-        self._download(identifier)
+        self._download(identifier, on_progress=on_progress)
         return self._unpack_and_remove_zip(identifier)
 
     def _cached_model_dir_path(self, identifier: str):
@@ -85,12 +86,11 @@ class Bazaar:
         os.remove(zip_path)
         return extract_dir
 
-    def _download(self, identifier: str):
+    def _download(self, identifier: str, on_progress: Callable):
         signing_url = urljoin(self._base_url, "download")
         signing_response = http_get_with_error(
             signing_url, params={"display_name": identifier}
         )
         download_url = json.loads(signing_response.content)["url"]
-        download_response = http_get_with_error(download_url, allow_redirects=True)
         destination = self._cached_model_zip_path(identifier)
-        open(destination, "wb").write(download_response.content)
+        streamed_download(source=download_url, destination=destination, on_progress=on_progress)
