@@ -107,7 +107,7 @@ class Bazaar:
         with open(destination, "wb") as file:
             for data in response.iter_content(block_size):
                 size_so_far += len(data)
-                on_progress(fraction=size_so_far / total_size_in_bytes)
+                on_progress(size_so_far / total_size_in_bytes)
                 file.write(data)
 
         if size_so_far != total_size_in_bytes:
