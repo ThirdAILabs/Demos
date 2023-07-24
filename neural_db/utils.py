@@ -1,65 +1,53 @@
-from thirdai import neural_db as ndb
-from pathlib import Path
-import pandas as pd
-import shutil
+import openai
 
-class CSV(ndb.Document):
-    def __init__(self, path, id_column, strong_columns, weak_columns, reference_columns) -> None:
-        self.df = pd.read_csv(path)
-        self.df = self.df.sort_values(id_column)
-        assert len(self.df[id_column].unique()) == len(self.df[id_column])
-        assert self.df[id_column].min() == 0
-        assert self.df[id_column].max() == len(self.df[id_column]) - 1
+def ask_gpt(messages):
+    response = openai.ChatCompletion.create(
+        model='gpt-3.5-turbo-16k',
+        messages=messages, 
+    )
 
-        for col in strong_columns + weak_columns + reference_columns:
-            self.df[col] = self.df[col].fillna("")
+    response_content = response.choices[0].message.content
+    return response_content
 
-        self.path = Path(path)
-        self._hash = ndb.utils.hash_file(path)
-        self.id_column = id_column
-        self.strong_columns = strong_columns
-        self.weak_columns = weak_columns
-        self.reference_columns = reference_columns
-    
-    def hash(self) -> str:
-        return self._hash
-    
-    def size(self) -> int:
-        return len(self.df)
-    
-    def name(self) -> str:
-        return self.path.name
-    
-    def strong_text(self, element_id: int) -> str:
-        row = self.df.iloc[element_id]
-        return " ".join([row[col] for col in self.strong_columns])
-    
-    def weak_text(self, element_id: int) -> str:
-        row = self.df.iloc[element_id]
-        return " ".join([row[col] for col in self.weak_columns])
-    
-    def reference(self, element_id: int) -> ndb.Reference:
-        row = self.df.iloc[element_id]
-        text = " ".join([row[col] for col in self.reference_columns])
-        return ndb.Reference(
-            document=self,
-            element_id=element_id, 
-            text=text, 
-            source=str(self.path.absolute()), 
-            metadata=row.to_dict())
-    
-    def context(self, element_id: int, radius) -> str:
-        rows = self.df.iloc[
-            max(0, element_id - radius):
-            min(len(self.df), element_id + radius)]
-        return " ".join([row[col] for col in self.reference_columns for row in rows])
-    
-    def save_meta(self, directory: Path):
-        # Let's copy the original CSV file to the provided directory
-        shutil.copy(self.path, directory)
-    
-    def load_meta(self, directory: Path):
-        # Since we've moved the CSV file to the provided directory, let's make
-        # sure that we point to this CSV file.
-        self.path = directory / self.path.name
 
+def get_capabilities(db, task, context, top_k=1):
+    initial_message = {"role": "user", "content": task + "\n" + context}
+
+    response = ask_gpt([initial_message])
+    broad_action_items_message = {"role": "assistant", "content": response}
+
+    generate_queries_str = f"""
+    This request comes from a company with proprietary data. Suppose you had a semantic
+    search system that contains a variety of information from its website, including
+    products, applications, research, design support, community, etc. Come up with a
+    list of 5-10 short queries (10-20 words) that would collect all of the necessary
+    auxiliary information to complete the above task. You should return ONLY these
+    queries such that I might be able to split the resulting string with string.split('\n')
+    in python. Do not include numbers as prefixes and do not add quotes to each query.
+    """
+
+    generate_queries_message = {"role": "user", "content": generate_queries_str}
+
+    response = ask_gpt([initial_message, broad_action_items_message, generate_queries_message])
+
+    queries = response.split("\n")
+
+    source_information = ""
+    for query in queries:
+        search_results = db.search(
+        query=query,
+        top_k=top_k,
+        on_error=lambda error_msg: print(f"Error! {error_msg}"))
+        source_information += search_results[0].text + "\n"
+    
+    gpts_queries_message = {"role": "assistant", "content": response}
+
+    refine_action_items_str = """
+    Here are the answers to all of your questions. Revise the set of capabilities given this auxiliary information.\n\n
+    """
+    refine_action_items_str += source_information
+    refine_action_items_message = {"role": "user", "content": refine_action_items_str}
+
+    response = ask_gpt([initial_message, broad_action_items_message, generate_queries_message, gpts_queries_message, refine_action_items_message])
+    
+    return response
