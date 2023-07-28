@@ -3,6 +3,7 @@ import os
 import shutil
 from pathlib import Path
 from urllib.parse import urljoin
+from thirdai import neural_db
 
 from pydantic import BaseModel
 
@@ -28,7 +29,9 @@ class BazaarEntry(BaseModel):
 
 
 class Bazaar:
-    def __init__(self, cache_dir: Path, base_url: str = "https://model-zoo.azurewebsites.net/"):
+    def __init__(
+        self, cache_dir: Path, base_url: str = "https://model-zoo.azurewebsites.net/"
+    ):
         self._base_url = base_url
         self._cache_dir = cache_dir
         self._registry = {}
@@ -61,6 +64,10 @@ class Bazaar:
 
         self._download(identifier)
         return self._unpack_and_remove_zip(identifier)
+
+    def get_model(self, identifier: str):
+        model_dir = self.get_model_dir(identifier=identifier)
+        return neural_db.NeuralDB.from_checkpoint(checkpoint_path=model_dir, user_id="")
 
     def _cached_model_dir_path(self, identifier: str):
         return self._cache_dir / identifier
