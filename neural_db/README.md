@@ -11,17 +11,17 @@ With the capacity to scale search capabilities over thousands of pages, NeuralDB
 NeuralDB uses your documents to create an intelligent search engine. It supports a wide array of document formats including CSV, PDF, and DOCX.
 
 ```python
-csv_doc = NeuralDB.CSV(
-        filename,
-        id_column="id",
-        strong_columns=["text"],
-        weak_columns=["text"],
-        reference_columns=["id", "text"],
-    )
-
 pdf_doc = ndb.PDF(filename)
 
 docx_doc = ndb.DOCX(filename)
+
+csv_doc = NeuralDB.CSV(
+        filename,
+        id_column="id", # expected to be between [0 and num_rows)
+        strong_columns=["title"], # a "strong" text signal like titles or tags
+        weak_columns=["text"], # a "weak" text signal like description or bullets
+        reference_columns=["id", "title", "text"], # columns you'd like shown in subsequent search results
+)
 ```
 
 ## Creating your NeuralDB
