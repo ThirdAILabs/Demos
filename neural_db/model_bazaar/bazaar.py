@@ -3,9 +3,11 @@ import os
 import shutil
 from pathlib import Path
 from urllib.parse import urljoin
+import requests
 from thirdai import neural_db
 
 from pydantic import BaseModel
+from tqdm import tqdm
 
 from model_bazaar.utils import get_directory_size, hash_path, http_get_with_error
 
@@ -98,6 +100,18 @@ class Bazaar:
             signing_url, params={"display_name": identifier}
         )
         download_url = json.loads(signing_response.content)["url"]
-        download_response = http_get_with_error(download_url, allow_redirects=True)
         destination = self._cached_model_zip_path(identifier)
-        open(destination, "wb").write(download_response.content)
+        response = requests.get(download_url, allow_redirects=True, stream=True)
+        total_size_in_bytes = int(response.headers.get("content-length", 0))
+        block_size = 1024 * 1024 * 4  # 4MiB
+        size_so_far = 0
+        with open(destination, "wb") as file, tqdm(
+            total=total_size_in_bytes, unit="B", unit_scale=True, desc="Downloading"
+        ) as progress_bar:
+            for data in response.iter_content(block_size):
+                size_so_far += len(data)
+                file.write(data)
+                progress_bar.update(len(data))
+
+        if size_so_far != total_size_in_bytes:
+            raise ValueError("Failed to download.")
