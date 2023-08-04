@@ -97,7 +97,11 @@ A: NeuralDB currently supports CSV, PDF, and DOCX formats. Additionally ask us a
 
 **Q: What are some best practices around retraining?**
 
-A: If you have to insert new documents greater than about 10% the size of your current data size, we recommend retraining the database with another insert call (train=True). On frequent incremental additions this will ensure that search results are balanced across your data.
+A: If you have to insert new documents greater than about 10% the size of your current data size, we recommend retraining the database. On frequent incremental additions this will ensure that search results are balanced across your data. To retrain the database, do the following
+```python
+db.clear_sources() # forgets all the documents
+db.insert(documents, train=True)
+```
 
 Additionally, we always recommend using train=True when possible to maximize the learning capability that NeuralDB offers. 
 
