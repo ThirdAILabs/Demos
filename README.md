@@ -43,9 +43,7 @@ With the capacity to scale search capabilities over thousands of pages, NeuralDB
 Here is a quick overview of how NeuralDB works:
 
 ```python
-from thirdai import neural_db as ndb, licensing
-
-licensing.activate("") # insert your valid license key here
+from thirdai import neural_db as ndb
 
 db = neural_db.NeuralDB()
 
@@ -107,7 +105,16 @@ See the `udt` folder for more examples and documentation.
 <!-- LICENSE -->
 # 📄 License
 
-Many notebooks come with an API key that will only work on the dataset in the demo. If you want to try out ThirdAI on your own dataset, simply register for a free license [here](https://www.thirdai.com/try-bolt/). We look forward to hearing from you!
+Many notebooks come with an API key that will only work on the dataset in the demo. If you want to try out ThirdAI on your own dataset, simply register for a free license [here](https://www.thirdai.com/try-bolt/).
+
+To use your license do the following before constructing your NeuralDB or UDT models.
+```python
+from thirdai import licensing
+
+licensing.activate("") # insert your valid license key here
+
+# create NeuralDB or UDT ...
+```
 
 Please refer to `LICENSE.txt` for more information on usage terms.
 
