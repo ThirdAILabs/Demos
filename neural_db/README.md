@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to NeuralDB, a personalized database for neural text search over your documents. Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, NeuralDB is designed with privacy at its core, ensuring your data never leaves your local machine. 
+Welcome to NeuralDB, an efficient, private, teachable database for neural text search over your documents. Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
 
 With the capacity to scale search capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
