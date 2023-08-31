@@ -29,30 +29,6 @@
 </div>
 
 
-
-<!-- TABLE OF CONTENTS -->
-<br>
-Table of Contents
-<ol>
-  <li>
-    <a href="#👋-welcome">Welcome</a>
-  </li>
-  <li>
-    <a href="#🚀-quickstart">Quickstart</a>
-    <ul>
-      <li><a href="#step-1:-downloading-a-license">Downloading a License</a></li>
-      <li><a href="#step-2:-installation">Installation</a></li>
-    </ul>
-  </li>
-  <li><a href="#🎮-usage">Usage</a></li>
-  <li><a href="#📄-license">License</a></li>
-  <li><a href="#🎙-contact">Contact</a></li>
-</ol>
-
-<br>
-
-
-
 <!-- ABOUT THE PROJECT -->
 # 👋 Welcome
 
