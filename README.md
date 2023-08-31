@@ -43,11 +43,13 @@ NeuralDB is a personalized database for neural text search over your documents. 
 
 With the capacity to scale search capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
-See the `neural_db` folder for more details. 
+See the `neural_db` folder for more examples and documentation. 
 
 ## Universal Deep Transformer
 
 Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine.
+
+See the `udt` folder for more examples and documentation. 
 
 <!-- LICENSE -->
 # 📄 License
