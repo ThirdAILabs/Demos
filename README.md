@@ -81,7 +81,7 @@ Universal Deep Transformer (UDT) is our consolidated API for processing tabular 
 Some applications of UDT include:
 * Netflix-style Movie Recommendation
 * Query Reformulation
-* Graph Neural Networks
+* Graph Node Classification
 * Sentiment Analysis
 * Fraud Detection
 * and more!
