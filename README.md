@@ -34,7 +34,7 @@
 
 All of ThirdAI's technology is powered by its BOLT library. BOLT is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demos repo will help get you familiar with our products [Neural DB](https://medium.com/thirdai-blog/thirdais-private-and-personalizable-neural-database-enhancing-retrieval-augmented-generation-f3ad52c54952) and [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
 
-# NeuralDB
+# 🧠 NeuralDB
 
 NeuralDB is an efficient, private, teachable database for neural text search over your documents. Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
 
@@ -74,7 +74,7 @@ db.text_to_result("made by and between",0)
 
 See the `neural_db` folder for more examples and documentation. 
 
-# Universal Deep Transformer
+# 🪐🕳️🤖 Universal Deep Transformer
 
 Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine.
 
