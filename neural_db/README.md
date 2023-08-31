@@ -6,24 +6,6 @@ Welcome to NeuralDB, a personalized database for neural text search over your do
 
 With the capacity to scale search capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
-## Documents
-
-NeuralDB uses your documents to create an intelligent search engine. It supports a wide array of document formats including CSV, PDF, and DOCX.
-
-```python
-pdf_doc = ndb.PDF(filename)
-
-docx_doc = ndb.DOCX(filename)
-
-csv_doc = NeuralDB.CSV(
-        filename,
-        id_column="id", # expected to be between [0 and num_rows)
-        strong_columns=["title"], # a "strong" text signal like titles or tags
-        weak_columns=["text"], # a "weak" text signal like description or bullets
-        reference_columns=["id", "title", "text"], # columns you'd like shown in subsequent search results
-)
-```
-
 ## Creating your NeuralDB
 
 This step will assume you have installed the thirdai python package and obtained a valid license. Our python package is available through pip via ```pip3 install thirdai```. To obtain a license please visit https://www.thirdai.com/try-bolt 
@@ -50,6 +32,24 @@ print(bazaar.list_model_names())
 # pass the string identifier of the model you'd like to use. General QnA is our 
 # most generic and foundational pre-trained model for the majority of use cases. 
 ndb = bazaar.get_model("General QnA")
+```
+
+## Documents
+
+NeuralDB uses your documents to create an intelligent search engine. It supports a wide array of document formats including CSV, PDF, and DOCX.
+
+```python
+pdf_doc = neural_db.PDF(filename)
+
+docx_doc = neural_db.DOCX(filename)
+
+csv_doc = neural_db.CSV(
+        filename,
+        id_column="id", # expected to be between [0 and num_rows)
+        strong_columns=["title"], # a "strong" text signal like titles or tags
+        weak_columns=["text"], # a "weak" text signal like description or bullets
+        reference_columns=["id", "title", "text"], # columns you'd like shown in subsequent search results
+)
 ```
 
 ## Inserting and Searching Documents
