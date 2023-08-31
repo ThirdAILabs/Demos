@@ -76,7 +76,15 @@ See the `neural_db` folder for more examples and documentation.
 
 # 🪐 Universal Deep Transformer
 
-Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine.
+Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, graph, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
+
+Some applications of UDT include:
+* Netflix-style Movie Recommendation
+* Query Reformulation
+* Graph Neural Networks
+* Sentiment Analysis
+* Fraud Detection
+* and more!
 
 Here is an example of the UDT API used for multi-label tabular classification:
 
