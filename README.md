@@ -22,11 +22,9 @@
     <br>
     <a href="https://thirdai.com">[Website]</a>
     ·
-    <a href="https://thirdai.com/docs/">[Docs]</a>
+    <a href="https://github.com/ThirdAILabs/Demos/issues">[Report Issues]</a>
     ·
-    <a href="https://github.com/ThirdAILabs/Demos/issues">[Report Bug]</a>
-    ·
-    <a href="https://www.thirdai.com/careers/">[We're Hiring]</a>
+    <a href="https://www.thirdai.com/careers/">[Careers]</a>
   </p>
 </div>
 
@@ -58,64 +56,23 @@ Table of Contents
 <!-- ABOUT THE PROJECT -->
 # 👋 Welcome
 
-ThirdAI's BOLT library is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demo repo will help get you familiar with BOLT's [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
+All of ThirdAI's technology is powered by its BOLT library. BOLT is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demos repo will help get you familiar with our products [Neural DB](https://medium.com/thirdai-blog/thirdais-private-and-personalizable-neural-database-enhancing-retrieval-augmented-generation-f3ad52c54952) and [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 # 🚀 Quickstart
 
-### Step 1: Running a UDT Demo
+## NeuralDB
 
-All of our UDT capability demos are mirrored to Google Colab, so you can immediately run any of them by clicking the associated link:
+NeuralDB is a personalized database for neural text search over your documents. It supports a wide array of document formats including CSV, PDF, and DOCX. NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, NeuralDB is designed with privacy at its core, ensuring your data never leaves your local machine. 
 
-<ul>
-<li><strong>CensusIncomePrediction.ipynb</strong> shows how to build an income prediction model with ThirdAI's Universal Deep Transformer (UDT) model, our all-purpose classifier for tabular datasets.
-<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/classification/CensusIncomePrediction.ipynb
-</li>
-<li><strong>ClickThroughPrediction.ipynb</strong> shows how you can use UDT to achieve SOTA AUC on Click Through Prediction.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/ClickThroughPrediction.ipynb
-</li>
-<li><strong>EmbeddingsAndColdStart.ipynb</strong> takes care of your most NLP, search, and recommendations needs on unstructured raw text.  Learn with simple commands how to train large neural models on raw text to perform search, recommendations, and generate entity emebeddings as well as embeddings for any text. Yes, all (training, inference, and retraining) on simple CPUs.   
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/embeddings/EmbeddingsAndColdStart.ipynb
-</li>
-<li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/IntentClassification.ipynb
-</li>
-<li><strong>GraphNodeClassification.ipynb</strong> will show you how to build the fastest graph neural network beat the SOTA accuracy on Graph Node Classification via a plug and play classifier at any given budget (everything autotuned).
-<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/graph_neural_networks/GraphNodeClassification.ipynb
-</li>  
-<li><strong>FraudDetection.ipynb</strong> will show you how easy to build a fraud detection model with UDT.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/FraudDetection.ipynb
-</li>
-<li><strong>PersonalizedMovieRecommendations.ipynb</strong> will show you how to build personalization model for movie recommendation. UDT can be used to build any kind of personlization and recomnedation models with ease and deliver SOTA results.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/personlization_and_recommendation/PersonalizedMovieRecommendations.ipynb
-</li>
-<li><strong>QueryReformulation.ipynb</strong> shows how to build a query reformulation model with UDT, providing an easy and faster (less than 1 ms) solution for query reformulation.
-<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/QueryReformulation.ipynb
-</li>
-<li><strong>SentimentAnalysis.ipynb</strong> will take you through the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/SentimentAnalysis.ipynb
-</li>
+With the capacity to scale search capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
-<li><strong>TrainingDistributedUDT.ipynb</strong> shows how you can use ThirdAI's UDT in distributed setting using Ray cluster. For this demo, we are using clinc-small for training and evaluation.
-<br>https://github.com/ThirdAILabs/Demos/blob/main/distributed/TrainingDistributedUDT.ipynb
-</li>
-</ul>
+## Universal Deep Transformer
 
-You can also clone this repo and run any of these demo notebooks on any CPU (ARM, AMD, Intel), and even desktops and laptops
-
-### Step 2: Integrating UDT with an Existing Platform
-
-We also have demos explaining how to integrate UDT with different platforms you may already be comfortable with:
-
-<ul>
-<li><strong>integrations/DeployThirdaiwithDatabricks.ipynb</strong> will show how to use thirdai for inference on Databricks with UDT.</li>
-</ul>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, and time series input data and generalizes to multi-class classification, multi-label retrieval, and regression problems. 
 
 ### Step 3: Trying UDT on Your Own Dataset
 
