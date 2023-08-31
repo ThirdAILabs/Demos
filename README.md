@@ -17,131 +17,119 @@
 <h1 align="center">Demos</h1>
 
   <p align="center">
-    Interactive notebooks for exploring ThirdAI's BOLT library.
+    Interactive notebooks for exploring the ThirdAI library.
     <br>
     <br>
     <a href="https://thirdai.com">[Website]</a>
     ·
-    <a href="https://thirdai.com/docs/">[Docs]</a>
+    <a href="https://github.com/ThirdAILabs/Demos/issues">[Report Issues]</a>
     ·
-    <a href="https://github.com/ThirdAILabs/Demos/issues">[Report Bug]</a>
-    ·
-    <a href="https://www.thirdai.com/careers/">[We're Hiring]</a>
+    <a href="https://www.thirdai.com/careers/">[Careers]</a>
   </p>
 </div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<br>
-Table of Contents
-<ol>
-  <li>
-    <a href="#👋-welcome">Welcome</a>
-  </li>
-  <li>
-    <a href="#🚀-quickstart">Quickstart</a>
-    <ul>
-      <li><a href="#step-1:-downloading-a-license">Downloading a License</a></li>
-      <li><a href="#step-2:-installation">Installation</a></li>
-    </ul>
-  </li>
-  <li><a href="#🎮-usage">Usage</a></li>
-  <li><a href="#📄-license">License</a></li>
-  <li><a href="#🎙-contact">Contact</a></li>
-</ol>
-
-<br>
-
 
 
 <!-- ABOUT THE PROJECT -->
 # 👋 Welcome
 
-ThirdAI's BOLT library is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demo repo will help get you familiar with BOLT's [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
+All of ThirdAI's technology is powered by its BOLT library. BOLT is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demos repo will help get you familiar with our products [Neural DB](https://medium.com/thirdai-blog/thirdais-private-and-personalizable-neural-database-enhancing-retrieval-augmented-generation-f3ad52c54952) and [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+# 🧠 NeuralDB
 
+NeuralDB is an efficient, private, teachable database for neural text search over your documents. Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
 
+With the capacity to scale search capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
-<!-- GETTING STARTED -->
-# 🚀 Quickstart
+Here is a quick overview of how NeuralDB works:
 
-### Step 1: Running a UDT Demo
+```python
+from thirdai import neural_db as ndb
 
-All of our UDT capability demos are mirrored to Google Colab, so you can immediately run any of them by clicking the associated link:
+db = neural_db.NeuralDB()
 
-<ul>
-<li><strong>CensusIncomePrediction.ipynb</strong> shows how to build an income prediction model with ThirdAI's Universal Deep Transformer (UDT) model, our all-purpose classifier for tabular datasets.
-<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/classification/CensusIncomePrediction.ipynb
-</li>
-<li><strong>ClickThroughPrediction.ipynb</strong> shows how you can use UDT to achieve SOTA AUC on Click Through Prediction.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/ClickThroughPrediction.ipynb
-</li>
-<li><strong>EmbeddingsAndColdStart.ipynb</strong> takes care of your most NLP, search, and recommendations needs on unstructured raw text.  Learn with simple commands how to train large neural models on raw text to perform search, recommendations, and generate entity emebeddings as well as embeddings for any text. Yes, all (training, inference, and retraining) on simple CPUs.   
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/embeddings/EmbeddingsAndColdStart.ipynb
-</li>
-<li><strong>IntentClassification.ipynb</strong> will show you how to get near SOTA accuracy on most text classification via a plug and play classifier at any given budget (everything autotuned).
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/IntentClassification.ipynb
-</li>
-<li><strong>GraphNodeClassification.ipynb</strong> will show you how to build the fastest graph neural network beat the SOTA accuracy on Graph Node Classification via a plug and play classifier at any given budget (everything autotuned).
-<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/graph_neural_networks/GraphNodeClassification.ipynb
-</li>  
-<li><strong>FraudDetection.ipynb</strong> will show you how easy to build a fraud detection model with UDT.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/FraudDetection.ipynb
-</li>
-<li><strong>PersonalizedMovieRecommendations.ipynb</strong> will show you how to build personalization model for movie recommendation. UDT can be used to build any kind of personlization and recomnedation models with ease and deliver SOTA results.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/personlization_and_recommendation/PersonalizedMovieRecommendations.ipynb
-</li>
-<li><strong>QueryReformulation.ipynb</strong> shows how to build a query reformulation model with UDT, providing an easy and faster (less than 1 ms) solution for query reformulation.
-<br>https://colab.research.google.com/github/ThirdAILabs/Demos/blob/main/QueryReformulation.ipynb
-</li>
-<li><strong>SentimentAnalysis.ipynb</strong> will take you through the process of creating a network to use during sparse training and sparse inference with the goal of predicting positive/negative sentiment.
-<br>https://githubtocolab.com/ThirdAILabs/Demos/blob/main/classification/SentimentAnalysis.ipynb
-</li>
+db.insert(
+  sources=[ndb.PDF(filename), ndb.DOCX(filename), ndb.CSV(filename)], 
+  train=True
+)
 
-<li><strong>TrainingDistributedUDT.ipynb</strong> shows how you can use ThirdAI's UDT in distributed setting using Ray cluster. For this demo, we are using clinc-small for training and evaluation.
-<br>https://github.com/ThirdAILabs/Demos/blob/main/distributed/TrainingDistributedUDT.ipynb
-</li>
-</ul>
+results = ndb.search(
+    query="what is the termination period of this contract?",
+    top_k=2,
+)
 
-You can also clone this repo and run any of these demo notebooks on any CPU (ARM, AMD, Intel), and even desktops and laptops
+for result in results:
+    print(result.text)
 
-### Step 2: Integrating UDT with an Existing Platform
+```
 
-We also have demos explaining how to integrate UDT with different platforms you may already be comfortable with:
+NeuralDB also provides teaching methods for incorporating human feedback into its search.
 
-<ul>
-<li><strong>integrations/DeployThirdaiwithDatabricks.ipynb</strong> will show how to use thirdai for inference on Databricks with UDT.</li>
-</ul>
+```python
+# associate a source with a target
+db.associate(source="parties involved", target="made by and between")
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+# associate text with a result
+db.text_to_result("made by and between",0)
+```
 
-### Step 3: Trying UDT on Your Own Dataset
+See the `neural_db` folder for more examples and documentation. 
 
-Each of these notebooks has an API key that will only work on the dataset in the demo. If you want to try out ThirdAI on your own dataset, simply register for a free license [here](https://www.thirdai.com/try-bolt/). We look forward to hearing from you!
+# 🪐 Universal Deep Transformer
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, graph, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
 
+Some applications of UDT include:
+* Netflix-style Movie Recommendation
+* Query Reformulation
+* Graph Node Classification
+* Sentiment Analysis
+* Fraud Detection
+* and more!
+
+Here is an example of the UDT API used for multi-label tabular classification:
+
+```python
+from thirdai import bolt
+
+model = bolt.UniversalDeepTransformer(
+    data_types={
+        "title": bolt.types.text(),
+        "category": bolt.types.categorical(),
+        "number": bolt.types.numerical(range=(0, 100)),
+        "label": bolt.types.categorical(delimiter=":")
+    },
+    target="label",
+    n_target_classes=2,
+    delimiter='\t',
+)
+
+model.train(filename.csv, epochs=5, learning_rate=0.001, metrics=["precision@1"])
+
+model.predict({"title": "Red shoes", "category": "XL", "number": "12.6"})
+```
+
+See the `udt` folder for more examples and documentation. 
 
 <!-- LICENSE -->
 # 📄 License
 
+Many notebooks come with an API key that will only work on the dataset in the demo. If you want to try out ThirdAI on your own dataset, simply register for a free license [here](https://www.thirdai.com/try-bolt/).
+
+To use your license do the following before constructing your NeuralDB or UDT models.
+```python
+from thirdai import licensing
+
+licensing.activate("") # insert your valid license key here
+
+# create NeuralDB or UDT ...
+```
+
 Please refer to `LICENSE.txt` for more information on usage terms.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <!-- CONTACT -->
 # 🎙 Contact
 
 ThirdAILabs - [@ThirdAILab](https://twitter.com/ThirdAILab) - [contact@thirdai.com](mailto:contact@thirdai.com)
-
-Project Link: [https://github.com/ThirdAILabs/Demos](https://github.com/ThirdAILabs/Demos)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
