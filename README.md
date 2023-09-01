@@ -108,7 +108,7 @@ model.train(filename.csv, epochs=5, learning_rate=0.001, metrics=["precision@1"]
 model.predict({"title": "Red shoes", "category": "XL", "number": "12.6"})
 ```
 
-See the `udt` folder for more examples and documentation. 
+See the `universal_deep_transformer` folder for more examples and documentation. 
 
 <!-- LICENSE -->
 # 📄 License
