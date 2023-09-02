@@ -36,9 +36,9 @@ All of ThirdAI's technology is powered by its BOLT library. BOLT is a deep-learn
 
 # 🧠 NeuralDB
 
-NeuralDB is an efficient, private, teachable database for neural text search over your documents. Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
+NeuralDB is an efficient, private, teachable CPU-only simplified alternative for embedding and vector DB. Read our three part blog on why you need NeuralDB [here](https://medium.com/thirdai-blog/understanding-the-fundamental-limitations-of-vector-based-retrieval-for-building-llm-powered-48bb7b5a57b3).  Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
 
-With the capacity to scale search capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
+With the capacity to scale Retreival Augmented Generation (RAG) capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
 Here is a quick overview of how NeuralDB works:
 
@@ -62,7 +62,7 @@ for result in results:
 
 ```
 
-NeuralDB also provides teaching methods for incorporating human feedback into its search.
+NeuralDB also provides teaching methods for incorporating human feedback into RAG.
 
 ```python
 # associate a source with a target
@@ -76,7 +76,7 @@ See the `neural_db` folder for more examples and documentation.
 
 # 🪐 Universal Deep Transformer
 
-Universal Deep Transformer (UDT) is our consolidated API for processing tabular data of any form. It handles text, numeric, categorical, multi-categorical, graph, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
+Universal Deep Transformer (UDT) is our consolidated API for processing a variety of data of any form. It handles text, numeric, categorical, multi-categorical, graph, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
 
 Some applications of UDT include:
 * Netflix-style Movie Recommendation
