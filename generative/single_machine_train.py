@@ -23,9 +23,9 @@ model.train(
     epochs=5,
     batch_size=10_000,
     learning_rate=0.00001,
-    train_metrics=["loss", "categorical_accuracy"],
+    train_metrics=["loss"],
     val_data=val_data,
-    val_metrics=["loss", "categorical_accuracy"],
+    val_metrics=["loss"],
 )
 
 model.save(SAVE_PATH)

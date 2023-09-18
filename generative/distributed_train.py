@@ -67,7 +67,7 @@ def train_loop_per_worker(config):
         learning_rate=config["learning_rate"],
         train_metrics=["loss"],
         val_data=val_data,
-        val_metrics=["loss", "categorical_accuracy"],
+        val_metrics=["loss"],
     )
 
     # Make sure to pass absolute path here, else it would just save the model inside <Home>/ray_results/Bolt_Trainer_<session-id>/BoltTrainer-<session-id>/rank_0/trained_generative.model
