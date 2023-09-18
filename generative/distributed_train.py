@@ -13,7 +13,7 @@ licensing.activate("")
 TRAIN_FILE = ""  # add the trianing file here
 VALIDATION_FILE = ""  # add the validatoin file here
 MODEL_PATH = ""  # add model_path here
-
+MODEL_SAVE_PATH = "" # location to save model
 
 # This scaling config is right now for single machine training, and to run num_workers worker on that machine
 def setup_ray(num_workers=2):
@@ -67,12 +67,12 @@ def train_loop_per_worker(config):
         learning_rate=config["learning_rate"],
         train_metrics=["loss"],
         val_data=val_data,
-        val_metrics=["loss", "categorical_accuracy"],
+        val_metrics=["loss"],
     )
 
     # Make sure to pass absolute path here, else it would just save the model inside <Home>/ray_results/Bolt_Trainer_<session-id>/BoltTrainer-<session-id>/rank_0/trained_generative.model
     if session.get_world_rank() == 0:
-        model.save("/share/pratik/trained_generative.model")
+        model.save(MODEL_SAVE_PATH)
 
 
 scaling_config = setup_ray()
