@@ -11,7 +11,7 @@ We trained model in distributed setting using 10 intel sapphire rapids (Intel Sa
 ## Quick Start
 BOLT provides simple apis via our python package. A free user license that is limited to model inference is provided along with the example scripts. Please reach out to us at https://www.thirdai.com/contact/ to receive a free license for finetuning. 
 
-You can also try out the model on hugging face spaces here. 
+You can also try out the model on hugging face spaces [here](https://huggingface.co/spaces/thirdai/BOLT2.5B). 
 
 Steps to start using `BOLT2.5B`:
 1. Install thirdai, at least version 0.7.20.
