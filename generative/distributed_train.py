@@ -13,7 +13,8 @@ licensing.activate("")
 TRAIN_FILE = ""  # add the trianing file here
 VALIDATION_FILE = ""  # add the validatoin file here
 MODEL_PATH = ""  # add model_path here
-MODEL_SAVE_PATH = "" # location to save model
+MODEL_SAVE_PATH = ""  # location to save model
+
 
 # This scaling config is right now for single machine training, and to run num_workers worker on that machine
 def setup_ray(num_workers=2):
@@ -42,6 +43,10 @@ def setup_ray(num_workers=2):
 
 
 def train_loop_per_worker(config):
+    # Please reach out to us at https://www.thirdai.com/contact/ to receive a free
+    # license for finetuning.
+    licensing.activate("")
+
     # only train data would be splitted
     train_split_data_iterator = session.get_dataset_shard("train")
     validation_data_iterator = session.get_dataset_shard("validation")
