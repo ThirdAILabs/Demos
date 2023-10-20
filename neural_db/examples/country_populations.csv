@@ -1,0 +1,235 @@
+id,Region/Country/Area,Population aged 0 to 14 years old (percentage),Population aged 60+ years old (percentage),Population density,Population mid-year estimates (millions),Population mid-year estimates for females (millions),Population mid-year estimates for males (millions),Sex ratio (males per 100 females),Dummy Description
+0,Afghanistan,43.1,3.8,63.3,41.13,20.36,20.77,102.0,Afghanistan is a country in the UN populations dataset.
+1,Albania,16.1,23.5,103.7,2.84,1.42,1.42,99.5,Albania is a country in the UN populations dataset.
+2,Algeria,30.6,9.7,18.9,44.90,22.04,22.86,103.7,Algeria is a country in the UN populations dataset.
+3,American Samoa,27.1,12.1,221.4,0.04,0.02,0.02,97.6,American Samoa is a country in the UN populations dataset.
+4,Andorra,12.8,21.6,169.8,0.08,0.04,0.04,104.5,Andorra is a country in the UN populations dataset.
+5,Angola,45.0,4.3,28.5,35.59,18.0,17.59,97.7,Angola is a country in the UN populations dataset.
+6,Anguilla,17.3,16.0,180.2,0.02,0.01,0.01,95.8,Anguilla is a country in the UN populations dataset.
+7,Antigua and Barbuda,18.5,16.1,213.1,0.09,0.05,0.04,91.4,Antigua and Barbuda is a country in the UN populations dataset.
+8,Argentina,23.1,16.2,16.3,45.51,22.98,22.53,98.0,Argentina is a country in the UN populations dataset.
+9,Armenia,20.5,20.3,97.7,2.78,1.53,1.25,81.7,Armenia is a country in the UN populations dataset.
+10,Aruba,16.2,23.9,591.4,0.11,0.06,0.05,89.2,Aruba is a country in the UN populations dataset.
+11,Australia,18.2,22.6,3.4,26.18,13.18,13.0,98.6,Australia is a country in the UN populations dataset.
+12,Austria,14.4,26.7,108.3,8.94,4.54,4.4,97.0,Austria is a country in the UN populations dataset.
+13,Azerbaijan,23.5,12.5,125.3,10.36,5.25,5.11,97.4,Azerbaijan is a country in the UN populations dataset.
+14,Bahamas,19.1,13.9,76.5,0.41,0.21,0.2,91.4,Bahamas is a country in the UN populations dataset.
+15,Bahrain,20.2,6.9,1880.2,1.47,0.56,0.91,162.9,Bahrain is a country in the UN populations dataset.
+16,Bangladesh,26.0,9.3,1315.1,171.19,86.33,84.86,98.3,Bangladesh is a country in the UN populations dataset.
+17,Barbados,16.9,23.1,655.0,0.28,0.15,0.14,92.2,Barbados is a country in the UN populations dataset.
+18,Belarus,16.8,24.5,47.0,9.54,5.14,4.39,85.3,Belarus is a country in the UN populations dataset.
+19,Belgium,16.5,26.2,385.0,11.66,5.9,5.76,97.7,Belgium is a country in the UN populations dataset.
+20,Belize,27.7,8.0,17.8,0.41,0.2,0.2,101.1,Belize is a country in the UN populations dataset.
+21,Benin,42.4,4.9,118.4,13.35,6.66,6.69,100.4,Benin is a country in the UN populations dataset.
+22,Bermuda,14.7,28.6,1188.6,0.06,0.03,0.03,93.0,Bermuda is a country in the UN populations dataset.
+23,Bhutan,22.1,9.3,20.4,0.78,0.37,0.41,112.3,Bhutan is a country in the UN populations dataset.
+24,Bolivia (Plurin. State of),30.8,7.6,11.3,12.22,6.1,6.13,100.5,Bolivia (Plurin. State of) is a country in the UN populations dataset.
+25,"Bonaire, St. Eustatius & Saba",16.8,21.1,82.4,0.03,0.01,0.01,104.8,"Bonaire, St. Eustatius & Saba is a country in the UN populations dataset."
+26,Bosnia and Herzegovina,14.9,25.8,63.2,3.23,1.64,1.59,97.0,Bosnia and Herzegovina is a country in the UN populations dataset.
+27,Botswana,32.6,5.9,4.6,2.63,1.33,1.3,97.5,Botswana is a country in the UN populations dataset.
+28,Brazil,20.3,14.6,25.8,215.31,109.58,105.73,96.5,Brazil is a country in the UN populations dataset.
+29,British Virgin Islands,14.5,16.1,203.3,0.03,0.02,0.02,92.7,British Virgin Islands is a country in the UN populations dataset.
+30,Brunei Darussalam,22.1,10.4,77.9,0.45,0.22,0.23,107.1,Brunei Darussalam is a country in the UN populations dataset.
+31,Bulgaria,14.0,29.2,62.6,6.78,3.49,3.29,94.1,Bulgaria is a country in the UN populations dataset.
+32,Burkina Faso,43.7,4.1,82.9,22.67,11.37,11.3,99.3,Burkina Faso is a country in the UN populations dataset.
+33,Burundi,45.8,3.8,496.7,12.89,6.49,6.4,98.6,Burundi is a country in the UN populations dataset.
+34,Cabo Verde,26.2,8.7,147.2,0.59,0.3,0.29,98.9,Cabo Verde is a country in the UN populations dataset.
+35,Cambodia,28.9,9.7,92.6,16.77,8.47,8.3,98.0,Cambodia is a country in the UN populations dataset.
+36,Cameroon,42.2,4.2,59.9,27.91,13.99,13.92,99.5,Cameroon is a country in the UN populations dataset.
+37,Canada,15.6,25.9,4.2,38.45,19.34,19.11,98.8,Canada is a country in the UN populations dataset.
+38,Cayman Islands,16.8,13.1,285.1,0.07,0.03,0.03,101.9,Cayman Islands is a country in the UN populations dataset.
+39,Central African Republic,48.1,4.1,9.0,5.58,2.79,2.79,99.9,Central African Republic is a country in the UN populations dataset.
+40,Chad,47.5,3.4,14.1,17.72,8.83,8.9,100.8,Chad is a country in the UN populations dataset.
+41,Chile,18.3,18.3,26.0,19.60,9.87,9.73,98.5,Chile is a country in the UN populations dataset.
+42,China,17.2,18.6,148.5,1425.89,698.24,727.64,104.2,China is a country in the UN populations dataset.
+43,"China, Hong Kong SAR",12.0,28.7,6814.3,7.49,4.04,3.45,85.4,"China, Hong Kong SAR is a country in the UN populations dataset."
+44,"China, Macao SAR",14.8,19.5,21724.0,0.70,0.37,0.33,88.4,"China, Macao SAR is a country in the UN populations dataset."
+45,Colombia,21.3,13.5,46.2,51.87,26.3,25.58,97.3,Colombia is a country in the UN populations dataset.
+46,Comoros,38.0,6.5,449.6,0.84,0.42,0.42,100.9,Comoros is a country in the UN populations dataset.
+47,Congo,41.1,4.6,17.5,5.97,2.99,2.98,99.8,Congo is a country in the UN populations dataset.
+48,Cook Islands,23.6,17.5,70.9,0.02,0.01,0.01,90.8,Cook Islands is a country in the UN populations dataset.
+49,Costa Rica,20.2,15.8,101.5,5.18,2.59,2.59,100.0,Costa Rica is a country in the UN populations dataset.
+50,Croatia,14.1,29.6,72.1,4.03,2.07,1.96,95.0,Croatia is a country in the UN populations dataset.
+51,Cuba,15.7,22.0,105.0,11.21,5.65,5.56,98.5,Cuba is a country in the UN populations dataset.
+52,Curaçao,17.2,21.4,450.9,0.19,0.1,0.09,92.1,Curaçao is a country in the UN populations dataset.
+53,Cyprus,15.9,20.4,135.4,1.25,0.62,0.63,100.3,Cyprus is a country in the UN populations dataset.
+54,Czechia,16.0,26.3,135.9,10.49,5.32,5.17,97.1,Czechia is a country in the UN populations dataset.
+55,Côte d’Ivoire,41.5,3.8,88.6,28.16,13.95,14.22,101.9,Côte d’Ivoire is a country in the UN populations dataset.
+56,Dem. People's Rep. Korea,18.9,17.3,216.5,26.07,13.16,12.91,98.0,Dem. People's Rep. Korea is a country in the UN populations dataset.
+57,Dem. Rep. of the Congo,46.5,4.6,43.7,99.01,49.89,49.12,98.4,Dem. Rep. of the Congo is a country in the UN populations dataset.
+58,Denmark,16.1,26.5,138.8,5.88,2.96,2.93,99.0,Denmark is a country in the UN populations dataset.
+59,Djibouti,30.4,7.1,48.4,1.12,0.56,0.56,98.5,Djibouti is a country in the UN populations dataset.
+60,Dominica,19.6,14.5,97.0,0.07,0.04,0.04,98.9,Dominica is a country in the UN populations dataset.
+61,Dominican Republic,27.1,11.2,232.4,11.23,5.59,5.63,100.7,Dominican Republic is a country in the UN populations dataset.
+62,Ecuador,25.7,11.3,72.5,18.00,9.02,8.98,99.6,Ecuador is a country in the UN populations dataset.
+63,Egypt,32.9,7.7,111.5,110.99,54.87,56.12,102.3,Egypt is a country in the UN populations dataset.
+64,El Salvador,25.4,11.6,305.8,6.34,3.32,3.02,90.9,El Salvador is a country in the UN populations dataset.
+65,Equatorial Guinea,38.5,5.1,59.7,1.67,0.79,0.88,111.8,Equatorial Guinea is a country in the UN populations dataset.
+66,Eritrea,39.2,6.1,30.4,3.68,1.87,1.82,97.4,Eritrea is a country in the UN populations dataset.
+67,Estonia,16.4,27.0,30.5,1.33,0.7,0.63,90.4,Estonia is a country in the UN populations dataset.
+68,Eswatini,34.7,6.2,69.2,1.20,0.61,0.6,98.5,Eswatini is a country in the UN populations dataset.
+69,Ethiopia,39.6,4.9,123.4,123.38,61.4,61.98,100.9,Ethiopia is a country in the UN populations dataset.
+70,Falkland Islands (Malvinas),17.7,17.4,0.3,0.00,0.0,0.0,100.7,Falkland Islands (Malvinas) is a country in the UN populations dataset.
+71,Faroe Islands,20.7,23.6,38.3,0.05,0.03,0.03,107.3,Faroe Islands is a country in the UN populations dataset.
+72,Fiji,28.6,9.7,50.9,0.93,0.46,0.47,100.5,Fiji is a country in the UN populations dataset.
+73,Finland,15.2,29.7,18.3,5.54,2.8,2.74,97.7,Finland is a country in the UN populations dataset.
+74,France,17.2,27.8,117.2,64.63,33.4,31.23,93.5,France is a country in the UN populations dataset.
+75,French Guiana,32.1,9.4,3.7,0.30,0.15,0.15,98.8,French Guiana is a country in the UN populations dataset.
+76,French Polynesia,21.3,15.2,83.1,0.31,0.15,0.15,102.2,French Polynesia is a country in the UN populations dataset.
+77,Gabon,36.3,6.0,9.3,2.39,1.17,1.22,103.6,Gabon is a country in the UN populations dataset.
+78,Gambia,43.1,4.0,267.4,2.71,1.36,1.35,99.0,Gambia is a country in the UN populations dataset.
+79,Georgia,21.3,21.0,53.9,3.74,1.98,1.76,88.7,Georgia is a country in the UN populations dataset.
+80,Germany,14.0,29.7,239.2,83.37,42.23,41.14,97.4,Germany is a country in the UN populations dataset.
+81,Ghana,36.9,5.9,147.1,33.48,16.78,16.7,99.5,Ghana is a country in the UN populations dataset.
+82,Gibraltar,17.0,27.2,3264.9,0.03,0.02,0.02,99.8,Gibraltar is a country in the UN populations dataset.
+83,Greece,13.9,29.4,79.4,10.39,5.3,5.08,95.8,Greece is a country in the UN populations dataset.
+84,Greenland,20.9,16.9,0.1,0.06,0.03,0.03,110.6,Greenland is a country in the UN populations dataset.
+85,Grenada,24.0,14.9,368.9,0.13,0.06,0.06,100.0,Grenada is a country in the UN populations dataset.
+86,Guadeloupe,18.1,27.0,243.1,0.40,0.22,0.18,82.6,Guadeloupe is a country in the UN populations dataset.
+87,Guam,26.1,17.0,317.5,0.17,0.09,0.09,101.3,Guam is a country in the UN populations dataset.
+88,Guatemala,32.4,7.1,166.5,17.84,9.01,8.83,98.0,Guatemala is a country in the UN populations dataset.
+89,Guinea,41.5,5.1,56.4,13.86,7.01,6.85,97.8,Guinea is a country in the UN populations dataset.
+90,Guinea-Bissau,40.1,4.5,74.9,2.11,1.07,1.04,97.6,Guinea-Bissau is a country in the UN populations dataset.
+91,Guyana,28.6,9.9,4.1,0.81,0.41,0.4,95.9,Guyana is a country in the UN populations dataset.
+92,Haiti,32.1,7.1,420.2,11.59,5.85,5.74,98.2,Haiti is a country in the UN populations dataset.
+93,Holy See,nan,nan,1160.2,nan,nan,nan,nan,Holy See is a country in the UN populations dataset.
+94,Honduras,30.1,6.6,95.6,10.43,5.17,5.27,102.0,Honduras is a country in the UN populations dataset.
+95,Hungary,14.4,25.8,110.1,9.97,5.18,4.79,92.3,Hungary is a country in the UN populations dataset.
+96,Iceland,18.5,21.0,3.7,0.37,0.18,0.19,105.2,Iceland is a country in the UN populations dataset.
+97,India,25.3,10.5,476.7,1417.17,685.99,731.18,106.6,India is a country in the UN populations dataset.
+98,Indonesia,25.2,10.9,144.2,275.50,136.8,138.7,101.4,Indonesia is a country in the UN populations dataset.
+99,Iran (Islamic Republic of),23.6,11.6,54.4,88.55,43.84,44.71,102.0,Iran (Islamic Republic of) is a country in the UN populations dataset.
+100,Iraq,37.7,5.1,102.5,44.50,22.21,22.29,100.4,Iraq is a country in the UN populations dataset.
+101,Ireland,19.6,20.5,73.5,5.02,2.53,2.49,98.3,Ireland is a country in the UN populations dataset.
+102,Isle of Man,14.7,29.4,147.8,0.08,0.04,0.04,98.1,Isle of Man is a country in the UN populations dataset.
+103,Israel,28.1,16.1,417.6,9.04,4.53,4.51,99.5,Israel is a country in the UN populations dataset.
+104,Italy,12.4,31.0,199.5,59.04,30.25,28.79,95.2,Italy is a country in the UN populations dataset.
+105,Jamaica,19.8,11.9,261.1,2.83,1.43,1.4,98.4,Jamaica is a country in the UN populations dataset.
+106,Japan,11.6,35.8,328.9,123.95,63.71,60.24,94.6,Japan is a country in the UN populations dataset.
+107,Jordan,32.1,6.3,127.1,11.29,5.44,5.85,107.5,Jordan is a country in the UN populations dataset.
+108,Kazakhstan,29.7,12.8,7.2,19.40,10.06,9.34,92.8,Kazakhstan is a country in the UN populations dataset.
+109,Kenya,37.8,4.6,93.0,54.03,27.25,26.78,98.3,Kenya is a country in the UN populations dataset.
+110,Kiribati,36.1,6.3,180.8,0.13,0.07,0.06,95.0,Kiribati is a country in the UN populations dataset.
+111,Kuwait,20.7,9.3,239.6,4.27,1.67,2.6,155.2,Kuwait is a country in the UN populations dataset.
+112,Kyrgyzstan,34.4,7.9,34.6,6.63,3.38,3.26,96.5,Kyrgyzstan is a country in the UN populations dataset.
+113,Lao People's Dem. Rep.,30.6,7.2,32.6,7.53,3.73,3.79,101.6,Lao People's Dem. Rep. is a country in the UN populations dataset.
+114,Latvia,15.6,29.1,29.7,1.85,0.99,0.86,86.5,Latvia is a country in the UN populations dataset.
+115,Lebanon,27.4,14.4,536.6,5.49,2.83,2.66,94.2,Lebanon is a country in the UN populations dataset.
+116,Lesotho,34.0,6.6,75.9,2.31,1.17,1.14,97.4,Lesotho is a country in the UN populations dataset.
+117,Liberia,40.5,5.1,55.1,5.30,2.66,2.64,99.2,Liberia is a country in the UN populations dataset.
+118,Libya,28.3,7.7,4.1,6.81,3.37,3.45,102.4,Libya is a country in the UN populations dataset.
+119,Liechtenstein,14.5,26.6,245.8,0.04,0.02,0.02,98.4,Liechtenstein is a country in the UN populations dataset.
+120,Lithuania,15.3,28.5,43.9,2.75,1.46,1.29,88.6,Lithuania is a country in the UN populations dataset.
+121,Luxembourg,15.8,20.8,250.0,0.65,0.32,0.33,101.3,Luxembourg is a country in the UN populations dataset.
+122,Madagascar,39.1,5.3,50.9,29.61,14.78,14.84,100.4,Madagascar is a country in the UN populations dataset.
+123,Malawi,42.6,3.8,215.8,20.41,10.48,9.92,94.7,Malawi is a country in the UN populations dataset.
+124,Malaysia,22.7,11.4,103.3,33.94,16.6,17.34,104.5,Malaysia is a country in the UN populations dataset.
+125,Maldives,21.7,7.8,1746.0,0.52,0.22,0.3,135.4,Maldives is a country in the UN populations dataset.
+126,Mali,47.2,3.7,18.5,22.59,11.19,11.41,102.0,Mali is a country in the UN populations dataset.
+127,Malta,13.1,25.0,1693.0,0.53,0.26,0.28,108.9,Malta is a country in the UN populations dataset.
+128,Marshall Islands,32.5,7.6,230.9,0.04,0.02,0.02,104.3,Marshall Islands is a country in the UN populations dataset.
+129,Martinique,15.9,30.6,346.7,0.37,0.2,0.17,85.3,Martinique is a country in the UN populations dataset.
+130,Mauritania,41.6,5.1,4.6,4.74,2.41,2.32,96.1,Mauritania is a country in the UN populations dataset.
+131,Mauritius,16.3,19.0,640.1,1.30,0.66,0.64,97.3,Mauritius is a country in the UN populations dataset.
+132,Mayotte,44.2,4.6,869.6,0.33,0.17,0.15,90.0,Mayotte is a country in the UN populations dataset.
+133,Mexico,24.5,12.2,65.1,127.50,65.31,62.2,95.2,Mexico is a country in the UN populations dataset.
+134,Micronesia (Fed. States of),30.3,9.8,163.1,0.11,0.06,0.06,101.1,Micronesia (Fed. States of) is a country in the UN populations dataset.
+135,Monaco,13.0,43.7,24475.8,0.04,0.02,0.02,96.1,Monaco is a country in the UN populations dataset.
+136,Mongolia,32.5,8.0,2.2,3.40,1.71,1.69,98.4,Mongolia is a country in the UN populations dataset.
+137,Montenegro,18.1,22.9,45.4,0.63,0.32,0.31,94.9,Montenegro is a country in the UN populations dataset.
+138,Montserrat,12.8,24.4,42.6,0.00,0.0,0.0,111.7,Montserrat is a country in the UN populations dataset.
+139,Morocco,26.6,11.9,83.9,37.46,18.61,18.85,101.3,Morocco is a country in the UN populations dataset.
+140,Mozambique,43.5,4.2,41.9,32.97,16.79,16.18,96.3,Mozambique is a country in the UN populations dataset.
+141,Myanmar,24.6,10.8,82.9,54.18,27.22,26.96,99.1,Myanmar is a country in the UN populations dataset.
+142,Namibia,36.2,6.1,3.1,2.57,1.33,1.24,93.2,Namibia is a country in the UN populations dataset.
+143,Nauru,38.8,4.6,633.4,0.01,0.01,0.01,103.2,Nauru is a country in the UN populations dataset.
+144,Nepal,28.9,9.0,207.6,30.55,15.9,14.65,92.1,Nepal is a country in the UN populations dataset.
+145,Netherlands,15.4,27.0,521.6,17.56,8.83,8.73,98.8,Netherlands is a country in the UN populations dataset.
+146,New Caledonia,22.2,15.8,15.9,0.29,0.15,0.14,98.9,New Caledonia is a country in the UN populations dataset.
+147,New Zealand,18.7,22.2,19.6,5.19,2.62,2.57,98.3,New Zealand is a country in the UN populations dataset.
+148,Nicaragua,29.7,7.9,57.7,6.95,3.52,3.42,97.1,Nicaragua is a country in the UN populations dataset.
+149,Niger,48.8,3.9,20.7,26.21,12.91,13.29,102.9,Niger is a country in the UN populations dataset.
+150,Nigeria,43.0,4.7,240.0,218.54,108.09,110.45,102.2,Nigeria is a country in the UN populations dataset.
+151,Niue,26.1,21.0,7.4,0.00,0.0,0.0,88.4,Niue is a country in the UN populations dataset.
+152,North Macedonia,16.0,21.3,84.0,2.09,1.05,1.04,99.4,North Macedonia is a country in the UN populations dataset.
+153,Northern Mariana Islands,21.2,18.8,108.4,0.05,0.02,0.03,116.2,Northern Mariana Islands is a country in the UN populations dataset.
+154,Norway,16.7,24.2,17.9,5.43,2.69,2.74,101.9,Norway is a country in the UN populations dataset.
+155,Oman,27.0,4.5,14.8,4.58,1.79,2.79,155.5,Oman is a country in the UN populations dataset.
+156,Other non-specified areas,12.6,23.7,674.8,23.89,12.07,11.83,98.0,Other non-specified areas is a country in the UN populations dataset.
+157,Pakistan,36.6,6.8,305.9,235.82,116.86,118.96,101.8,Pakistan is a country in the UN populations dataset.
+158,Palau,21.0,15.6,39.2,0.02,0.01,0.01,108.0,Palau is a country in the UN populations dataset.
+159,Panama,26.1,12.7,59.4,4.41,2.2,2.2,100.0,Panama is a country in the UN populations dataset.
+160,Papua New Guinea,34.2,5.5,22.4,10.14,4.91,5.23,106.6,Papua New Guinea is a country in the UN populations dataset.
+161,Paraguay,28.9,9.4,16.8,6.78,3.38,3.4,100.7,Paraguay is a country in the UN populations dataset.
+162,Peru,26.0,12.0,26.6,34.05,17.19,16.86,98.0,Peru is a country in the UN populations dataset.
+163,Philippines,30.3,8.6,385.2,115.56,56.88,58.68,103.2,Philippines is a country in the UN populations dataset.
+164,Poland,15.2,25.0,130.2,39.86,20.56,19.3,93.8,Poland is a country in the UN populations dataset.
+165,Portugal,13.2,29.7,111.7,10.27,5.42,4.85,89.3,Portugal is a country in the UN populations dataset.
+166,Puerto Rico,13.4,30.0,374.2,3.25,1.72,1.53,89.3,Puerto Rico is a country in the UN populations dataset.
+167,Qatar,15.8,3.3,232.6,2.70,0.74,1.95,263.8,Qatar is a country in the UN populations dataset.
+168,Republic of Korea,11.6,25.5,523.7,51.82,25.95,25.87,99.7,Republic of Korea is a country in the UN populations dataset.
+169,Republic of Moldova,19.3,19.4,99.5,3.27,1.71,1.56,90.9,Republic of Moldova is a country in the UN populations dataset.
+170,Romania,15.9,24.5,85.4,19.66,10.15,9.51,93.7,Romania is a country in the UN populations dataset.
+171,Russian Federation,17.7,22.8,8.8,144.71,77.5,67.21,86.7,Russian Federation is a country in the UN populations dataset.
+172,Rwanda,38.5,5.2,569.1,13.78,7.04,6.74,95.8,Rwanda is a country in the UN populations dataset.
+173,Réunion,22.8,18.8,389.6,0.97,0.5,0.47,93.2,Réunion is a country in the UN populations dataset.
+174,Saint Barthélemy,13.3,16.8,498.5,0.01,0.01,0.01,110.5,Saint Barthélemy is a country in the UN populations dataset.
+175,Saint Helena,14.1,38.2,13.8,0.01,0.0,0.0,93.4,Saint Helena is a country in the UN populations dataset.
+176,Saint Kitts and Nevis,19.5,16.0,183.3,0.05,0.02,0.02,93.4,Saint Kitts and Nevis is a country in the UN populations dataset.
+177,Saint Lucia,18.0,14.2,292.0,0.18,0.09,0.09,97.8,Saint Lucia is a country in the UN populations dataset.
+178,Saint Martin (French part),21.7,17.7,599.8,0.03,0.02,0.02,90.6,Saint Martin (French part) is a country in the UN populations dataset.
+179,Saint Pierre and Miquelon,16.9,23.8,25.5,0.01,0.0,0.0,98.9,Saint Pierre and Miquelon is a country in the UN populations dataset.
+180,Saint Vincent & Grenadines,21.9,16.2,266.5,0.10,0.05,0.05,103.7,Saint Vincent & Grenadines is a country in the UN populations dataset.
+181,Samoa,37.6,8.1,78.6,0.22,0.11,0.11,104.0,Samoa is a country in the UN populations dataset.
+182,San Marino,12.7,27.8,551.8,0.03,0.02,0.02,94.8,San Marino is a country in the UN populations dataset.
+183,Sao Tome and Principe,39.5,5.9,236.9,0.23,0.11,0.11,99.5,Sao Tome and Principe is a country in the UN populations dataset.
+184,Saudi Arabia,25.9,5.3,16.9,36.41,15.43,20.98,136.0,Saudi Arabia is a country in the UN populations dataset.
+185,Senegal,41.5,4.9,89.9,17.32,8.8,8.52,96.8,Senegal is a country in the UN populations dataset.
+186,Serbia,14.4,27.1,94.1,7.22,3.76,3.46,92.1,Serbia is a country in the UN populations dataset.
+187,Seychelles,23.1,13.1,234.4,0.11,0.05,0.06,111.2,Seychelles is a country in the UN populations dataset.
+188,Sierra Leone,39.0,5.1,120.0,8.61,4.29,4.31,100.4,Sierra Leone is a country in the UN populations dataset.
+189,Singapore,11.8,23.0,8749.2,5.98,2.85,3.13,109.6,Singapore is a country in the UN populations dataset.
+190,Sint Maarten (Dutch part),11.0,19.7,1299.3,0.04,0.02,0.02,115.2,Sint Maarten (Dutch part) is a country in the UN populations dataset.
+191,Slovakia,15.7,23.1,115.1,5.64,2.89,2.76,95.6,Slovakia is a country in the UN populations dataset.
+192,Slovenia,15.1,27.7,105.3,2.12,1.05,1.07,101.1,Slovenia is a country in the UN populations dataset.
+193,Solomon Islands,39.1,5.5,25.2,0.72,0.35,0.37,104.4,Solomon Islands is a country in the UN populations dataset.
+194,Somalia,47.2,4.1,28.1,17.60,8.78,8.82,100.5,Somalia is a country in the UN populations dataset.
+195,South Africa,28.6,8.7,49.1,59.89,30.73,29.17,94.9,South Africa is a country in the UN populations dataset.
+196,South Sudan,43.9,4.8,19.3,10.91,5.51,5.4,98.1,South Sudan is a country in the UN populations dataset.
+197,Spain,13.8,26.8,94.7,47.56,24.25,23.31,96.1,Spain is a country in the UN populations dataset.
+198,Sri Lanka,22.8,16.7,348.2,21.83,11.32,10.51,92.9,Sri Lanka is a country in the UN populations dataset.
+199,State of Palestine,38.8,5.5,872.1,5.25,2.63,2.62,99.6,State of Palestine is a country in the UN populations dataset.
+200,Sudan,40.9,5.5,26.6,46.87,23.45,23.42,99.9,Sudan is a country in the UN populations dataset.
+201,Suriname,26.2,11.4,4.0,0.62,0.31,0.31,99.1,Suriname is a country in the UN populations dataset.
+202,Sweden,17.6,25.7,25.9,10.55,5.23,5.32,101.6,Sweden is a country in the UN populations dataset.
+203,Switzerland,15.0,25.7,218.6,8.74,4.4,4.34,98.6,Switzerland is a country in the UN populations dataset.
+204,Syrian Arab Republic,31.4,7.2,120.4,22.13,11.05,11.08,100.3,Syrian Arab Republic is a country in the UN populations dataset.
+205,Tajikistan,36.3,6.2,69.6,9.95,4.94,5.01,101.3,Tajikistan is a country in the UN populations dataset.
+206,Thailand,15.5,22.0,140.3,71.70,36.89,34.81,94.3,Thailand is a country in the UN populations dataset.
+207,Timor-Leste,34.7,7.3,90.2,1.34,0.66,0.68,104.0,Timor-Leste is a country in the UN populations dataset.
+208,Togo,40.0,5.1,162.7,8.85,4.4,4.45,101.1,Togo is a country in the UN populations dataset.
+209,Tokelau,28.5,12.9,155.9,0.00,0.0,0.0,99.8,Tokelau is a country in the UN populations dataset.
+210,Tonga,34.3,9.0,164.4,0.11,0.05,0.05,97.8,Tonga is a country in the UN populations dataset.
+211,Trinidad and Tobago,19.0,17.2,298.4,1.53,0.78,0.76,97.3,Trinidad and Tobago is a country in the UN populations dataset.
+212,Tunisia,24.8,13.7,79.5,12.36,6.26,6.1,97.5,Tunisia is a country in the UN populations dataset.
+213,Turkmenistan,31.1,8.8,13.7,6.43,3.24,3.19,98.2,Turkmenistan is a country in the UN populations dataset.
+214,Turks and Caicos Islands,16.7,15.6,48.1,0.05,0.02,0.02,101.4,Turks and Caicos Islands is a country in the UN populations dataset.
+215,Tuvalu,31.7,11.1,377.1,0.01,0.01,0.01,105.2,Tuvalu is a country in the UN populations dataset.
+216,Türkiye,23.2,12.7,110.9,85.34,42.58,42.76,100.4,Türkiye is a country in the UN populations dataset.
+217,Uganda,44.8,2.9,236.5,47.25,23.85,23.4,98.1,Uganda is a country in the UN populations dataset.
+218,Ukraine,15.4,26.5,68.5,39.70,21.47,18.23,84.9,Ukraine is a country in the UN populations dataset.
+219,United Arab Emirates,15.2,3.5,132.9,9.44,2.89,6.55,226.3,United Arab Emirates is a country in the UN populations dataset.
+220,United Kingdom,17.5,25.2,278.1,67.51,34.15,33.36,97.7,United Kingdom is a country in the UN populations dataset.
+221,United Rep. of Tanzania,43.4,4.7,73.9,65.50,33.13,32.37,97.7,United Rep. of Tanzania is a country in the UN populations dataset.
+222,United States Virgin Islands,19.2,27.7,284.2,0.10,0.05,0.05,87.3,United States Virgin Islands is a country in the UN populations dataset.
+223,United States of America,18.0,23.4,37.0,338.29,170.79,167.5,98.1,United States of America is a country in the UN populations dataset.
+224,Uruguay,19.1,20.8,19.8,3.42,1.76,1.66,94.0,Uruguay is a country in the UN populations dataset.
+225,Uzbekistan,30.2,8.6,81.4,34.63,17.3,17.33,100.2,Uzbekistan is a country in the UN populations dataset.
+226,Vanuatu,39.4,5.8,26.8,0.33,0.16,0.16,101.2,Vanuatu is a country in the UN populations dataset.
+227,Venezuela (Boliv. Rep. of),27.6,12.9,30.9,28.30,14.3,14.0,97.8,Venezuela (Boliv. Rep. of) is a country in the UN populations dataset.
+228,Viet Nam,22.4,13.8,313.3,98.19,49.69,48.5,97.6,Viet Nam is a country in the UN populations dataset.
+229,Wallis and Futuna Islands,22.7,19.1,82.7,0.01,0.01,0.01,92.2,Wallis and Futuna Islands is a country in the UN populations dataset.
+230,Western Sahara,24.3,9.4,2.2,0.58,0.26,0.32,123.2,Western Sahara is a country in the UN populations dataset.
+231,Yemen,39.5,4.1,63.8,33.70,16.67,17.02,102.1,Yemen is a country in the UN populations dataset.
+232,Zambia,42.9,3.0,26.9,20.02,10.14,9.88,97.4,Zambia is a country in the UN populations dataset.
+233,Zimbabwe,40.6,4.8,42.2,16.32,8.61,7.71,89.4,Zimbabwe is a country in the UN populations dataset.
