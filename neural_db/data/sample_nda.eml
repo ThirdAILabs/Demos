@@ -1,0 +1,362 @@
+Delivered-To: gautam@thirdai.com
+Received: by 2002:a05:6000:1b01:b0:31d:daa5:f08b with SMTP id f1csp3546485wrz;
+        Wed, 18 Oct 2023 03:40:41 -0700 (PDT)
+X-Received: by 2002:a17:907:6d0c:b0:9c5:844f:a7f0 with SMTP id sa12-20020a1709076d0c00b009c5844fa7f0mr4286367ejc.43.1697625641050;
+        Wed, 18 Oct 2023 03:40:41 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1697625641; cv=none;
+        d=google.com; s=arc-20160816;
+        b=qDd4SARITdt2yCro9QNonfEqZQI0CfuEzb36baTkvI+VKMAiIHVoIi88OlTS2vmrlE
+         09TZC39YiKDM78swGqAHotfoPE2kQn4razUDjDqK9jB8DIBcKCCmM/naFV3gM8/H8tap
+         gyUUWlDKepDNAnZ3p/nE3LreSwRcaSYbAVI/4bLz3urWMlgHVBhNBcyU+3GQOd3IbC4X
+         u1kyne8pMsSkI8QAtGE0MKdcwGgwC7p2cw4WSC0Lk9Ex8xVk5zXixJmAVckXJWXAPjgE
+         0xveEdrwyJuAKTM3C7g9f24VcZTy+IHbpnycb7PEH/SArjW/yYbsHrJTphP4NU2KPIo4
+         IIMw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=VdvRBwjpGPF2hkDQNykUDaUqGD/HDYjHSv5lDgPjArk=;
+        fh=uHGIPFklxUhCahSVhLYDAAE7DJ2yiXIQ6Aggvcbz3LA=;
+        b=hSpcXV8aY5iodHs8I0Vlm+eT5Na900V60rlKWzlWQS0ImCFDn8cYHQO3l882XEP0EC
+         5B7/UqtjPAiqMFCw2A96rYSznH7K1HD2HS3E1koXbTC765cNPQmOp8dFGTTxPPc2nTI9
+         areu2mAfgZWgFi39Nu/XO6sWc4k7CuBFyxFV+Lf6OoOfyDGvh2bpns4TUP8esXZD3boE
+         l9pqiME7x0Yn9Sqkn8d+LGf3nap2zCqyDuzGUCyWiEaKw/efAETBfsSc+Cvly9tYIvxs
+         IANG9kXyMRN5JyIP4AOkETaY6zshZ+54h0nBLP9+ltfQXjhmS5vzlbanCwXEvP4U2VjH
+         +y7Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=I6oysVwt;
+       spf=pass (google.com: domain of gautamsharma95.95@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gautamsharma95.95@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <gautamsharma95.95@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id h9-20020a1709060f4900b009ae4d1db52bsor657669ejj.2.2023.10.18.03.40.40
+        for <gautam@thirdai.com>
+        (Google Transport Security);
+        Wed, 18 Oct 2023 03:40:41 -0700 (PDT)
+Received-SPF: pass (google.com: domain of gautamsharma95.95@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=I6oysVwt;
+       spf=pass (google.com: domain of gautamsharma95.95@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=gautamsharma95.95@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1697625640; x=1698230440; darn=thirdai.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=VdvRBwjpGPF2hkDQNykUDaUqGD/HDYjHSv5lDgPjArk=;
+        b=I6oysVwtDgy1xGemyQcdhF70+AXKD0bIjgvRG8bbV7JMAB/HkUYQgatWBi4Z78yMLl
+         tKkctmzEvpvB66Zas7/vlvvS4xvCcEvSANQzTKTdA+fFER9O6H6/Ps/iwrhLlaVwFedg
+         +aIOzS/MVnQQ1rPqVTQskNpgfhS+eXyYhNF/FekqLt/r8y3525PgSBtf91E2MKMHfUtB
+         C0voV7Zs5EBvyGl3Jq0ULR61JFWkBEY4E7dH1X68DSf810Bp6PzCF3cTXZUTJGe4TCDU
+         kOVGuE8pK8FWBFD5ILjrjSxHG7HoKgKq5+hok3fIgY8ch/dveeYSk2ROQhWZlSNJH+rj
+         GI9A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1697625640; x=1698230440;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=VdvRBwjpGPF2hkDQNykUDaUqGD/HDYjHSv5lDgPjArk=;
+        b=fvC4yNu7JMWUxxkulZ5A4WOK4iiQkYVs5rcmUd7KiU+AHtGQ4LlkSm5CkRMUfLffdC
+         uZeZdska+X5jmApRuRUGSRI+ZdgcMknaDK1WT2cM8P2hHslvjFID79rm3P+bN28ztz7q
+         mIoJWNhe3yBKBmGphFtcAfJioZyh91g2RyxIO7NxO21B/86gWXb6lCoLukYmqHNC6LaU
+         c7T0PUL58Lo81MW+jRhOoTKltIzpFs6MzkDnhC8XBk3oaiCcv1haaDS3Iz5gh0AODfoh
+         VLulotMK3f2CNv1tku7zubptB0JhnQL+8XDWVSjHFZRZI2Zvb/ss+0J12wgFtg4LJui7
+         8EKA==
+X-Gm-Message-State: AOJu0YzkKojXbJqjLhTkZYkvHO+xuxseIgZUkKbtQNibJGc+nYwIFwF7
+	rnnV4xmx7k2jFgtCn/yf3667NcwQCtmOrCMlzDyQMOxsZbQ=
+X-Google-Smtp-Source: AGHT+IFxkNJZlpNZAeh3skb7AGd1G5lGYONv8YIDEeSzAFBzbfLAkuwuguMlMostFM9AfsM6SyhAPnCsxpaNlzRqbk8=
+X-Received: by 2002:a17:907:9706:b0:9ae:5aa4:9fa with SMTP id
+ jg6-20020a170907970600b009ae5aa409famr4016991ejc.42.1697625639916; Wed, 18
+ Oct 2023 03:40:39 -0700 (PDT)
+MIME-Version: 1.0
+From: Gautam Sharma <gautamsharma95.95@gmail.com>
+Date: Wed, 18 Oct 2023 16:10:28 +0530
+Message-ID: <CAE3ynvSNw4Bz6kozvkkx=X+n-PS=wh2eCP4s49jsTp-14At-5Q@mail.gmail.com>
+Subject: NDA_email for demo
+To: "gautam@thirdai.com" <gautam@thirdai.com>
+Content-Type: multipart/alternative; boundary="0000000000003a98f20607fb4510"
+
+--0000000000003a98f20607fb4510
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+CONFIDENTIALITY AGREEMENT
+This Confidentiality Agreement (the =E2=80=9CAgreement=E2=80=9D) is made by=
+ and between
+ACME. dba ToTheMoon, Inc., with
+offices at 2025 Guadalupe St. Suite 260, Austin TX, 78705 and StarWars dba
+ToTheMars, with offices at the forest
+moon of Endor and entered as of May 3, 2023 (=E2=80=9CEffective Date=E2=80=
+=9D).
+In consideration of the business discussions, disclosure of Confidential
+Information and any future business relationship
+between the parties, it is hereby agreed as follows:
+1. CONFIDENTIAL INFORMATION.  For purposes of this Agreement, the term
+=E2=80=9CConfidential Information=E2=80=9D shall
+mean any information, business plan, concept, idea, know-how, process,
+technique, program, design, formula, algorithm
+or  work-in-process,  Request  for  Proposal  (RFP)  or  Request  for
+ Information  (RFI)  and  any  responses  thereto,
+engineering,  manufacturing,  marketing,  technical,  financial,  data,  or
+ sales  information,  or  information  regarding
+suppliers,  customers,  employees,  investors,  or  business  operations,
+ and  other  information  or  materials,  whether
+disclosed in written, graphic, oral, or electronic form, whether tangible
+or intangible and in whatever form or medium
+provided, or which is learned or disclosed in the course of discussions,
+studies, or other work undertaken between the
+parties prior to or after the Effective Date.
+2. NEED TO KNOW.  The receiving party shall limit its disclosure of the
+other party=E2=80=99s Confidential Information to
+those  of  its  officers  and  employees  and  subcontractors  (i)  to
+ which  such  disclosure  is  necessary for  purposes  of  the
+discussions  contemplated  by  this  Agreement  and  (ii)  who  have
+ agreed in  writing  to  be  bound  by  provisions  no  less
+restrictive than those set forth in this Agreement.
+3. JOINT UNDERTAKING.  Each party agrees that it will not at any time
+disclose, give, or transmit in any manner
+or for any purpose, the Confidential Information received from the other
+party to any person, firm or corporation or use
+such Confidential Information for its own benefit or the benefit of anyone
+else, or for any purpose other than to engage
+in  discussions  regarding  a  possible  business  relationship  or  the
+ current  business  relationship  involving  both  parties.
+Each party shall take all reasonable measures to preserve the
+confidentiality and avoid the disclosure of the other party=E2=80=99s
+Confidential Information including, but not limited to, those steps taken
+with respect to the party=E2=80=99s own Confidential
+Information of like importance.  Neither party shall disassemble, decompile
+or otherwise reverse engineer any software
+product  of the other party and, to the extent any such activity may  be
+ permitted, the results thereof shall be deemed
+Confidential Information subject to the requirements of this Agreement.
+4. RETURN OF CONFIDENTIAL INFORMATION.  Upon request of the other party,
+termination of the discussions
+regarding  a  business  relationship  between the  parties,  or
+ termination  of  the  current  business  relationship, each  party
+shall promptly destroy or deliver to the other party any and all documents,
+notes, and other physical embodiments of or
+reflecting  the  Confidential  Information  (including  any  copies
+ thereof)  that  are  in  their  possession  or  control.    Upon
+request of a party, a responsible officer of the other party shall provide
+written certification of the completeness of the
+delivery or destruction of such materials.
+5. NON CONVEYANCE.  Nothing in this Agreement shall be construed as
+conveying to either party (i) any right, title
+or interests or copyright in or to any Confidential Information of the
+other party or (ii) any license as to use, sell, exploit,
+copy or further develop any such Confidential Information.
+6. EXCLUDED INFORMATION.  The parties agree that Confidential Information
+of the other party shall not include
+any information to the extent that the information: (i) is, or at any time
+becomes, a part of the public domain through no
+act or omission of the receiving party; (ii) is independently discovered or
+developed by the receiving party without use
+of the disclosing party=E2=80=99s Confidential Information; (iii) is rightf=
+ully
+obtained from a third party without
+any obligation of confidentiality; or (iv) is already known by the
+receiving party without any obligation of confidentiality
+prior to obtaining the Confidential Information from the disclosing party.
+The receiving party shall not be liable for
+disclosure of Confidential Information if made in response to a valid order
+of a court or authorized agency of government
+provided that notice is promptly given to the disclosing party so that a
+protective order may be sought and other efforts
+employed to minimize the required disclosure.  The receiving party shall
+cooperate with the disclosing party in seeking
+the protective order and engaging in such other efforts.
+7. REMEDIES.  A violation of this Agreement by either party could cause
+irreparable injury to the other party and, as
+there is no adequate remedy at law for such violation, the non-breaching
+party may, in addition to any other remedies
+available to it at law or in equity, seek injunctive relief for violating
+or threatening to violate this Agreement.
+8. NO COMMITMENT.  This Agreement does not in any way bind the parties to
+enter into a business relationship of
+any nature with the other.  Nothing herein or any other verbal
+representations made by either party shall be construed
+as a binding commitment to establish a business relationship.  Except for a
+breach of this Agreement, neither party shall
+have  any  liability  to  the  other  if  the  parties  do  not  establish
+ a  business  relationship  that  is  expressed  in  writing  and
+expressly stated to be legally binding.
+9. FEES.  In the event any action, including arbitration, is brought to
+enforce any provision of this Agreement, or to
+declare a breach of this Agreement, the prevailing party shall be entitled
+to recover, in addition to any other amounts
+awarded, reasonable attorney=E2=80=99s fees and other related costs and exp=
+enses.
+10. NON ASSIGNMENT.  Neither party may assign or transfer this Agreement or
+any rights hereunder to any
+third party without the prior written consent of the other party, provided
+that such consent shall not be required if either
+party assigns this Agreement in connection with a merger, acquisition,
+joint venture or sale of all or substantially all
+of its assets.
+11. NON  DISCLOSURE  OF  DISCUSSIONS.    Each  party  agrees  that,  in
+ addition  to  the  other
+confidentiality obligations hereunder, it will not disclose to any third
+party that it is having any discussions with the
+other party with respect to establishing a business relationship.
+12. ENTIRE  AGREEMENT.    This  Agreement  constitutes  the  entire
+ agreement  with  respect  to  the  subject
+matter hereof and supersedes all prior agreements and understandings
+between the parties (whether written or oral)
+relating to the subject matter and may not be amended or modified except in
+a writing signed by an authorized
+representative of both parties.  The terms of this Agreement relating to
+the confidentiality and non-use of Confidential
+Information shall continue  after  the  termination  of  this  Agreement
+ for  a  period  of  the  longer  of  (i)  five  (5)  years
+or  (ii)  when  the Confidential Information no longer qualifies as a trade
+secret under applicable law.
+13. SEVERABILITY.    Each  party  acknowledges  that  should  any
+ provision of  this  Agreement  be  determined  to
+be void, invalid or otherwise unenforceable by any court of competent
+jurisdiction, such determination shall not affect
+the remaining provisions hereof which shall remain in full force and effect=
+.
+14. GOVERNING LAW.  This Agreement shall be construed for all purposes in
+accordance with the laws of the
+State of Texas without regard to the conflicts of law provisions of any
+state or jurisdiction.  Any action or suit related
+to this Agreement shall be brought in Austin, Texas and each party hereby
+submits to the exclusive jurisdiction of such
+courts.
+IN WITNESS WHEREOF, this Agreement has been duly executed by the parties
+hereto as of the latest date
+set forth below:
+
+--0000000000003a98f20607fb4510
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">CONFIDENTIALITY AGREEMENT<br>This Confidentiality Agreemen=
+t (the =E2=80=9CAgreement=E2=80=9D) is made by and between ACME. dba ToTheM=
+oon, Inc., with<br>offices at 2025 Guadalupe St. Suite 260, Austin TX, 7870=
+5 and StarWars dba ToTheMars, with offices at the forest<br>moon of Endor a=
+nd entered as of May 3, 2023 (=E2=80=9CEffective Date=E2=80=9D).<br>In cons=
+ideration of the business discussions, disclosure of Confidential Informati=
+on and any future business relationship<br>between the parties, it is hereb=
+y agreed as follows:<br>1. CONFIDENTIAL INFORMATION.=C2=A0 For purposes of =
+this Agreement, the term =E2=80=9CConfidential Information=E2=80=9D shall<b=
+r>mean any information, business plan, concept, idea, know-how, process, te=
+chnique, program, design, formula, algorithm<br>or =C2=A0work-in-process, =
+=C2=A0Request =C2=A0for =C2=A0Proposal =C2=A0(RFP) =C2=A0or =C2=A0Request =
+=C2=A0for =C2=A0Information =C2=A0(RFI) =C2=A0and =C2=A0any =C2=A0responses=
+ =C2=A0thereto,<br>engineering, =C2=A0manufacturing, =C2=A0marketing, =C2=
+=A0technical, =C2=A0financial, =C2=A0data, =C2=A0or =C2=A0sales =C2=A0infor=
+mation, =C2=A0or =C2=A0information =C2=A0regarding<br>suppliers, =C2=A0cust=
+omers, =C2=A0employees, =C2=A0investors, =C2=A0or =C2=A0business =C2=A0oper=
+ations, =C2=A0and =C2=A0other =C2=A0information =C2=A0or =C2=A0materials, =
+=C2=A0whether<br>disclosed in written, graphic, oral, or electronic form, w=
+hether tangible or intangible and in whatever form or medium<br>provided, o=
+r which is learned or disclosed in the course of discussions, studies, or o=
+ther work undertaken between the<br>parties prior to or after the Effective=
+ Date.<br>2. NEED TO KNOW.=C2=A0 The receiving party shall limit its disclo=
+sure of the other party=E2=80=99s Confidential Information to<br>those =C2=
+=A0of =C2=A0its =C2=A0officers =C2=A0and =C2=A0employees =C2=A0and =C2=A0su=
+bcontractors =C2=A0(i) =C2=A0to =C2=A0which =C2=A0such =C2=A0disclosure =C2=
+=A0is =C2=A0necessary for =C2=A0purposes =C2=A0of =C2=A0the<br>discussions =
+=C2=A0contemplated =C2=A0by =C2=A0this =C2=A0Agreement =C2=A0and =C2=A0(ii)=
+ =C2=A0who =C2=A0have =C2=A0agreed in =C2=A0writing =C2=A0to =C2=A0be =C2=
+=A0bound =C2=A0by =C2=A0provisions =C2=A0no =C2=A0less<br>restrictive than =
+those set forth in this Agreement.<br>3. JOINT UNDERTAKING.=C2=A0 Each part=
+y agrees that it will not at any time disclose, give, or transmit in any ma=
+nner<br>or for any purpose, the Confidential Information received from the =
+other party to any person, firm or corporation or use<br>such Confidential =
+Information for its own benefit or the benefit of anyone else, or for any p=
+urpose other than to engage<br>in =C2=A0discussions =C2=A0regarding =C2=A0a=
+ =C2=A0possible =C2=A0business =C2=A0relationship =C2=A0or =C2=A0the =C2=A0=
+current =C2=A0business =C2=A0relationship =C2=A0involving =C2=A0both =C2=A0=
+parties.<br>Each party shall take all reasonable measures to preserve the c=
+onfidentiality and avoid the disclosure of the other party=E2=80=99s<br>Con=
+fidential Information including, but not limited to, those steps taken with=
+ respect to the party=E2=80=99s own Confidential<br>Information of like imp=
+ortance.=C2=A0 Neither party shall disassemble, decompile or otherwise reve=
+rse engineer any software<br>product =C2=A0of the other party and, to the e=
+xtent any such activity may =C2=A0be =C2=A0permitted, the results thereof s=
+hall be deemed<br>Confidential Information subject to the requirements of t=
+his Agreement.<br>4. RETURN OF CONFIDENTIAL INFORMATION.=C2=A0 Upon request=
+ of the other party, termination of the discussions<br>regarding =C2=A0a =
+=C2=A0business =C2=A0relationship =C2=A0between the =C2=A0parties, =C2=A0or=
+ =C2=A0termination =C2=A0of =C2=A0the =C2=A0current =C2=A0business =C2=A0re=
+lationship, each =C2=A0party<br>shall promptly destroy or deliver to the ot=
+her party any and all documents, notes, and other physical embodiments of o=
+r<br>reflecting =C2=A0the =C2=A0Confidential =C2=A0Information =C2=A0(inclu=
+ding =C2=A0any =C2=A0copies =C2=A0thereof) =C2=A0that =C2=A0are =C2=A0in =
+=C2=A0their =C2=A0possession =C2=A0or =C2=A0control. =C2=A0 =C2=A0Upon<br>r=
+equest of a party, a responsible officer of the other party shall provide w=
+ritten certification of the completeness of the<br>delivery or destruction =
+of such materials.<br>5. NON CONVEYANCE.=C2=A0 Nothing in this Agreement sh=
+all be construed as conveying to either party (i) any right, title<br>or in=
+terests or copyright in or to any Confidential Information of the other par=
+ty or (ii) any license as to use, sell, exploit,<br>copy or further develop=
+ any such Confidential Information.<br>6. EXCLUDED INFORMATION.=C2=A0 The p=
+arties agree that Confidential Information of the other party shall not inc=
+lude<br>any information to the extent that the information: (i) is, or at a=
+ny time becomes, a part of the public domain through no<br>act or omission =
+of the receiving party; (ii) is independently discovered or developed by th=
+e receiving party without use<br>of the disclosing party=E2=80=99s Confiden=
+tial Information; (iii) is rightfully obtained from a third party without<b=
+r>any obligation of confidentiality; or (iv) is already known by the receiv=
+ing party without any obligation of confidentiality<br>prior to obtaining t=
+he Confidential Information from the disclosing party.=C2=A0 The receiving =
+party shall not be liable for<br>disclosure of Confidential Information if =
+made in response to a valid order of a court or authorized agency of govern=
+ment<br>provided that notice is promptly given to the disclosing party so t=
+hat a protective order may be sought and other efforts<br>employed to minim=
+ize the required disclosure.=C2=A0 The receiving party shall cooperate with=
+ the disclosing party in seeking<br>the protective order and engaging in su=
+ch other efforts.<br>7. REMEDIES.=C2=A0 A violation of this Agreement by ei=
+ther party could cause irreparable injury to the other party and, as<br>the=
+re is no adequate remedy at law for such violation, the non-breaching party=
+ may, in addition to any other remedies<br>available to it at law or in equ=
+ity, seek injunctive relief for violating or threatening to violate this Ag=
+reement.<br>8. NO COMMITMENT.=C2=A0 This Agreement does not in any way bind=
+ the parties to enter into a business relationship of<br>any nature with th=
+e other.=C2=A0 Nothing herein or any other verbal representations made by e=
+ither party shall be construed<br>as a binding commitment to establish a bu=
+siness relationship.=C2=A0 Except for a breach of this Agreement, neither p=
+arty shall<br>have =C2=A0any =C2=A0liability =C2=A0to =C2=A0the =C2=A0other=
+ =C2=A0if =C2=A0the =C2=A0parties =C2=A0do =C2=A0not =C2=A0establish =C2=A0=
+a =C2=A0business =C2=A0relationship =C2=A0that =C2=A0is =C2=A0expressed =C2=
+=A0in =C2=A0writing =C2=A0and<br>expressly stated to be legally binding.<br=
+>9. FEES.=C2=A0 In the event any action, including arbitration, is brought =
+to enforce any provision of this Agreement, or to<br>declare a breach of th=
+is Agreement, the prevailing party shall be entitled to recover, in additio=
+n to any other amounts<br>awarded, reasonable attorney=E2=80=99s fees and o=
+ther related costs and expenses.<br>10. NON ASSIGNMENT.=C2=A0 Neither party=
+ may assign or transfer this Agreement or any rights hereunder to any<br>th=
+ird party without the prior written consent of the other party, provided th=
+at such consent shall not be required if either<br>party assigns this Agree=
+ment in connection with a merger, acquisition, joint venture or sale of all=
+ or substantially all<br>of its assets.<br>11. NON =C2=A0DISCLOSURE =C2=A0O=
+F =C2=A0DISCUSSIONS. =C2=A0 =C2=A0Each =C2=A0party =C2=A0agrees =C2=A0that,=
+ =C2=A0in =C2=A0addition =C2=A0to =C2=A0the =C2=A0other<br>confidentiality =
+obligations hereunder, it will not disclose to any third party that it is h=
+aving any discussions with the<br>other party with respect to establishing =
+a business relationship.<br>12. ENTIRE =C2=A0AGREEMENT. =C2=A0 =C2=A0This =
+=C2=A0Agreement =C2=A0constitutes =C2=A0the =C2=A0entire =C2=A0agreement =
+=C2=A0with =C2=A0respect =C2=A0to =C2=A0the =C2=A0subject<br>matter hereof =
+and supersedes all prior agreements and understandings between the parties =
+(whether written or oral)<br>relating to the subject matter and may not be =
+amended or modified except in a writing signed by an authorized<br>represen=
+tative of both parties.=C2=A0 The terms of this Agreement relating to the c=
+onfidentiality and non-use of Confidential<br>Information shall continue =
+=C2=A0after =C2=A0the =C2=A0termination =C2=A0of =C2=A0this =C2=A0Agreement=
+ =C2=A0for =C2=A0a =C2=A0period =C2=A0of =C2=A0the =C2=A0longer =C2=A0of =
+=C2=A0(i) =C2=A0five =C2=A0(5) =C2=A0years<br>or =C2=A0(ii) =C2=A0when =C2=
+=A0the Confidential Information no longer qualifies as a trade secret under=
+ applicable law.<br>13. SEVERABILITY. =C2=A0 =C2=A0Each =C2=A0party =C2=A0a=
+cknowledges =C2=A0that =C2=A0should =C2=A0any =C2=A0provision of =C2=A0this=
+ =C2=A0Agreement =C2=A0be =C2=A0determined =C2=A0to<br>be void, invalid or =
+otherwise unenforceable by any court of competent jurisdiction, such determ=
+ination shall not affect<br>the remaining provisions hereof which shall rem=
+ain in full force and effect.<br>14. GOVERNING LAW.=C2=A0 This Agreement sh=
+all be construed for all purposes in accordance with the laws of the<br>Sta=
+te of Texas without regard to the conflicts of law provisions of any state =
+or jurisdiction.=C2=A0 Any action or suit related<br>to this Agreement shal=
+l be brought in Austin, Texas and each party hereby submits to the exclusiv=
+e jurisdiction of such<br>courts.<br>IN WITNESS WHEREOF, this Agreement has=
+ been duly executed by the parties hereto as of the latest date<br>set fort=
+h below:<br></div>
+
+--0000000000003a98f20607fb4510--

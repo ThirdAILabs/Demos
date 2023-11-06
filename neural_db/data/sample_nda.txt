@@ -1,0 +1,79 @@
+CONFIDENTIALITY AGREEMENT
+This Confidentiality Agreement (the “Agreement”) is made by and between ACME. dba ToTheMoon, Inc., with
+offices at 2025 Guadalupe St. Suite 260, Austin TX, 78705 and StarWars dba ToTheMars, with offices at the forest
+moon of Endor and entered as of May 3, 2023 (“Effective Date”).
+In consideration of the business discussions, disclosure of Confidential Information and any future business relationship
+between the parties, it is hereby agreed as follows:
+1. CONFIDENTIAL INFORMATION.  For purposes of this Agreement, the term “Confidential Information” shall
+mean any information, business plan, concept, idea, know-how, process, technique, program, design, formula, algorithm
+or  work-in-process,  Request  for  Proposal  (RFP)  or  Request  for  Information  (RFI)  and  any  responses  thereto,
+engineering,  manufacturing,  marketing,  technical,  financial,  data,  or  sales  information,  or  information  regarding
+suppliers,  customers,  employees,  investors,  or  business  operations,  and  other  information  or  materials,  whether
+disclosed in written, graphic, oral, or electronic form, whether tangible or intangible and in whatever form or medium
+provided, or which is learned or disclosed in the course of discussions, studies, or other work undertaken between the
+parties prior to or after the Effective Date.
+2. NEED TO KNOW.  The receiving party shall limit its disclosure of the other party’s Confidential Information to
+those  of  its  officers  and  employees  and  subcontractors  (i)  to  which  such  disclosure  is  necessary for  purposes  of  the
+discussions  contemplated  by  this  Agreement  and  (ii)  who  have  agreed in  writing  to  be  bound  by  provisions  no  less
+restrictive than those set forth in this Agreement.
+3. JOINT UNDERTAKING.  Each party agrees that it will not at any time disclose, give, or transmit in any manner
+or for any purpose, the Confidential Information received from the other party to any person, firm or corporation or use
+such Confidential Information for its own benefit or the benefit of anyone else, or for any purpose other than to engage
+in  discussions  regarding  a  possible  business  relationship  or  the  current  business  relationship  involving  both  parties.
+Each party shall take all reasonable measures to preserve the confidentiality and avoid the disclosure of the other party’s
+Confidential Information including, but not limited to, those steps taken with respect to the party’s own Confidential
+Information of like importance.  Neither party shall disassemble, decompile or otherwise reverse engineer any software
+product  of the other party and, to the extent any such activity may  be  permitted, the results thereof shall be deemed
+Confidential Information subject to the requirements of this Agreement.
+4. RETURN OF CONFIDENTIAL INFORMATION.  Upon request of the other party, termination of the discussions
+regarding  a  business  relationship  between the  parties,  or  termination  of  the  current  business  relationship, each  party
+shall promptly destroy or deliver to the other party any and all documents, notes, and other physical embodiments of or
+reflecting  the  Confidential  Information  (including  any  copies  thereof)  that  are  in  their  possession  or  control.    Upon
+request of a party, a responsible officer of the other party shall provide written certification of the completeness of the
+delivery or destruction of such materials.
+5. NON CONVEYANCE.  Nothing in this Agreement shall be construed as conveying to either party (i) any right, title
+or interests or copyright in or to any Confidential Information of the other party or (ii) any license as to use, sell, exploit,
+copy or further develop any such Confidential Information.
+6. EXCLUDED INFORMATION.  The parties agree that Confidential Information of the other party shall not include
+any information to the extent that the information: (i) is, or at any time becomes, a part of the public domain through no
+act or omission of the receiving party; (ii) is independently discovered or developed by the receiving party without use
+of the disclosing party’s Confidential Information; (iii) is rightfully obtained from a third party without
+any obligation of confidentiality; or (iv) is already known by the receiving party without any obligation of confidentiality
+prior to obtaining the Confidential Information from the disclosing party.  The receiving party shall not be liable for
+disclosure of Confidential Information if made in response to a valid order of a court or authorized agency of government
+provided that notice is promptly given to the disclosing party so that a protective order may be sought and other efforts
+employed to minimize the required disclosure.  The receiving party shall cooperate with the disclosing party in seeking
+the protective order and engaging in such other efforts.
+7. REMEDIES.  A violation of this Agreement by either party could cause irreparable injury to the other party and, as
+there is no adequate remedy at law for such violation, the non-breaching party may, in addition to any other remedies
+available to it at law or in equity, seek injunctive relief for violating or threatening to violate this Agreement.
+8. NO COMMITMENT.  This Agreement does not in any way bind the parties to enter into a business relationship of
+any nature with the other.  Nothing herein or any other verbal representations made by either party shall be construed
+as a binding commitment to establish a business relationship.  Except for a breach of this Agreement, neither party shall
+have  any  liability  to  the  other  if  the  parties  do  not  establish  a  business  relationship  that  is  expressed  in  writing  and
+expressly stated to be legally binding.
+9. FEES.  In the event any action, including arbitration, is brought to enforce any provision of this Agreement, or to
+declare a breach of this Agreement, the prevailing party shall be entitled to recover, in addition to any other amounts
+awarded, reasonable attorney’s fees and other related costs and expenses.
+10. NON ASSIGNMENT.  Neither party may assign or transfer this Agreement or any rights hereunder to any
+third party without the prior written consent of the other party, provided that such consent shall not be required if either
+party assigns this Agreement in connection with a merger, acquisition, joint venture or sale of all or substantially all
+of its assets.
+11. NON  DISCLOSURE  OF  DISCUSSIONS.    Each  party  agrees  that,  in  addition  to  the  other
+confidentiality obligations hereunder, it will not disclose to any third party that it is having any discussions with the
+other party with respect to establishing a business relationship.
+12. ENTIRE  AGREEMENT.    This  Agreement  constitutes  the  entire  agreement  with  respect  to  the  subject
+matter hereof and supersedes all prior agreements and understandings between the parties (whether written or oral)
+relating to the subject matter and may not be amended or modified except in a writing signed by an authorized
+representative of both parties.  The terms of this Agreement relating to the confidentiality and non-use of Confidential
+Information shall continue  after  the  termination  of  this  Agreement  for  a  period  of  the  longer  of  (i)  five  (5)  years
+or  (ii)  when  the Confidential Information no longer qualifies as a trade secret under applicable law.
+13. SEVERABILITY.    Each  party  acknowledges  that  should  any  provision of  this  Agreement  be  determined  to
+be void, invalid or otherwise unenforceable by any court of competent jurisdiction, such determination shall not affect
+the remaining provisions hereof which shall remain in full force and effect.
+14. GOVERNING LAW.  This Agreement shall be construed for all purposes in accordance with the laws of the
+State of Texas without regard to the conflicts of law provisions of any state or jurisdiction.  Any action or suit related
+to this Agreement shall be brought in Austin, Texas and each party hereby submits to the exclusive jurisdiction of such
+courts.
+IN WITNESS WHEREOF, this Agreement has been duly executed by the parties hereto as of the latest date
+set forth below:
