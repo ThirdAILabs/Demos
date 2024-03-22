@@ -21,9 +21,10 @@ ndb = neural_db.NeuralDB()
 Additionally, we provide a suite of pre-trained databases from our Model Bazaar. To download a pre-trained model:
 
 ```python
-from thirdai.model_bazaar import Bazaar
+from thirdai.neural_db import ModelBazaar
 
-bazaar = Bazaar()
+# A public model bazaar is hosted on 40.78.143.4
+bazaar = ModelBazaar(base_url="http://40.78.143.4/api/")
 bazaar.fetch()
 
 # This will return all the available pre-trained models
@@ -31,7 +32,7 @@ print(bazaar.list_model_names())
 
 # pass the string identifier of the model you'd like to use. General QnA is our 
 # most generic and foundational pre-trained model for the majority of use cases. 
-ndb = bazaar.get_model("General QnA")
+ndb = bazaar.pull_model("thirdai/GeneralQnA")
 ```
 
 ## Documents
