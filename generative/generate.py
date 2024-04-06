@@ -1,7 +1,9 @@
 from transformers import GPT2Tokenizer
 from thirdai import bolt, licensing
 
-licensing.activate("T3VY-3APL-UAHH-NY4A-F474-WHRL-U997-FP7V")
+
+# Please register for a free license at https://www.thirdai.com/try-bolt/
+licensing.activate("")
 
 MODEL_PATH = ""
 tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
