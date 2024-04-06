@@ -9,7 +9,7 @@ BOLT2.5 is a 2.5 billion parameter model, trained on a corpus of 40 billion toke
 We trained model in distributed setting using 10 intel sapphire rapids (Intel Sapphire Rapids dual socket with 56 cores per socket).
 
 ## Quick Start
-BOLT provides simple apis via our python package. A free user license that is limited to model inference is provided along with the example scripts. Please reach out to us at https://www.thirdai.com/contact/ to receive a free license for finetuning. 
+BOLT provides simple apis via our python package. Please register for a free user license at [https://www.thirdai.com/try-bolt/](https://www.thirdai.com/try-bolt/).
 
 You can also try out the model on hugging face spaces [here](https://huggingface.co/spaces/thirdai/BOLT2.5B). 
 
