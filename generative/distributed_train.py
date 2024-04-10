@@ -6,8 +6,8 @@ import thirdai
 from thirdai import bolt, data, dataset, licensing
 import thirdai.distributed_bolt as dist
 
-# Please reach out to us at https://www.thirdai.com/contact/ to receive a free
-# license for finetuning.
+
+# Please register for a free license at https://www.thirdai.com/try-bolt/
 licensing.activate("")
 
 TRAIN_FILE = ""  # add the trianing file here

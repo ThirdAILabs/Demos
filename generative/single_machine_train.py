@@ -4,8 +4,8 @@
 
 from thirdai import bolt, dataset, licensing
 
-# Please reach out to us at https://www.thirdai.com/contact/ to receive a free
-# license for finetuning.
+
+# Please register for a free license at https://www.thirdai.com/try-bolt/
 licensing.activate("")
 
 train_filename = ""  # train file path
