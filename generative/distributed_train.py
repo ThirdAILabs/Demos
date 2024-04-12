@@ -9,8 +9,7 @@ import thirdai.distributed_bolt as dist
 # For further finetuning on downstream task, where it is required to have a context. the format should
 # for Bolt-7B
 # be {"prompt": <prompt text>, "context": <context text>,"target": <target text>}
-# for Bolt-2.5B
-# be {"context": <context text>,"target": <target text>}
+
 
 # Please register for a free license at https://www.thirdai.com/try-bolt/
 licensing.activate("")
@@ -97,7 +96,7 @@ validation_ray_ds = ray.data.read_text(VALIDATION_FILE, parallelism=1)
 trainer = dist.BoltTrainer(
     train_loop_per_worker=train_loop_per_worker,
     train_loop_config={
-        "learning_rate": 0.00103,
+        "learning_rate": 0.0003,
         "epochs": 3,
         "batch_size_per_worker": 20_000,
     },

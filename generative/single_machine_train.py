@@ -1,9 +1,6 @@
 # For further finetuning on downstream task, where it is required to have a context. the format should
 # for Bolt-7B
 # be {"prompt": <prompt text>, "context": <context text>,"target": <target text>}
-# for Bolt-2.5B
-# be {"context": <context text>,"target": <target text>}
-
 from thirdai import bolt, dataset, licensing
 
 

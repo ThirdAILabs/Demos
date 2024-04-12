@@ -4,6 +4,8 @@ BOLT-7B is meticulously trained on CPUs, employing dynamic sparse technology, wh
 
 This release have 7.5 billion parameter model, along with both inference and training scripts tailored for distributed as well as single machine training scenarios.
 
+[Medium Blog]()
+
 ## Model
 BOLT-7B is a 7.5 billion parameter model, trained on a corpus of 120 billion tokens extracted from the C4 dataset. The training task focused on next word prediction, with a context length of 2048 tokens.
 We trained model in distributed setting using 30 intel sapphire rapids (Intel Sapphire Rapids dual socket with 56 cores per socket).
