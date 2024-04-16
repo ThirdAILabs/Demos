@@ -22,7 +22,7 @@ pip install thirdai
 ```
 2. Download the model.
 ```commandline
-wget 
+wget https://thirdai-corp-public.s3.us-east-2.amazonaws.com/Bolt-7B/bolt-7b
 ```
 3. Try out one of the scripts here, or use it for your own application!
 
