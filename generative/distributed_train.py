@@ -5,15 +5,22 @@ from ray.train.torch import TorchConfig
 import thirdai
 from thirdai import bolt, data, dataset, licensing
 import thirdai.distributed_bolt as dist
+import argparse
+
+# For further finetuning on downstream task, where it is required to have a context. the format should
+# for Bolt-7B
+# be {"prompt": <prompt text>, "context": <context text>,"target": <target text>}
 
 
 # Please register for a free license at https://www.thirdai.com/try-bolt/
 licensing.activate("")
 
-TRAIN_FILE = ""  # add the trianing file here
-VALIDATION_FILE = ""  # add the validatoin file here
-MODEL_PATH = ""  # add model_path here
-MODEL_SAVE_PATH = ""  # location to save model
+TRAIN_FILE = ""
+VALIDATION_FILE = ""
+MODEL_PATH = ""
+MODEL_SAVE_PATH = ""
+
+# We use ray for our distributed data parallel training. You can read more about ray at https://docs.ray.io/en/latest/index.html.
 
 
 # This scaling config is right now for single machine training, and to run num_workers worker on that machine
@@ -73,12 +80,31 @@ def train_loop_per_worker(config):
         train_metrics=["loss"],
         val_data=val_data,
         val_metrics=["loss"],
+        max_in_memory_batches=10,  # Change as per your memory availablity
     )
 
     # Make sure to pass absolute path here, else it would just save the model inside <Home>/ray_results/Bolt_Trainer_<session-id>/BoltTrainer-<session-id>/rank_0/trained_generative.model
     if session.get_world_rank() == 0:
         model.save(MODEL_SAVE_PATH)
 
+
+parser = argparse.ArgumentParser(description="Model Finetuning Parameters")
+
+
+parser.add_argument(
+    "--learning_rate",
+    type=float,
+    required=True,
+    help="Learning rate for the model training",
+)
+parser.add_argument(
+    "--epochs", type=int, required=True, help="Number of epochs for the model training"
+)
+parser.add_argument(
+    "--batch_size_per_worker", type=int, required=True, help="Batch size per worker"
+)
+
+args = parser.parse_args()
 
 scaling_config = setup_ray()
 
@@ -89,9 +115,9 @@ validation_ray_ds = ray.data.read_text(VALIDATION_FILE, parallelism=1)
 trainer = dist.BoltTrainer(
     train_loop_per_worker=train_loop_per_worker,
     train_loop_config={
-        "learning_rate": 0.001,
-        "epochs": 3,
-        "batch_size_per_worker": 20_000,
+        "learning_rate": args.learning_rate,
+        "epochs": args.epochs,
+        "batch_size_per_worker": args.batch_size_per_worker,
     },
     scaling_config=scaling_config,
     backend_config=TorchConfig(backend="gloo"),
