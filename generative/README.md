@@ -18,7 +18,7 @@ You can also try out the model on hugging face spaces [here](https://huggingface
 Steps to start using `BOLT-7B`:
 1. Install thirdai.
 ```commandline
-pip install thirdai
+pip install thirdai==0.7.44
 ```
 2. Download the model.
 ```commandline
