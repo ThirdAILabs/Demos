@@ -86,7 +86,7 @@ Some applications of UDT include:
 * [Query Reformulation](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/QueryReformulation.ipynb)
 * [Graph Node Classification](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/graph_neural_networks/GraphNodeClassification.ipynb)
 * [Sentiment Analysis](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/text%20classification/SentimentAnalysis.ipynb)
-* [Intent Analysis](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/text%20classification/IntentClassification.ipynb)
+* [Intent Classification](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/text%20classification/IntentClassification.ipynb)
 * [Zero Shot Search and Retrieval](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/llm_search) 
 * [Fraud Detection](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/tabular_classification/FraudDetection.ipynb)
 * and more!
