@@ -34,9 +34,9 @@
 
 All of ThirdAI's technology is powered by its BOLT library. BOLT is a deep-learning framework that leverages sparsity to enable training and deploying very large scale deep learning models on any CPU. This demos repo will help get you familiar with our products [Neural DB](https://medium.com/thirdai-blog/thirdais-private-and-personalizable-neural-database-enhancing-retrieval-augmented-generation-f3ad52c54952) and [Universal Deep Transformer (UDT)](https://www.thirdai.com/universal-deep-transformers/) through interactive notebooks.
 
-# 🧠 NeuralDB
+# 🧠 NeuralDB (for RAG and Search)
 
-NeuralDB is an efficient, private, teachable CPU-only simplified alternative for embedding and vector DB. Read our three part blog on why you need NeuralDB [here](https://medium.com/thirdai-blog/understanding-the-fundamental-limitations-of-vector-based-retrieval-for-building-llm-powered-48bb7b5a57b3).  Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
+NeuralDB is an efficient, private, teachable CPU-only text retrieval engine. You can insert all your PDFs, DOCXs, CSVs (and even parse URLs) into a NeuralDB and do semantic search and QnA on them. Read our three part blog on why you need NeuralDB [here](https://medium.com/thirdai-blog/understanding-the-fundamental-limitations-of-vector-based-retrieval-for-building-llm-powered-48bb7b5a57b3). Leveraging over a decade of research in efficient neural network training, NeuralDB has been meticulously optimized to operate effectively on conventional CPUs, making it accessible to any standard desktop machine. Additionally, since it can be trained and used anywhere, NeuralDB gives you airgapped privacy, ensuring your data never leaves your local machine. 
 
 With the capacity to scale Retreival Augmented Generation (RAG) capabilities over thousands of pages, NeuralDB revolutionizes the way you interact with your data.
 
@@ -74,18 +74,21 @@ db.text_to_result("made by and between",0)
 
 See the `neural_db` folder for more examples and documentation. 
 
-# 🪐 Universal Deep Transformer
+# 🪐 Universal Deep Transformer (for all Transformer and ML needs)
 
-Universal Deep Transformer (UDT) is our consolidated API for processing a variety of data of any form. It handles text, numeric, categorical, multi-categorical, graph, and time series input data while generalizing to multi-class classification, multi-label retrieval, and regression problems. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
+Universal Deep Transformer (UDT) is our consolidated API for performing different ML tasks on a variety of data types. It handles text, numeric, categorical, multi-categorical, graph, and time series data while generalizing to tasks like NLP, multi-class classification, multi-label retrieval, regression etc. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
 
 Some applications of UDT include:
-* Pre-train, Fine tune, LLMs, etc.
-* Cold Start
-* Netflix-style Movie Recommendation
-* Query Reformulation
-* Graph Node Classification
-* Sentiment Analysis
+* [Tabular Data Classification](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/classification)
+* [Text Classification (like Sentiment Analysis and Intent Classification)](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/classification)
+* [Named Entity Recognition](https://github.com/)
+* [Netflix-style Movie Recommendation](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/personalization_and_recommendation)
+* [Query Reformulation](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/QueryReformulation.ipynb)
+* [Graph Node Classification](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/graph_neural_networks/GraphNodeClassification.ipynb)
+* [Sentiment Analysis](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/classification/SentimentAnalysis.ipynb)
+* [Intent Analysis](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/classification/SentimentAnalysis.ipynb)
 * Fraud Detection
+* Named Entity Recognition
 * and more!
 
 Here is an example of the UDT API used for multi-label tabular classification:
