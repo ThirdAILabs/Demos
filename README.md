@@ -79,16 +79,16 @@ See the `neural_db` folder for more examples and documentation.
 Universal Deep Transformer (UDT) is our consolidated API for performing different ML tasks on a variety of data types. It handles text, numeric, categorical, multi-categorical, graph, and time series data while generalizing to tasks like NLP, multi-class classification, multi-label retrieval, regression etc. Just like NeuralDB, UDT is optimized for conventional CPUs and is accessible to any standard desktop machine. 
 
 Some applications of UDT include:
-* [Tabular Data Classification](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/classification)
-* [Text Classification (like Sentiment Analysis and Intent Classification)](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/classification)
-* [Named Entity Recognition](https://github.com/)
+* [Text Classification](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/text%20classification)
+* [Named Entity Recognition](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/named_entity_recognition)
+* [Tabular Data Classification](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/tabular_classification)
 * [Netflix-style Movie Recommendation](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/personalization_and_recommendation)
 * [Query Reformulation](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/QueryReformulation.ipynb)
 * [Graph Node Classification](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/graph_neural_networks/GraphNodeClassification.ipynb)
 * [Sentiment Analysis](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/classification/SentimentAnalysis.ipynb)
 * [Intent Analysis](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/classification/SentimentAnalysis.ipynb)
-* Fraud Detection
-* Named Entity Recognition
+* [Zero Shot Search and Retrieval](https://github.com/ThirdAILabs/Demos/tree/main/universal_deep_transformer/llm_search) 
+* [Fraud Detection](https://github.com/ThirdAILabs/Demos/blob/main/universal_deep_transformer/tabular_classification/FraudDetection.ipynb)
 * and more!
 
 Here is an example of the UDT API used for multi-label tabular classification:
