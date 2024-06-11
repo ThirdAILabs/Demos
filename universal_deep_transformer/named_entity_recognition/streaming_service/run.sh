@@ -86,7 +86,7 @@ fi
 # Function to run Docker locally
 run_local_docker() {
   echo "Pulling Docker image..."
-  docker pull neuraldbenterprise.azurecr.io/ner-pipe:latest
+  docker pull yashuroyal/ner-pipe:latest
   
   echo "FOLDER_PATH: $FOLDER_PATH"
   echo "TEMP_ENV_FILE: $TEMP_ENV_FILE"
@@ -117,7 +117,7 @@ setup_remote_machine() {
     mkdir -p $REMOTE_LOG_FOLDER
     echo '$(cat "$TEMP_ENV_FILE")' > /tmp/docker_env/.env
     echo "Pulling Docker image..."
-    docker pull neuraldbenterprise.azurecr.io/ner-pipe:latest
+    docker pull yashuroyal/ner-pipe:latest
     if tmux has-session -t $SESSION_NAME 2>/dev/null; then
       tmux kill-session -t $SESSION_NAME
     fi
