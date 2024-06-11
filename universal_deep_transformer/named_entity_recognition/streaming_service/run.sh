@@ -73,20 +73,20 @@ if [ -n "$PREDICT_LOG_FOLDER" ]; then
   PREDICT_LOG_FOLDER_NAME=$(basename "$PREDICT_LOG_FOLDER")
   perform_sed_replacement "$TEMP_ENV_FILE" '^PREDICT_LOG_FOLDER=.*' "PREDICT_LOG_FOLDER=/app/logs/$PREDICT_LOG_FOLDER_NAME"
 else
-  echo "PREDICT_LOG_FOLDER=/app/logs" >> "$TEMP_ENV_FILE"
+  printf "\nPREDICT_LOG_FOLDER=/app/logs" >> "$TEMP_ENV_FILE"
 fi
 
 if [ -n "$EXTRACT_LOG_FILE_PATH" ]; then
   EXTRACT_LOG_FILE_NAME=$(basename "$EXTRACT_LOG_FILE_PATH")
   perform_sed_replacement "$TEMP_ENV_FILE" '^EXTRACT_LOG_FILE_PATH=.*' "EXTRACT_LOG_FILE_PATH=/app/logs/$EXTRACT_LOG_FILE_NAME"
 else
-  echo "EXTRACT_LOG_FILE_PATH=/app/logs/tika_log_test.txt" >> "$TEMP_ENV_FILE"
+  printf "\nEXTRACT_LOG_FILE_PATH=/app/logs/tika_log_test.txt" >> "$TEMP_ENV_FILE"
 fi
 
 # Function to run Docker locally
 run_local_docker() {
   echo "Pulling Docker image..."
-  docker pull yashuroyal/ner-pipe:latest
+  docker pull yashuroyal/ner-pipe:v0.0.1
   
   echo "FOLDER_PATH: $FOLDER_PATH"
   echo "TEMP_ENV_FILE: $TEMP_ENV_FILE"
@@ -99,7 +99,7 @@ run_local_docker() {
     -e MACHINE_INDEX=0 \
     -v "$LOG_FOLDER_PATH:/app/logs" \
     $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
-    neuraldbenterprise.azurecr.io/ner-pipe:latest
+    yashuroyal/ner-pipe:v0.0.1
 }
 
 # Function to add user to docker group and ensure the session remains alive on remote machine
@@ -117,7 +117,7 @@ setup_remote_machine() {
     mkdir -p $REMOTE_LOG_FOLDER
     echo '$(cat "$TEMP_ENV_FILE")' > /tmp/docker_env/.env
     echo "Pulling Docker image..."
-    docker pull yashuroyal/ner-pipe:latest
+    docker pull yashuroyal/ner-pipe:v0.0.1
     if tmux has-session -t $SESSION_NAME 2>/dev/null; then
       tmux kill-session -t $SESSION_NAME
     fi
@@ -129,7 +129,7 @@ setup_remote_machine() {
       -e MACHINE_INDEX=$MACHINE_ID \\
       -v $REMOTE_LOG_FOLDER:/app/logs \\
       $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \\
-      neuraldbenterprise.azurecr.io/ner-pipe:latest 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run.log; tail -f /dev/null" C-m
+      yashuroyal/ner-pipe:v0.0.1 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run.log; tail -f /dev/null" C-m
 EOF
 }
 
