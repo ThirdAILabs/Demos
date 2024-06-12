@@ -10,7 +10,7 @@ You can run the following service either on your local machine, or you can run o
 
 2. Currently we support local files or files from S3.
 
-3. You need to have a `.env` file, see .env.example for how you should mention the things.
+3. You need to have a `.env` file. Please checkout the .env.example to see how to configure the service.
 
 ## Running Locally
 
