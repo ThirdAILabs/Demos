@@ -37,6 +37,7 @@ To run the service on remote machines, you need to provide additional arguments:
 1. Ensure that you can able to ssh into these remote machines from the current machine.
 2. You can pull docker images in these machines (Make sure you are added to the docker group).
 3. If you are using a local folder path, make sure that all the remote machines can access that folder (Put the folder in a NFS directory) if you are using more than one remote machines for scale.
+4. Ensure you have ``numactl`` installed on linux machines. To install you can run ``sudo apt install numactl``.
 
 ## Logs
 
