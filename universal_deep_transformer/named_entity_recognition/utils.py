@@ -31,7 +31,7 @@ def save_dataset_as_jsonl(filename, loaded_data):
 
 def download_conll_dataset_as_file(subset):
     # Load dataset
-    dataset = load_dataset("conll2003")
+    dataset = load_dataset("conll2003", trust_remote_code=True)
     loaded_data = dataset[f"{subset}"]
     filename = f"{subset}_ner_data.csv"
     if os.path.exists(filename):
