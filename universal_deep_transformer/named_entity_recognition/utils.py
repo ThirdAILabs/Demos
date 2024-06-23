@@ -1,6 +1,7 @@
 from datasets import load_dataset
 import json
 import os
+import pandas as pd
 
 
 TAG_MAP = {
@@ -19,20 +20,20 @@ entries = list(TAG_MAP.keys())
 
 
 def save_dataset_as_jsonl(filename, loaded_data):
-    with open(filename, "w") as file:
-        for example in loaded_data:
-            data = {
-                "source": example["tokens"],
-                "target": [entries[tag] for tag in example["ner_tags"]],
-            }
-            file.write(json.dumps(data) + "\n")
+    data = {"source": [], "target": []}
+    for example in loaded_data:
+        data["source"].append(" ".join(example["tokens"]))
+        data["target"].append(" ".join([entries[tag] for tag in example["ner_tags"]]))
+
+    df = pd.DataFrame(data)
+    df.to_csv(filename, index=False)
 
 
 def download_conll_dataset_as_file(subset):
     # Load dataset
-    dataset = load_dataset("conll2003", trust_remote_code=True)
+    dataset = load_dataset("conll2003")
     loaded_data = dataset[f"{subset}"]
-    filename = f"{subset}_ner_data.jsonl"
+    filename = f"{subset}_ner_data.csv"
     if os.path.exists(filename):
         return filename
 
