@@ -6,7 +6,7 @@ You can run the following service either on your local machine, or you can run o
 
 ## Requirements
 
-1. Ensure you have docker daemon running and be able to pull docker images on all machines you want to run.
+1. Ensure you have docker daemon running and be able to pull docker images on all machines you want to run. docker version has to be > 25.0.3, please update to the latest version if you have older versions.
 
 2. Currently we support local files or files from S3.
 
