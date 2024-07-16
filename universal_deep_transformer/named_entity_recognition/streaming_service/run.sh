@@ -23,10 +23,10 @@ echo "Log folder path: $LOG_FOLDER_PATH"
 # Read machine IPs into an array if provided
 if [ -n "$MACHINE_IPS" ]; then
   IFS=',' read -r -a MACHINE_IP_ARRAY <<< "$MACHINE_IPS"
-  TOTAL_MACHINES=${#MACHINE_IP_ARRAY[@]}
-  echo "Total machines: $TOTAL_MACHINES"
+  NUM_MACHINES=${#MACHINE_IP_ARRAY[@]}
+  echo "Number of machines: $NUM_MACHINES"
 else
-  TOTAL_MACHINES=1
+  NUM_MACHINES=1
 fi
 
 # Ensure the local log directory exists (for later reference if needed)
@@ -83,6 +83,31 @@ else
   printf "\nEXTRACT_LOG_FILE_PATH=/app/logs/tika_log_test.txt" >> "$TEMP_ENV_FILE"
 fi
 
+# Function to gather NUMA nodes count from all machines
+gather_numa_nodes() {
+  local TOTAL_NODES=0
+
+  if [ -z "$MACHINE_IPS" ]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      TOTAL_NODES=1
+    else
+      TOTAL_NODES=$(numactl --hardware | grep "available:" | awk '{print $2}')
+    fi
+  else
+    for MACHINE_IP in "${MACHINE_IP_ARRAY[@]}"; do
+      OS_TYPE=$(ssh -o StrictHostKeyChecking=no $USERNAME@$MACHINE_IP "uname")
+      if [[ "$OS_TYPE" == "Darwin" ]]; then
+        NODES=1
+      else
+        NODES=$(ssh -o StrictHostKeyChecking=no $USERNAME@$MACHINE_IP "numactl --hardware | grep 'available:' | awk '{print \$2}'")
+      fi
+      TOTAL_NODES=$((TOTAL_NODES + NODES))
+    done
+  fi
+
+  echo $TOTAL_NODES
+}
+
 # Function to run Docker locally
 run_local_docker() {
   echo "Pulling Docker image..."
@@ -92,24 +117,61 @@ run_local_docker() {
   echo "TEMP_ENV_FILE: $TEMP_ENV_FILE"
   echo "LOG_FOLDER_PATH: $LOG_FOLDER_PATH"
 
-  docker run --rm \
-    -v "$TEMP_ENV_FILE:/app/.env" \
-    -e ENV_FILE=/app/.env \
-    -e TOTAL_MACHINES=$TOTAL_MACHINES \
-    -e MACHINE_INDEX=0 \
-    -v "$LOG_FOLDER_PATH:/app/logs" \
-    $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
-    yashuroyal/ner-pipe:512_latest
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "Running on macOS, treating as a single machine."
+
+    docker run --rm \
+      -v "$TEMP_ENV_FILE:/app/.env" \
+      -e ENV_FILE=/app/.env \
+      -e TOTAL_MACHINES=1 \
+      -e MACHINE_INDEX=0 \
+      -e CPU_COUNT=$(sysctl -n hw.ncpu) \
+      -v "$LOG_FOLDER_PATH:/app/logs" \
+      $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
+      yashuroyal/ner-pipe:512_latest
+  else
+    # Find number of NUMA nodes
+    NUMA_NODES=$(numactl --hardware | grep "available:" | awk '{print $2}')
+    echo "NUMA Nodes: $NUMA_NODES"
+    TOTAL_MACHINES=$NUMA_NODES
+
+    for ((i=0; i<NUMA_NODES; i++)); do
+      # Get the list of CPUs on this NUMA node
+      CPU_LIST=$(numactl --hardware | grep "node $i cpus:" | awk -F': ' '{print $2}' | tr ' ' ',')
+      CPU_COUNT=$(echo $CPU_LIST | tr ',' '\n' | wc -l)
+
+      echo "Running Docker on NUMA node $i with $CPU_COUNT CPUs"
+
+      SESSION_NAME="local_docker_session_$i"
+
+      if tmux has-session -t $SESSION_NAME 2>/dev/null; then
+        tmux kill-session -t $SESSION_NAME
+      fi
+      tmux new-session -d -s $SESSION_NAME
+      tmux send-keys -t $SESSION_NAME "numactl --cpunodebind=$i --membind=$i docker run --rm \
+        -v $TEMP_ENV_FILE:/app/.env \
+        -e ENV_FILE=/app/.env \
+        -e TOTAL_MACHINES=$TOTAL_MACHINES \
+        -e MACHINE_INDEX=$i \
+        -e CPU_COUNT=$CPU_COUNT \
+        --cpuset-cpus $CPU_LIST \
+        -v $LOG_FOLDER_PATH:/app/logs \
+        $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
+        yashuroyal/ner-pipe:512_latest 2>&1 | tee $LOG_FOLDER_PATH/docker_run_$i.log; tail -f /dev/null" C-m
+    done
+
+    wait
+  fi
 }
 
 # Function to add user to docker group and ensure the session remains alive on remote machine
 setup_remote_machine() {
   local MACHINE_IP=$1
-  local SESSION_NAME=$2
-  local MACHINE_ID=$3
+  local SESSION_NAME_PREFIX=$2
+  local START_INDEX=$3
   local REMOTE_LOG_FOLDER="/tmp/docker_logs"
 
-  echo "Machine id for $MACHINE_IP : $MACHINE_ID"
+  echo "Machine id for $MACHINE_IP : $START_INDEX"
 
   ssh -o StrictHostKeyChecking=no $USERNAME@$MACHINE_IP << EOF
     sudo usermod -aG docker $USERNAME
@@ -118,18 +180,34 @@ setup_remote_machine() {
     echo '$(cat "$TEMP_ENV_FILE")' > /tmp/docker_env/.env
     echo "Pulling Docker image..."
     docker pull yashuroyal/ner-pipe:512_latest
-    if tmux has-session -t $SESSION_NAME 2>/dev/null; then
-      tmux kill-session -t $SESSION_NAME
-    fi
-    tmux new-session -d -s $SESSION_NAME
-    tmux send-keys -t $SESSION_NAME "docker run --rm \\
-      -v /tmp/docker_env/.env:/app/.env \\
-      -e ENV_FILE=/app/.env \\
-      -e TOTAL_MACHINES=$TOTAL_MACHINES \\
-      -e MACHINE_INDEX=$MACHINE_ID \\
-      -v $REMOTE_LOG_FOLDER:/app/logs \\
-      $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \\
-      yashuroyal/ner-pipe:512_latest 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run.log; tail -f /dev/null" C-m
+
+    NUMA_NODES=\$(numactl --hardware | grep "available:" | awk '{print \$2}')
+    echo "NUMA Nodes: \$NUMA_NODES"
+
+    for ((i=0; i<\$NUMA_NODES; i++)); do
+      # Adjust CPU count for each NUMA node in Linux
+      CPU_LIST=\$(numactl --hardware | grep "node \$i cpus:" | awk -F': ' '{print \$2}')
+      CPU_COUNT=\$(echo \$CPU_LIST | wc -w)
+
+      echo "Running Docker on NUMA node \$i with \$CPU_COUNT CPUs and \$CPU_LIST"
+
+      SESSION_NAME="${SESSION_NAME_PREFIX}_\$i"
+
+      if tmux has-session -t \$SESSION_NAME 2>/dev/null; then
+        tmux kill-session -t \$SESSION_NAME
+      fi
+      tmux new-session -d -s \$SESSION_NAME
+      tmux send-keys -t \$SESSION_NAME "numactl --cpunodebind=\$i --membind=\$i docker run --rm \\
+        --env-file /tmp/docker_env/.env \\
+        -e ENV_FILE=/app/.env \\
+        -e TOTAL_MACHINES=$TOTAL_MACHINES \\
+        -e MACHINE_INDEX=\$(($START_INDEX + i)) \\
+        -e CPU_COUNT=\$CPU_COUNT \\
+        --cpuset-cpus \$(echo \$CPU_LIST | tr ' ' ',') \\
+        -v $REMOTE_LOG_FOLDER:/app/logs \\
+        $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \\
+        yashuroyal/ner-pipe:512_latest 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run_\$i.log; tail -f /dev/null" C-m
+    done
 EOF
 }
 
@@ -139,10 +217,18 @@ if [ -n "$MACHINE_IPS" ]; then
     exit 1
   fi
 
+  # Gather total NUMA nodes across all machines
+  TOTAL_MACHINES=$(gather_numa_nodes)
+  echo "Total NUMA nodes across all machines: $TOTAL_MACHINES"
+
   # Loop through each machine IP to set up the remote environment and run Docker containers
-  for i in "${!MACHINE_IP_ARRAY[@]}"; do
-    SESSION_NAME="docker_session_$i"
-    setup_remote_machine "${MACHINE_IP_ARRAY[$i]}" "$SESSION_NAME" "$i" &
+  MACHINE_INDEX=0
+  for MACHINE_IP in "${MACHINE_IP_ARRAY[@]}"; do
+    SESSION_NAME="docker_session_$MACHINE_INDEX"
+    setup_remote_machine "$MACHINE_IP" "$SESSION_NAME" "$MACHINE_INDEX" &
+    OS_TYPE=$(ssh -o StrictHostKeyChecking=no $USERNAME@$MACHINE_IP "uname")
+    NUMA_NODES=$(ssh -o StrictHostKeyChecking=no $USERNAME@$MACHINE_IP "numactl --hardware | grep 'available:' | awk '{print \$2}'")
+    MACHINE_INDEX=$((MACHINE_INDEX + NUMA_NODES))
   done
 
   # Wait for all background jobs to finish
@@ -151,6 +237,3 @@ else
   # Run Docker locally
   run_local_docker
 fi
-
-# Clean up the temporary .env file
-rm "$TEMP_ENV_FILE"
