@@ -111,7 +111,7 @@ gather_numa_nodes() {
 # Function to run Docker locally
 run_local_docker() {
   echo "Pulling Docker image..."
-  docker pull yashuroyal/ner-pipe:v0.0.1
+  docker pull yashuroyal/ner-pipe:512_latest
   
   echo "FOLDER_PATH: $FOLDER_PATH"
   echo "TEMP_ENV_FILE: $TEMP_ENV_FILE"
@@ -128,7 +128,7 @@ run_local_docker() {
       -e CPU_COUNT=$(sysctl -n hw.ncpu) \
       -v "$LOG_FOLDER_PATH:/app/logs" \
       $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
-      yashuroyal/ner-pipe:v0.0.1
+      yashuroyal/ner-pipe:512_latest
   else
     # Find number of NUMA nodes
     NUMA_NODES=$(numactl --hardware | grep "available:" | awk '{print $2}')
@@ -157,7 +157,7 @@ run_local_docker() {
         --cpuset-cpus $CPU_LIST \
         -v $LOG_FOLDER_PATH:/app/logs \
         $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
-        yashuroyal/ner-pipe:v0.0.1 2>&1 | tee $LOG_FOLDER_PATH/docker_run_$i.log; tail -f /dev/null" C-m
+        yashuroyal/ner-pipe:512_latest 2>&1 | tee $LOG_FOLDER_PATH/docker_run_$i.log; tail -f /dev/null" C-m
     done
 
     wait
@@ -179,7 +179,7 @@ setup_remote_machine() {
     mkdir -p $REMOTE_LOG_FOLDER
     echo '$(cat "$TEMP_ENV_FILE")' > /tmp/docker_env/.env
     echo "Pulling Docker image..."
-    docker pull yashuroyal/ner-pipe:v0.0.1
+    docker pull yashuroyal/ner-pipe:512_latest
 
     NUMA_NODES=\$(numactl --hardware | grep "available:" | awk '{print \$2}')
     echo "NUMA Nodes: \$NUMA_NODES"
@@ -206,7 +206,7 @@ setup_remote_machine() {
         --cpuset-cpus \$(echo \$CPU_LIST | tr ' ' ',') \\
         -v $REMOTE_LOG_FOLDER:/app/logs \\
         $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \\
-        yashuroyal/ner-pipe:v0.0.1 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run_\$i.log; tail -f /dev/null" C-m
+        yashuroyal/ner-pipe:512_latest 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run_\$i.log; tail -f /dev/null" C-m
     done
 EOF
 }
