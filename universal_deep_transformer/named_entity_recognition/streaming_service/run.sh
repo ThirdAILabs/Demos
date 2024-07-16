@@ -86,7 +86,7 @@ fi
 # Function to run Docker locally
 run_local_docker() {
   echo "Pulling Docker image..."
-  docker pull yashuroyal/ner-pipe:v0.0.1
+  docker pull yashuroyal/ner-pipe:512_latest
   
   echo "FOLDER_PATH: $FOLDER_PATH"
   echo "TEMP_ENV_FILE: $TEMP_ENV_FILE"
@@ -99,7 +99,7 @@ run_local_docker() {
     -e MACHINE_INDEX=0 \
     -v "$LOG_FOLDER_PATH:/app/logs" \
     $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \
-    yashuroyal/ner-pipe:v0.0.1
+    yashuroyal/ner-pipe:512_latest
 }
 
 # Function to add user to docker group and ensure the session remains alive on remote machine
@@ -117,7 +117,7 @@ setup_remote_machine() {
     mkdir -p $REMOTE_LOG_FOLDER
     echo '$(cat "$TEMP_ENV_FILE")' > /tmp/docker_env/.env
     echo "Pulling Docker image..."
-    docker pull yashuroyal/ner-pipe:v0.0.1
+    docker pull yashuroyal/ner-pipe:512_latest
     if tmux has-session -t $SESSION_NAME 2>/dev/null; then
       tmux kill-session -t $SESSION_NAME
     fi
@@ -129,7 +129,7 @@ setup_remote_machine() {
       -e MACHINE_INDEX=$MACHINE_ID \\
       -v $REMOTE_LOG_FOLDER:/app/logs \\
       $( [ -n "$FOLDER_PATH" ] && echo "-v $FOLDER_PATH:/app/data" ) \\
-      yashuroyal/ner-pipe:v0.0.1 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run.log; tail -f /dev/null" C-m
+      yashuroyal/ner-pipe:512_latest 2>&1 | tee $REMOTE_LOG_FOLDER/docker_run.log; tail -f /dev/null" C-m
 EOF
 }
 
