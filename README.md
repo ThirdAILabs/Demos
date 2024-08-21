@@ -14,10 +14,10 @@
     <img src="https://www.thirdai.com/wp-content/uploads/2022/06/ThirdAI_logo.png" alt="Logo" width="150" height="">
   </a>
 
-<h1 align="center">Demos</h1>
+<h1 align="center">Demos (Deprecated) </h1>
 
   <p align="center">
-    Interactive notebooks for exploring the ThirdAI library.
+    This is the deprecated repository containing interactive notebooks for exploring the ThirdAI python library. Starting Sept 1st 2024, ThirdAI python package will no longer be supported. You can access all the functionality of the package and lot more on the new <a href="https://thirdai.com">ThirdAI Platform</a>
     <br>
     <br>
     <a href="https://thirdai.com">[Website]</a>
